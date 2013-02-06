@@ -44,9 +44,27 @@
 <p>If you have never played Frogger before, you can play it online at <a href="http://www.playfrogger.org/">http://www.playfrogger.org/</a>.</p>
 
 <h2>Instructions</h2>
-<p>You will write one file: <code>game.js</code>.  This file contains all the game logic including initialization, rendering all the graphics, handing keypresses, and animation.</p>
+<p>You will write one file: <code>game.js</code>.  This file will contain all the game logic including initialization, rendering all the graphics, handing keypresses, and animation.</p>
 
-<p>For this assignment, you will write the methods to initialize a game and render graphics to the canvas.</p>
+<p class="stress">For this assignment, you will write the methods to initialize a game and draw the graphics to the canvas.</p>
+<p>Your method to draw the graphics must draw:</p>
+<ol>
+<li>The water.  Use color code <code>#191970</code> for blue.</li>
+<li>The road. Use the color code <code>"#000000"</code> for black.</li>
+<li>The header "Frogger"</li>
+<li>The purple roadsides</li>
+<li>The footer containing the lives remaining as represented by the number of frogs, the level number, the score, and the high score</li>
+</ol>
+
+<p>Thus, it should look something like the following:</p>
+<p><img src="../images/frogger-a2.png" alt="level"</p>
+
+<p>Please also render the following items in your draw method:</p>
+<ul>
+<li>A frog at the bottom roadside facing upwards (i.e., its starting position)</li>
+<li>Two vehicles (your choice from sprite sheet) anywhere on the road</li>
+<li>A log (your choice from sprite sheet) somewhere in the water</li>
+</ul>
 
 <p>Programming should be done on your local computer.</p>
 
@@ -69,20 +87,44 @@
 
 <p class="note">You are not allowed to create additional stylesheets or HTML files.</p>
 
+<h2>Initialization</h2>
+<p>Before a game begins, a number of parameters must be initialized to certain values.  These parameters can be:</p>
+<ol>
+<li>Starting x-coordinate of the frog</li>
+<li>Starting y-coordinate of the frog</li>
+<li>The number of lives (typically 3 lives to start with)</li>
+<li>Is game over? (i.e., you have no more lives left)</li>
+<li>Level number</li>
+<li>Time</li>
+<li>Locations of vehicles</li>
+<li>Locations of logs</li>
+<li>Speed of vehicles</li>
+<li>Speed of logs</li>
+</ol>
+
+<p>There are many other game parameters that I did not list.</p>
+
 <h2>About Sprite Sheets</h2>
 <p>One of the issues that you discovered in Lab 2 is that when assets are loaded for a web page (e.g., images, stylesheets), a lot of time is spent on waiting, the time between sending the HTTP request and receiving an HTTP response.  Games typically use lots of images.  If there are lots of individual images to be downloaded, then the total amount of time spent waiting will be high.  A way to alleviate the waiting problem is to only have one image, but the image contains all the images necessary for the game.  This image is better known as a <span class="stress">sprite sheet</span>.  In this assignment, the image <code>assets/frogger_sprites.png</code> is a sprite sheet.</p>
 
 <h2>The JavaScript Canvas API</h2>
-<p>A canvas is simply a drawing area.  HTML5 introduces a new element called <code>&lt;canvas&gt;</code>.  Drawing can be done onto the canvas via of the JavaScript Canvas API.  The Canvas API contains many powerful methods: from drawing lines to image manipulation.  The API also contains a method, <code>drawImage()</code> that allows <span class="stress">slicing</span> an image.  That is, only draw parts of an image onto the canvas.  Please refer to <a href="http://www.w3schools.com/tags/canvas_drawimage.asp" target="blank">http://www.w3schools.com/tags/canvas_drawimage.asp</a> for the parameters and usage of <code>drawImage()</code>.  To get the coordinates (in pixels) of the part of the image you want to render, you can use tools such as Preview on Mac OS X, Gimp, or Photoshop.</p>
+<p>A canvas is simply a drawing area.  HTML5 introduces a new element called <code>&lt;canvas&gt;</code>.  Drawing can be done onto the canvas via of the JavaScript Canvas API.  The Canvas API contains many powerful methods: from drawing lines to image manipulation.</p>
+<p>The API also contains a method, <code>drawImage()</code> that allows <span class="stress">slicing</span> an image.  That is, only draw parts of an image onto the canvas.  Please refer to <a href="http://www.w3schools.com/tags/canvas_drawimage.asp" target="blank">http://www.w3schools.com/tags/canvas_drawimage.asp</a> for the parameters and usage of <code>drawImage()</code>.  To get the coordinates (in pixels) of the part of the image you want to render, you can use tools such as Preview on Mac OS X, Gimp, or Photoshop.</p>
+<p>There is an excellent tutorial on the JavaScript Canvas API through Mozilla at <a href="https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial" target="_blank">https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial</a></p>
+<p>The <code>&lt;canvas&gt;</code> is initially blank, and to display something a script (your <code>game.js</code>) first needs to access the rendering context and draw on it. The canvas element has a DOM method called <code>getContext()</code>, used to obtain the rendering context and its drawing functions. <code>getContext()</code> takes one parameter, the type of context.</p>
+<pre>
+canvas = document.getElementById('tutorial');
+ctx = canvas.getContext('2d');
+</pre>
 
 <h2>Preparing for Part II</h2>
-<p>Games require animation and animation requires constant drawing (thus, redrawing).  Other frequently executed tasks in a game include updating (e.g., updating the location of all the items in the game) and initialization (e.g., putting the character at a particular starting position).  Therefore, it is important that your code for this assignment is well thought out and implemented as it will be reused for the next assignment.</p>
+<p>Games require animation, and animation requires constant drawing (also known as redrawing).  Other frequently executed tasks in a game include updating (e.g., updating the location of all the items in the game) and initialization (e.g., putting the character at a particular starting position).  Therefore, it is important that your code for this assignment is well thought out and implemented as it will be reused for the next assignment.  For sure, your drawing and initialization methods will be called and reused constantly.</p>
 
 <h2>Calling a JavaScript Function On Page Load</h2>
 <p>When a web page has completely loaded all content (including images, JavaScript files, CSS files, etc.), you can execute JavaScript code immediately via the <code>onload</code> attribute for the <code>body</code> element.  That is:</p>
 
 <pre>
-&lt;body onload="<span class="stress">SomeJavaScriptCode</span>"&gt;
+&lt;body onload="<span class="stress">SomeJavaScriptCodeOrFunction</span>"&gt;
 </pre>
 
 <h2>Viewing Your Work</h2>
@@ -111,19 +153,21 @@
 <p>Please understand that extension tokens are meant to be used.  That is, you will not receive any special bonus at the end of the course if you do not use any of your extension tokens.</p>
 <p>Solutions to assignments and labs will not be posted for this course.</p>
 
-<h2>Assessment Rubric</h2>
-<p>For this assignment, you will be assessed on a scale: from "excellent" to "no credit."  This is also the similar scale used by the National Science Foundation.</p>
-<ul>
-<li><span class="stress">Excellent</span> - (equivalent to a 95); documentation addresses exactly the key issues, and degree of detail is exactly appropriate; no errors on the JavaScript console; well thought out and implemented code; no errors on the JavaScript console</li>
-<li><span class="stress">Very Good</span> - (equivalent to an 85); high quality in nearly all respects; documentation addresses most key issues, with a good amount of detail; no errors on the JavaScript console; well chosen names for functions and their parameters.</li>
-<li><span class="stress">Good</span> - (equivalent to a 75); demonstrates quality and significant learning; documentation covers some key issues; individual functions are organized and readable; most names chosen well, but their may be some exceptions; JavaScript errors exist in console; errors may be evident from reading the code; graphics may be rendered</li>
-<li><span class="stress">Fair</span> - (equivalent to a 65); the lowest satisfactory grade; very little documentation; unreadable code; errors appear in JavaScript console; some graphics may be rendered</li>
-<li><span class="stress">Poor</span> - (equivalent to a 55); an unsatisfactory grade; work shows little evidence of effort or has other serious deficiencies; no documentation (e.g., no <code>README</code>); game does not work; no graphics rendered; errors appear in JavaScript console.</li>
-<li><span class="stress">No Credit</strong> - (equivalent to a 0); for work not turned in, for parts that are incomplete, or for work that is non-functional or appears to bear no relation to the problems assigned. <span class="note">You will receive No Credit for work that you cannot explain!</span></li>
-</ul>
 
-<h2>Submitting the Lab</h2>
+<h2>Submitting the Assignment</h2>
 <p>Push all the files to the private repository that I created for you in a folder named <code>frogger</code>.  Say that your private repository is named <code>mchow-comp20</code>, make sure all the files are pushed to <code>mchow-comp20/frogger</code>.</p>
+
+<h2>Assessment</h2>
+<ol>
+<li>(5 points) A reusable method that draws all the required items on the canvas</li>
+<li>(3 points) A reusable method to initialize game parameters</li>
+<li>(2 points) Programming style - documentation addresses exactly the key issues, and degree of detail is exactly appropriate; well thought out and implemented code; well chosen names for functions and their parameters.</li>
+<li>(-2 points) JavaScript errors exist in console</li>
+<li>(-2 points) No <code>README</code></li>
+<li>(-2 points) Create additional stylesheets or HTML files</li>
+<li>(-2 points) Files are not in your private repository in a folder named <code>frogger</code></li>
+</ol>
+
 </section>
 </div>
 </div>
