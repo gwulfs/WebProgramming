@@ -72,9 +72,16 @@
 <p>Starting with this assignment, you will be provided a <span class="stress">private</span> GitHub repo for submitting assignments.  You will be emailed the name of your private repo.  This email will be sent to you at the e-mail address you provided in Lab 1.  The only two people who will have access to this special repo will be me (the instructor), the TAs, and you.</p>
 <ol>
 <li>Check your email for the name of your private repository. Make sure you can see it under your list of repositories by logging on to GitHub.</li>
-<li>Make a clone of your private repository (which will be initially empty) onto your computer.</li>
-<li>Download and unzip the file <code><a href="frogger.zip">frogger.zip</a></code> directly into your private repository.</li>
+<li>Via terminal, create a new folder that has <span class="stress">exactly</span> the same name as the private GitHub repository I created for you.</li>
+<li>Via terminal, change directory --go into the folder you created and run <code>git init</code></li>
+<li>Run <code>touch README.txt</code></li>
+<li>Run <code>git add README.txt</code></li>
+<li>Download the file <code><a href="frogger.zip">frogger.zip</a></code> directly into your private repository.</li>
+<li>Unzip the ZIP file.  A folder <code>frogger</code> with files will be created.</li>
 <li>Remove the ZIP file <code>frogger.zip</code></li>
+<li>Run <code>git commit -m "first commit"</code></li>
+<li>Run <code>git remote add origin https://github.com/tuftsdev/<span class="stress">NameOfYourPrivateRepo</span></code></li>
+<li>Run <code>git push -u origin master</code></li>
 </ol>
 <p>You are provided with five files:</p>
 <ol>
