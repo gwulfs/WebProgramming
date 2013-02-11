@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Javascript Objects, JSON, and First-Class Functions</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<a href="https://github.com/tuftsdev/WebProgramming" class="button"><small>All examples used in class<br/>are here on </small>GitHub</a>
+<h2>Javascript Objects, JSON, and First-Class Functions</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+<h3>Readings</h3>
+<ul>
+<li><a href="http://www.joelonsoftware.com/items/2006/08/01.html" target="_blank"><span class="title">Can Your Programming Language Do This?</span> by Joel Spolsky (Joel on Software)</a></li>
+<li><a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/" target="_blank"><span class="title">Understanding "Prototypes" in JavaScript</span> by Yehuda Katz</a></li>
+<li><a href="http://selflanguage.org/_static/published/self-power.pdf" target="_blank"><span class="title">SELF: The Power of Simplicity</span> by David Ungar and Randall Smith (OOPSLA '87)</a> - This paper is the theory behind prototypes in JavaScript.</li>
+</ul>
+
+<h3>JavaScript Object</h3>
+<ul>
+<li>Recall: almost everything in JavaScript is an object</li>
+<li>An object in JavaScript is simply a collection of data and functions with a given object name</li>
+<li>Objects that you have seen so far: <code>Math</code>, <code>Date</code>, strings, and arrays</li>
+<li>Work "sort of" like objects in C++</li>
+<li>You must have an <code>Object</code> in order to assign attributes to it</li>
+<li>Attributes are created when assigned to</li>
+</ul>
+
+<h3>Hashes a.k.a. Dictionaries a.k.a. Associative Arrays</h3>
+<ul>
+<li>Recall arrays</li>
+<li>Now imagine the ability of using strings as array indices</li>
+<li>The index is better known as a <span class="stress">key</span></li>
+<li>The corresponding value for the key can be anything (e.g., a string, a number, an object)!</li>
+</ul>
+<pre>
+	o = new Object;
+	o['a'] = 5;
+	o[7] = [1,2,3];
+	o['hi'] = {'hello':'there', 'yo':'man'};
+	console.log(o['a']);
+	console.log(o[7]);
+	console.log(o['hi']['hello']); 
+</pre>
+<ul>
+<li>This results in the JavaScript console:
+<pre>
+	5
+	1,2,3
+	there
+</pre>
+</li>
+<li><code>o['a']</code> is the value associated with index 'a'</li>
+<li><code>{ 'hello':'there', 'yo':'man' }</code> is an associative array literal. This means
+<ul>
+<li>map <code>hello</code> to <code>there</code></li>
+<li>map <code>yo</code> to <code>man</code></li> 
+</ul>
+</li>
+</ul>
+
+<h3>JavaScript Object Notation (JSON)</h3>
+<ul>
+<li>Lightweight data-interchange format (i.e., transferring data from one computer to another)</li>
+<li>Alternative to XML</li>
+<li>Based off of JavaScript's associative arrays</li>
+<li>Language-independent</li>
+<li>Commonly used in APIs</li>
+<li>RFC <a href="http://www.ietf.org/rfc/rfc4627.txt" target="_blank">http://www.ietf.org/rfc/rfc4627.txt</a></li>
+<li><img src="http://www.json.org/object.gif" alt="object" /><br/>
+<img src="http://www.json.org/array.gif" alt="array" /></li>
+<li>Example:
+<pre>{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]
+  }
+}}
+</pre></li>
+<li>The same text (above) expressed as XML:
+<pre>
+&lt;menu id="file" value="File"&gt;
+  &lt;popup&gt;
+    &lt;menuitem value="New" onclick="CreateNewDoc()" /&gt;
+    &lt;menuitem value="Open" onclick="OpenDoc()" /&gt;
+    &lt;menuitem value="Close" onclick="CloseDoc()" /&gt;
+  &lt;/popup&gt;
+&lt;/menu&gt;
+</pre>
+</li>
+<li>JSON can be converted to XML, vice versa</li>
+<li>Example, this mess: <a href="http://search.twitter.com/search.json?q=from:mariamenounos" target="_blank">http://search.twitter.com/search.json?q=from:mariamenounos</a></li>
+<li>The JSON parser for JavaScript: <a href="https://github.com/douglascrockford/JSON-js" target="_blank">https://github.com/douglascrockford/JSON-js</a>; now built-in to most web browsers
+<ul>
+<li>To encode (object to string): <code>namesSelected = JSON.stringify(listItems);</code></li>
+<li>To decode (string to object): <code>datasets = JSON.parse(txt);</code></li>
+</ul>
+</li>
+<li><a href="http://json.parser.online.fr/" target="_blank">Online JSON parser to better understand and read a JSON string</a></li>
+<li>Example: <pre>
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+	&lt;title&gt;JSON Test&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;script&gt;
+		// Let's print just the landmark, latitude, and longitude of this JSON
+		str = '{"landmark":"Golden Gate Bridge","location":{"latitude":37.81972,"longitude":-122.47861}}';
+		parsed = JSON.parse(str);
+		console.log(parsed['landmark']);
+		console.log(parsed['location']['latitude']);
+		console.log(parsed['location']['longitude']);
+	&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+</li>
+</ul>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
