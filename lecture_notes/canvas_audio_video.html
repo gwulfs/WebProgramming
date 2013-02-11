@@ -29,10 +29,89 @@
 <div id="content-wrapper">
 <div class="inner clearfix">
 <section id="main-content">
+
+<h3>So What Exactly is HTML5?</h3>
+<ul>
+<li>Infographic: <a href="../images/html5.jpg"><img src="../images/html5.jpg" alt="HTML5"/></a></li>
+<li>Not just markup</li>
+<li>The three aspects of HTML5:
+<ol>
+<li>Content (HTML + XML)</li>
+<li>Presentation of content (CSS)</li>
+<li>Interaction with content (JavaScript)</li>
+</ol>
+</li>
+<li><span class="stress">Still work in progress</span></li>
+<li>XML-based but no longer SGML-based</li>
+<li>Originally coined as <span class="stress">Web Applications 1.0</span></li>
+<li>Backing from Google, Microsoft, Facebook, Mozilla, (of course) Apple, and many other companies</li>
+<li>Currently supported in some degree or another in Chrome, Firefox 3.5+, Opera, and Safari</li>
+<li>Many incompatibilities exist in each browser. Run <a href="http://www.html5test.com/" target="_blank">html5test</a> to see what HTML5 features are supported by your web browser.</li>
+<li>Will be flexible with error handling (i.e., incorrect syntax).  Older browsers will safely ignore the new HTML5 syntax.</li>
+<ul>
+
+<h3>HTML5 Elements with JavaScript APIs</h3>
+<ul>
+<li>There are a few new elements in HTML5 that have their own special JavaScript API: <code>canvas</code>, <code>audio</code>, <code>video</code></li>
+<li>We will work with <code>canvas</code>, <code>audio</code>, and <code>video</code></li>
+</ul>
+
+<h3><code>canvas</code></h3>
+<ul>
+<li>The idea: a drawing surface</li>
+<li>Can render 2D and 3D graphics</li>
+<li>The coordinate system: origin (0, 0) is on top-left corner</li>
+<li>Initialization (<code>&lt;head&gt;</code>)
+<pre>
+	&lt;script&gt;
+		function draw()
+		{
+			canvas = document.getElementById('simple');
+			// Check if canvas is supported on browser
+			if (canvas.getContext) {
+				ctx = canvas.getContext('2d');
+				...
+				...
+				...
+			}
+			else {
+				alert('Sorry, canvas is not supported on your browser!');
+			}
+		}
+	&lt;/script&gt;
+</pre>
+</li>
+<li>To display something, your script first needs to access <span class="stress">the rendering context</span> and draw on it</li>
+<li>Your <code>&lt;body&gt;</code>
+<pre>
+&lt;body onload="draw();"&gt;
+	&lt;canvas id="simple" width="150" height="150"&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+</pre>
+<li>The attributes <code>id</code>, <code>width</code>, and <code>height</code> are required for the <code>canvas</code> element.</li>
+</li>
+<li>Rendering capabilities:
+<ul>
+<li>Rectangles</li>
+<li>Paths (triangles)</li>
+<li>Arcs (circles)</li>
+<li>Lines (various styles supported)</li>
+<li>Colors</li>
+<li>Images</li>
+<li>Image processing: translating, rotating, scaling</li>
+<li>Animation</li>
+</ul>
+</li>
+<li><a href="canvas_test1.html">Example 1: Simple Drawing</a></li>
+<li><a href="canvas_test2.html">Example 2: Advanced Drawing (with rotated transparent image)</a></li>
+<li><a href="canvas_test3.html">Example 3: Animation</a></li>
+<li><a href="https://developer.mozilla.org/en/Canvas_tutorial" target="_blank">For more details, refer to Mozilla's documentation and tutorial</a></li>
+</ul>
+
 <h3>Audio and Video</h3>
 <video src="http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.ogg" id="video"></video>
 <script type="text/javascript">
-	var video = document.getElementById("video");
+    video = document.getElementById("video");
 </script>
 <p><button type="button" onclick="video.play();">Play</button>
 <button type="button" onclick="video.pause();">Pause</button>
@@ -48,8 +127,8 @@
 &lt;/script&gt;
 &lt;p&gt;&lt;button type="button" onclick="video.play();"&gt;Play&lt;/button&gt;
 &lt;button type="button" onclick="video.pause();"&gt;Pause&lt;/button&gt;
-&lt;button type="button" onclick="video.currentTime = video.currentTime - 1;"&gt;&lt;&lt; Rewind&lt;/button&gt;
-&lt;button type="button" onclick="video.currentTime = video.currentTime + 1"&gt;&gt;&gt; Forward&lt;/button&gt;
+&lt;button type="button" onclick="video.currentTime = video.currentTime - 1;"&gt;&amp;lt;&amp;lt; Rewind&lt;/button&gt;
+&lt;button type="button" onclick="video.currentTime = video.currentTime + 1"&gt;&amp;gt;&amp;gt; Forward&lt;/button&gt;
 &lt;/p&gt;
 </pre>
 </li>
