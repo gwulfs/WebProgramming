@@ -32,6 +32,7 @@
 <h3>Readings</h3>
 <ul>
 <li><a href="http://www.joelonsoftware.com/items/2006/08/01.html" target="_blank"><span class="title">Can Your Programming Language Do This?</span> by Joel Spolsky (Joel on Software)</a></li>
+<li><a href="http://helephant.com/2008/08/19/functions-are-first-class-objects-in-javascript/" target="_blank"><span class="title">Functions are first class objects in javascript</span></a></li>
 <li><a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/" target="_blank"><span class="title">Understanding "Prototypes" in JavaScript</span> by Yehuda Katz</a></li>
 <li><a href="http://selflanguage.org/_static/published/self-power.pdf" target="_blank"><span class="title">SELF: The Power of Simplicity</span> by David Ungar and Randall Smith (OOPSLA '87)</a> - This paper is the theory behind prototypes in JavaScript.</li>
 </ul>
@@ -146,6 +147,143 @@
 </pre>
 </li>
 </ul>
+
+<h3>So What About JavaScript Functions?</h3>
+<ul>
+<li>I hope you all read <a href="http://www.joelonsoftware.com/items/2006/08/01.html" target="_blank"><span class="title">Can Your Programming Language Do This?</span> by Joel Spolsky (Joel on Software)</a></li>
+<li>Functions are also objects in JavaScript too!</li>
+<li>The big ideas: <!--http://stackoverflow.com/questions/705173/what-is-meant-by-first-class-object-->
+<ul>
+<li>A function is an instance of the <code>Object</code> type in JavaScript</li>
+<li>A function may be named by variables</li>
+<li>A function may be passed as arguments to procedures (i.e., functions)</li>
+<li>A function may be returned as the results of procedures (i.e., functions)</li>
+<li>They may be included in data structures (read: other <code>Objects</code>)</li>
+</ul>
+</li>
+<li>...and thus given these big ideas, functions in JavaScript are <span class="stress">first class</span></li>
+<li>Why is this important?
+<ol>
+<li>More opportunities for abstraction =&gt; your code is smaller, tighter, more reusable, and more scalable</li>
+<li>Functional composition (math anyone?)</li>
+<li>Fake the idea of Object-Oriented Programming with JavaScript</li>
+<li>Used extensively in jQuery</li>
+<li>This is how the Google Maps API and jQuery were written!</li>
+</ol>
+</li>
+</ul>
+
+<h3>Examples</h3>
+<pre>
+&lt;script&gt;
+	function square(x)
+	{
+		return x * x;
+	}
+
+	// Functions as variable values
+	t = square;
+	document.write("The square of 2 is " + t(2) + "&lt;br/&gt;");
+
+	// Functions as subroutine arguments
+	function apply (func,value)
+	{
+		return func(value);
+	}
+	document.write("The square of 3 is " + apply(square, 3) + "&lt;br/&gt;");
+
+	// Functions as object attributes
+	o = new Object;
+	o.sq = square;
+	document.write("The square of 4 is " + o.sq(4) + "&lt;br/&gt;");
+
+	// Functions as array elements
+	a = new Array(20);
+	a[5] = square;
+	document.write("The square of 5 is " + a[5](5) + "&lt;br/");
+&lt;/script&gt;
+</pre>
+<ul>
+<li>Member functions are simply properties of an object!</li>
+<li>Called with an implicit first argument that is the object itself...</li>
+<li>...that first argument's name is <code>this</code> (just as in C++)</li>
+</ul>
+<pre>
+&lt;script&gt;
+	function Person_toString()
+	{
+		return this.name+', '+this.address+', '+this.phone;
+	}
+
+	function Person_toTable() {
+		return "&lt;table border=\"1\"&gt;&lt;tr&gt;&lt;td&gt;" + this.name
+			+ "&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;" + this.address
+			+ "&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;" + this.phone
+			+ "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+	}
+
+	function Person_toList() {
+		return "&lt;ul&gt;\n&lt;li&gt;" + this.name
+			+ "&lt;/li&gt;\n&lt;li&gt;" + this.address
+			+ "&lt;/li&gt;\n&lt;li&gt;" + this.phone
+			+ "&lt;/li&gt;\n&lt;/ul&gt;";
+	}
+
+	var p = new Object;
+	p.name = 'The Barack';
+	p.address = '1600 Pennsylvania Avenue';
+	p.phone = '(111) 111-1111';
+	p.toString = Person_toString; // interesting...
+	p.toTable = Person_toTable;
+	p.toList = Person_toList;
+	document.write("p is " + p + "&lt;br/&gt;\n");
+	document.write("p.toTable() is " + p.toTable() + "&lt;br/&gt;\n");
+	document.write("p.toList() is " + p.toList() + "&lt;br/&gt;\n");
+&lt;/script&gt;
+</pre>
+<ul>
+<li>One more example...</li>
+</ul>
+<pre>
+&lt;script&gt;
+	function circle_area()
+	{
+		return Math.PI * this.radius * this.radius;
+	}
+
+	function circle_inside(x, y)
+	{
+		var xd = this.x - x;
+		var yd = this.y - y;
+		var dist = Math.sqrt(xd * xd + yd * yd);
+		return dist &lt; this.radius;
+	}
+
+	function Circle (r, x, y)
+	{
+		this.radius = r;
+		this.x = x;
+		this.y = y;
+		this.area = circle_area;
+		this.inside = circle_inside;
+	}
+
+	var circle = new Circle(3, 4.5 , 5.3);
+	document.write("Circle area is " + circle.area() + "&lt;br/&gt;");
+	if (circle.inside(2, 2)) {
+		document.write("(2, 2) is inside the circle&lt;br/&gt;");
+	}
+	else {
+		document.write("(2, 2) is outside the circle&lt;br/&gt;");
+	}
+	if (circle.inside(4, 5)) {
+		document.write("(4, 5) is inside the circle&lt;br/&gt;");
+	}
+	else {
+		document.write("(4, 5) is outside the circle&lt;br/&gt;");
+	}
+&lt;/script&gt;
+</pre>
 
 </section>
 </div>
