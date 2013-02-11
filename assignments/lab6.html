@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Lab 6</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<h2>Lab 6: Ms. Pac-Man</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<p class="note">This lab is worth 3 points.</p>
+
+<h2>Lab Objectives</h2>
+<ul>
+<li>Practice writing JavaScript.</li>
+<li>Practice using the DOM API.</li>
+<li>Practice using the JavaScript Canvas API</li>
+</ul>
+
+<h2>Overview</h2>
+<p>Originally created by Google as a playable doodle for Pac-Man's 30th anniversary on May 22, 2010, it also apparently cost the economy approximately $120 million in lost productivity (you can still play it at <a href="http://www.google.com/doodles/30th-anniversary-of-pac-man" target="_blank">http://www.google.com/doodles/30th-anniversary-of-pac-man</a>).</p>
+
+<p><img src="pacman10-hp-sprite.png" alt="Sprite sheet" /></p>
+
+<h2>Getting Started</h2>
+<ol>
+<li>If you have not done so already, follow the instructions under "Getting Started" in <a href="a2.html">Assignment 2</a>. You will need to use your private GitHub repo for this lab.</li>
+<li>Assuming that you have set up a local copy of your private repo on your computer, create a new folder inside of it called <code>mspacman</code>.</li>
+</ol>
+
+<h2>Instructions</h2>
+<p>Provided the sprite sheet <a href="pacman10-hp-sprite.png"><code>pacman10-hp-sprite.png</code></a> (see above), render onto an HTML5 canvas <span class="stress">the blue (not gray) game board</span> with one of the Ms. Pac-Man and one of the ghosts on the game board.  All JavaScript must be in the file <code>mspacman.js</code> file that is called from a <code>mspacman.html</code> document.  One CSS file <code>mspacman.css</code> is also required to style the canvas.</p>
+
+<h2>Viewing Your Work</h2>
+<p>Open your <code>mspacman.html</code> page on any web browser that supports the HTML5 canvas (e.g., the latest versions of Chrome, Firefox, Safari, or Microsoft Internet Explorer).</p>
+
+<h2>Debugging</h2>
+<p>Be sure to look at your JavaScript console (e.g., in Chrome Developer Tools or in Firebug)</p>
+
+<h2>Submitting the Lab</h2>
+<p>Commit and push your lab to your private repo. The files that must be in your private repo under <code>mspacman</code> are:</p>
+<ol>
+<li><code>mspacman.css</code></li>
+<li><code>mspacman.html</code></li>
+<li><code>mspacman.js</code></li>
+<li><code>pacman10-hp-sprite.png</code></li>
+<li><code>README.txt</code> or <code>README.md</code></li>
+</ol>
+
+<h2>Assessment</h2>
+<ol>
+<li>(1 point) Rendered blue game board</li>
+<li>(1 point) Rendered one Ms. Pac-Man</li>
+<li>(1 point) Rendered one ghost</li>
+<li>(-0.5 point) Outputs exist in JavaScript console</li>
+<li>(-3 points) You used jQuery</li>
+</ol>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
