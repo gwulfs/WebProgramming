@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Assignment 3</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<h2>Assignment 3: Where in the World Is...</h2>
+<h2>Due: Friday, March 1st at 11:59 PM</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<h2>Objectives</h2>
+
+
+<h2>Overview</h2>
+<p>You are to build a single page that:</p>
+<ol>
+<li>Maps all the stations on the Red Line using Google Maps API version 3.  A distinct icon marker (i.e., something other than the default Google Maps icon for markers) must be used for all stations, and a red polyline connecting all the stations must be rendered. Clicking on a marker will display an info window with the name of the station.</li>
+<li>Detects and maps your current location via <code>navigator.geolocation</code> JavaScript object.  An info window marking your location (e.g., "I am here at...") must be attached to your marker and displayed on the map.</li>
+<li>Displays the closest Red Line station to your current location with approximate distance away (in miles).</li>
+<li>Displays the departure and predicted arrival schedule for southbound and northbound trains at each station (if any).</li>
+<li>Retrieves and displays the locations of a cast of characters.</li>
+<li>Displays the distance (in miles) between you and each character either as an overlay on top of map or on a side of the map.</li>
+</ol>
+
+<h2>Cast of Characters</h2>
+<ul>
+<li>Carmen Sandiego</li>
+<li>Waldo</li>
+</ul>
+
+<h3>APIs</h3>
+<p>This assignment will require the use of three (3) external APIs:</p>
+<ol>
+<li><a href="http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv" target="_blank">http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv</a> - This is a comma-separated values file that lists all the Red Line, Orange Line, and Blue Line stations.  We are only concerned with the Red Line stations for this assignment.  It is important to note that each station has a southbound and a northbound key which is critical for the real-time Red Line schedule API (next).  You can assume this set of data relatively static (i.e., doesn't change often).</li>
+<li><a href="http://developer.mbta.com/Data/red.json" target="_blank">http://developer.mbta.com/Data/red.json</a> - The real time schedule API <span class="stress">in JSON format</span>.</li>
+</ol>
+<p>For more details on the APIs, see <a href="http://www.eot.state.ma.us/developers/" target="_blank">http://www.eot.state.ma.us/developers/</a></p>
+
+<h3>The Haversine Formula: The Distance Between Two (Geo)Points</h3>
+<p>Given two points (lat1, lng1) and (lat2, lng2):</p>
+<ol>
+<li>theta = lng1 - lng2;</li>
+<li>dist = sin(degrees2radians(lat1)) * sin(degrees2radians(lat2)) + cos(degrees2radians(lat1)) * cos(degrees2radians(lat2)) * cos(degrees2radians(theta));</li>
+<li>dist = acos(dist);</li>
+<li>dist = radians2degrees(dist);</li>
+<li>dist = dist * 60 * 1.1515;</li>
+</ol>
+
+<h2>Instructions</h2>
+
+<h2>Getting Started</h2>
+
+<h2>Viewing Your Work</h2>
+
+<!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
+<h2><span class="note">(Course Policy)</span> The <code>README</code> File</h2>
+<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
+</ol>
+
+<!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
+<h2><span class="note">(Course Policy)</span> The Late Policy</h2>
+<p>Homework that is submitted electronically (most homework) will typically be due at 11:59 PM on a Monday or Wednesday or at 5:59 PM on a Friday. We will grant an automatic extension of ten minutes at no cost to you. If you plan on submitting your work at midnight or at six, you will have nine minutes for last-minute changes.</p>
+<p>Homework is expected to be submitted on time. However, we recognize that the exigencies of college life occasionally interfere with on-time submission. If you have difficulty getting homework in on time, you have two options:</p>
+<ol>
+<li>For ordinary difficulties, each student is automatically issued six "extension tokens." By expending an extension token, you can get an automatic 24-hour extension on all deadlines associated with a single assignment.  To use an extension token, you must e-mail me at <code>mchow@cs.tufts.edu</code>. Thus must be sent before the assignment is due.  At most two extension tokens may be expended on any single assignment.  When you are out of tokens, late homework will no longer be accepted: it will be returned ungraded, and you will receive no credit for the work.</li>
+<li>If a serious illness affects your ability to complete homework on time, your first step is to report the illness using the "Illness Notification Form" that is available in WebCenter for Students. We will make suitable arrangements. For extraordinary difficulties, such as bereavement, family emergencies, or other extraordinary unpleasant events, your first step should be to make contact with your associate dean for undergraduate education. You must take this step before the assignment is due. Ask your dean to drop me an email or give me a call, and we will make special arrangements that are suited to your circumstances.</li>
+</ol>
+
+<p>Please understand that extension tokens are meant to be used.  That is, you will not receive any special bonus at the end of the course if you do not use any of your extension tokens.</p>
+<p>Solutions to assignments and labs will not be posted for this course.</p>
+
+<h2>Submitting the Assignment</h2>
+
+<h2>Assessment</h2>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
