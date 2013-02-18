@@ -22,7 +22,7 @@
 <div class="inner">
 <h1>Web Programming</h1>
 <h2>Assignment 3: Where in the World Is...</h2>
-<h2>Due: Friday, March 1st at 11:59 PM</h2>
+<h2>Due: Monday, March 4th at 11:59 PM</h2>
 </div>
 </header>
 
@@ -31,7 +31,13 @@
 <section id="main-content">
 
 <h2>Objectives</h2>
-
+<ol>
+<li>Use JSON APIs.</li>
+<li>Build a mashup.</li>
+<li>Use the Google Maps API.</li>
+<li>Use the HTML5 geolocation API to determine your location.</li>
+<li>Use and understand with event handling and exception handling.</li>
+</ol>
 
 <h2>Overview</h2>
 <p>You are to build a single page that:</p>
@@ -39,40 +45,36 @@
 <li>Maps all the stations on the Red Line using Google Maps API version 3.  A distinct icon marker (i.e., something other than the default Google Maps icon for markers) must be used for all stations, and a red polyline connecting all the stations must be rendered. Clicking on a marker will display an info window with the name of the station.</li>
 <li>Detects and maps your current location via <code>navigator.geolocation</code> JavaScript object.  An info window marking your location (e.g., "I am here at...") must be attached to your marker and displayed on the map.</li>
 <li>Displays the closest Red Line station to your current location with approximate distance away (in miles).</li>
-<li>Displays the departure and predicted arrival schedule for southbound and northbound trains at each station (if any).</li>
-<li>Retrieves and displays the locations of a cast of characters.</li>
-<li>Displays the distance (in miles) between you and each character either as an overlay on top of map or on a side of the map.</li>
+<li>Clicking on a subway station marker will display an info window with the name of the station and arrival schedule (southbound and northbound) for each station on the Red Line.</li>
+<li>Retrieves and displays the locations of Carmen Sandiego <img src="../images/carmen.png" alt="Carmen"/> and Waldo <img src="../images/waldo.png" alt="Waldo"/>.</li>
+<li>Displays the distance (in miles) between you and Carmen Sandiego, and you and Waldo.  You can display this as an overlay on top of map or on a side of the map.</li>
 </ol>
 
-<h2>Cast of Characters</h2>
-<ul>
-<li>Carmen Sandiego</li>
-<li>Waldo</li>
-</ul>
-
-<h3>APIs</h3>
-<p>This assignment will require the use of three (3) external APIs:</p>
+<h2>Instructions and Getting Started</h2>
 <ol>
-<li><a href="http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv" target="_blank">http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv</a> - This is a comma-separated values file that lists all the Red Line, Orange Line, and Blue Line stations.  We are only concerned with the Red Line stations for this assignment.  It is important to note that each station has a southbound and a northbound key which is critical for the real-time Red Line schedule API (next).  You can assume this set of data relatively static (i.e., doesn't change often).</li>
-<li><a href="http://developer.mbta.com/Data/red.json" target="_blank">http://developer.mbta.com/Data/red.json</a> - The real time schedule API <span class="stress">in JSON format</span>.</li>
+<li>Create a folder inside of your private GitHub repo named <code>where</code>. <span class="note">DO NOT RUN <code>git init</code> inside of it!</span>.</li>
+<li>One HTML file is required inside of the <code>where</code> folder: <code>index.html</code>.  You should not have to write too much HTML.</li>
+<li>You must write all JavaScript code in a separate file.  The file must end in <code>.js</code> extension.  Do not write any JavaScript in the <code>index.html</code> file other than one line that loads your <code>.js</code> file!  You can name this <code>.js</code> file anything that you like.</li>
+<li>You must use at least one CSS file. The file must end in <code>.css</code> extension.  You can name this <code>.css</code> file anything that you like.</li>
 </ol>
-<p>For more details on the APIs, see <a href="http://www.eot.state.ma.us/developers/" target="_blank">http://www.eot.state.ma.us/developers/</a></p>
 
-<h3>The Haversine Formula: The Distance Between Two (Geo)Points</h3>
-<p>Given two points (lat1, lng1) and (lat2, lng2):</p>
+<h2>The Official List of MBTA Subway Stations</h2>
+<p><a href="http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv" target="_blank">http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv</a> is the official comma-separated values (CSV) file that lists all the Red Line, Orange Line, and Blue Line stations (sorry, no Green Line).  We are only concerned with the Red Line stations for this assignment.  It is important to note that each station has a southbound and a northbound key which is critical for the real-time Red Line schedule API (next).  You can assume this set of data relatively static (i.e., doesn't change often), thus, you can hard-code some of the information into your script.</p>
+
+<h2>APIs</h2>
+<p>This assignment will require the use of two external APIs:</p>
 <ol>
-<li>theta = lng1 - lng2;</li>
-<li>dist = sin(degrees2radians(lat1)) * sin(degrees2radians(lat2)) + cos(degrees2radians(lat1)) * cos(degrees2radians(lat2)) * cos(degrees2radians(theta));</li>
-<li>dist = acos(dist);</li>
-<li>dist = radians2degrees(dist);</li>
-<li>dist = dist * 60 * 1.1515;</li>
+<li><a href="http://mbtamap-cedar.herokuapp.com/mapper/redline.json" target="_blank">http://mbtamap-cedar.herokuapp.com/mapper/redline.json</a> - The real time schedule API <span class="stress">in JSON format</span> (taken from the official source at <a href="http://www.mbta.com/rider_tools/developers/default.asp?id=21898" target="_blank">http://www.mbta.com/rider_tools/developers/default.asp?id=21898</a>).</li>
+<li><a href="http://messagehub.herokuapp.com/a3.json" target="_blank">http://messagehub.herokuapp.com/a3.json</a> - Returns a JSON containing the locations of Waldo and Carmen Sandiego.  At times, only the location of Waldo may be returned; or just the location of Carmen Sandiego; or the locations of both Waldo and Carmen Sandiego; or something slimy!</li>
 </ol>
+<p class="note">Important: Cross-Origin Resource Sharing (CORS) is enabled for both APIs above!</p>
 
-<h2>Instructions</h2>
-
-<h2>Getting Started</h2>
+<h2>The Haversine Formula: The Distance Between Two (Geo)Points</h2>
+<p>To calculate the distance between two geopoints (latitude and longitude), you must use the Haversine Formula.  The formula is provided and analyzed at <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">http://www.movable-type.co.uk/scripts/latlong.html</a>.  Also, you can refer to this on Stack Overflow: <a href="http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript" target="_blank">http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript</a>.</p>
 
 <h2>Viewing Your Work</h2>
+<p>Open the <code>index.html</code> file on a web browser on your web browsers (preferably either Chrome or Firefox).</p>
+<p class="note">For obvious reasons, you are not allowed to make your work publicly accessibly on the web --yet.</p>
 
 <!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
 <h2><span class="note">(Course Policy)</span> The <code>README</code> File</h2>
@@ -97,8 +99,25 @@
 <p>Solutions to assignments and labs will not be posted for this course.</p>
 
 <h2>Submitting the Assignment</h2>
+<p>Push all the files to the private repository that I created for you in a folder named <code>where</code>.  Say that your private repository is named <code>mchow-comp20</code>, make sure all the files are pushed to <code>mchow-comp20/where</code>.</p>
 
 <h2>Assessment</h2>
+<ul>
+<li>(2 points) Render Google Map of MBTA Red Line</li>
+<li>(1 point) Use a custom icon (i.e., not the default) to mark the stations on the Red Line</li>
+<li>(1 point) Render a red polyline connecting all the stations on the Red Line</li>
+<li>(2 points) Retrieve your location via JavaScript <code>navigator.geolocation</code> object.</li>
+<li>(2 points) Display your location on the map with marker and info window.  You can use the default Google Maps marker for this.</li>
+<li>(3 points) Calculate and determine the closest Red Line station from where you are.  You must also display the distance away (in miles) between your location and the closest station (perhaps on your location marker).</li>
+<li>(1 point) Web page must pass the current HTML5 specifications via <a href="http://validator.w3.org/" target="_blank">http://validator.w3.org/</a></li>
+<li>(1 point) Use at least one (1) CSS file</li>
+<li>(1 point) All files are stored in your private GitHub repo in a directory named <code>where</code></li>
+<li>(1 point) README file exists in your <code>where</code> folder.</li>
+<li>(3 points) Upon clicking on a station icon on the map, display info window containing the name of the station and subway arrival schedule (southbound and northbound) for each station on the Red Line.</li>
+<li>(4 points) Display the locations of Carmen Sandiego and Waldo on the map with their respective icons.</li>
+<li>(3 points) Display the distance between you and Carmen Sandiego, you and Waldo somewhere on the page (e.g., on the map or on a side of the map).</li>
+<li>(-10 points) You used jQuery.</li>
+</ul>
 
 </section>
 </div>
