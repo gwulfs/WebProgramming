@@ -73,8 +73,17 @@
 <p>To calculate the distance between two geopoints (latitude and longitude), you must use the Haversine Formula.  The formula is provided and analyzed at <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">http://www.movable-type.co.uk/scripts/latlong.html</a>.  Also, you can refer to this on Stack Overflow: <a href="http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript" target="_blank">http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript</a>.</p>
 
 <h2>Viewing Your Work</h2>
-<p>Open the <code>index.html</code> file on a web browser on your web browsers (preferably either Chrome or Firefox).</p>
-<p class="note">For obvious reasons, you are not allowed to make your work publicly accessibly on the web --yet.</p>
+<p>Using the JavaScript Geolocation API requires a web server.  Therefore, simply opening the <code>index.html</code> page on a web browser will not work for this assignment.  Fortunately, we have a development server named <code>kublai</code> that will allow you to view your work <span class="stress">privately</span> (that is, so other students cannot view your work).  Anything in one's <code>~/dev_html</code> directory gets served at <code>http://kublai/~user</code> in Halligan, with the same kind of permissions as in <code>public_html</code>.  What you will need to do:</p>
+<ol>
+<li>Read about SSH port forwarding at <a href="http://www.debianadmin.com/howto-use-ssh-local-and-remote-port-forwarding.html" target="_blank">http://www.debianadmin.com/howto-use-ssh-local-and-remote-port-forwarding.html</a></li>
+<li>SSH into <code>linux.cs.tufts.edu</code></li>
+<li>Create a new directory named <code>dev_html</code> in your home directory (e.g., <code>mkdir dev_html</code>)</li>
+<li>Change the permissions of the <code>dev_html</code> directory to <code>755</code> (e.g., <code>chmod 755 dev_html</code>)</li>
+<li>Log out <code>linux.cs.tufts.edu</code></li>
+<li>Copy all your files to your <code>dev_html</code> directory.  You can use FileZilla or <code>scp</code> for this.  To learn more about the <code>scp</code> command, RTFM via <code>man scp</code></li>
+<li>Once you copy all your files to your <code>dev_html</code> directory, make sure that all files are set to permissions <code>644</code> and all folders are set to permissions <code>755</code></li>
+<li>To see your work on the development server <span class="stress">on the browser of your computer</span>, run <code>ssh -L localhost:8888:kublai:80 <span class="stress">your_tufts_cs_login</span>@linux.cs.tufts.edu</code> first.  Then on your browser, go to <code>http://localhost:8888/~<span class="stress">your_tufts_cs_login</span></code></li>
+</ol>
 
 <!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
 <h2><span class="note">(Course Policy)</span> The <code>README</code> File</h2>
