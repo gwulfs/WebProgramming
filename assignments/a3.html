@@ -62,10 +62,11 @@
 <p><a href="http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv" target="_blank">http://developer.mbta.com/RT_Archive/RealTimeHeavyRailKeys.csv</a> is the official comma-separated values (CSV) file that lists all the Red Line, Orange Line, and Blue Line stations (sorry, no Green Line).  We are only concerned with the Red Line stations for this assignment.  It is important to note that each station has a southbound and a northbound key which is critical for the real-time Red Line schedule API (next).  You can assume this set of data relatively static (i.e., doesn't change often), thus, you can hard-code some of the information into your script.</p>
 
 <h2>APIs</h2>
-<p>This assignment will require the use of two external APIs:</p>
+<p>This assignment will require the use of three external APIs:</p>
 <ol>
 <li><a href="http://mbtamap-cedar.herokuapp.com/mapper/redline.json" target="_blank">http://mbtamap-cedar.herokuapp.com/mapper/redline.json</a> - The real time schedule API <span class="stress">in JSON format</span> (taken from the official source at <a href="http://www.mbta.com/rider_tools/developers/default.asp?id=21898" target="_blank">http://www.mbta.com/rider_tools/developers/default.asp?id=21898</a>).</li>
 <li><a href="http://messagehub.herokuapp.com/a3.json" target="_blank">http://messagehub.herokuapp.com/a3.json</a> - Returns a JSON containing the locations of Waldo and Carmen Sandiego.  At times, only the location of Waldo may be returned; or just the location of Carmen Sandiego; or the locations of both Waldo and Carmen Sandiego; or something slimy!</li>
+<li>The Google Maps API.  Please refer to my notes at <a href="../lecture_notes/ajax.html">http://tuftsdev.github.com/WebProgramming/lecture_notes/ajax.html</a>.  Working examples are available at <a href="https://github.com/tuftsdev/WebProgramming/tree/spring2013/google_maps">https://github.com/tuftsdev/WebProgramming/tree/spring2013/google_maps</a> (NOTE: the <code>geolocation_map.html</code> example requires the page to be on a web server (see below or push a copy of it to your special repo <code>username.github.com</code>).  Also, you do not need to create an API key to use Google Maps API version 3.</li>
 </ol>
 <p class="note">Important: Cross-Origin Resource Sharing (CORS) is enabled for both APIs above!</p>
 
