@@ -76,7 +76,7 @@
 <p>Implementing the basic requirements along with updating the <code>README</code> will give you a grade of a "B-" (80%) for this assignment.</p>
 
 <h2>Additional Implementations</h2>
-<p>In order the achieve an "A" for this assignment, you must accomplish four (4) additional items of your choice from the following list:</p>
+<p>In order the achieve an "A" for this assignment, you must accomplish three (3) additional items of your choice from the following list:</p>
 <ol>
 <li>Implement a timer and the additional game scoring items as illustrated above</li>
 <li>Animate Frogger to <code>dead_frog.png</code> if he gets run over by vehicle, eaten by alligator, hits water, or misses home</li>
@@ -87,11 +87,30 @@
 </ol>
 <p class="note">IMPORTANT: Your <code>README</code> must list the additional requirements implemented.</p>
 
-<h2>The Game Loop</h2>
-
 <h2>Animation</h2>
+<p>Animation is accomplished by using the JavaScript function <code>setInterval()</code> which takes two arguments:</p>
+<ol>
+<li><code>code</code> - Some JavaScript code to run.</li>
+<li><code>milliseconds</code> - The intervals (in milliseconds) on how often to execute the code</li>
+</ol>
+<p>Reference: <a href="http://www.w3schools.com/jsref/met_win_setinterval.asp" target="_blank">http://www.w3schools.com/jsref/met_win_setinterval.asp</a></p>
+<p>I did an example of using <code>setInterval()</code> when I talked about the JavaScript canvas, see: <a href="http://www.cs.tufts.edu/comp/20/examples/canvas_demo3.html" target="_blank">http://www.cs.tufts.edu/comp/20/examples/canvas_demo3.html</a></p>
+<p>In game development, it is important to calculate the frame rate, or frames-per-second (FPS).  In games, 30 frames-per-second is typically used.  There is no secret sauce to get this frame rate perfectly.  One way to calculate FPS in JavaScript is available at <a href="http://stackoverflow.com/questions/4787431/check-fps-in-js" target="_blank">http://stackoverflow.com/questions/4787431/check-fps-in-js</a>  For this assignment, you should tinker with the number of milliseconds for the game to be deemed playable.  Please understand that if the game runs too fast or too slow, it is practically unplayable.</p>
+
+<h2>The Game Loop</h2>
+<p class="stress">(Largely taken from <a href="http://en.wikipedia.org/wiki/Game_programming" target="_blank">http://en.wikipedia.org/wiki/Game_programming</a>)</p>
+<p>The central component of any game, from a programming standpoint, is the game loop. The game loop allows the game to run smoothly regardless of a user's input or lack thereof. The game loop is also responsible for keeping track of the current frame and for requesting periodic screen updates.</p>
+<p>Most traditional software programs respond to user input and do nothing without it. For example, a word processor formats words and text as a user types. If the user doesn't type anything, the word processor does nothing. Some functions may take a long time to complete, but all are initiated by a user telling the program to do something.</p>
+<p>Games, on the other hand, must continue to operate regardless of a user's input. The game loop allows this. A highly simplified game loop, in pseudocode:</p>
+<pre>
+while (not game over or not exit)
+  check user input;
+  update(); // move sprites, update coordinates, resolve collisions
+  draw(); // redraw everything on canvas
+</pre>
 
 <h2>Collision Detection</h2>
+<p>There are many collision detection methods available.  However, more accurate methods are more computationally expensive. One very common method to resolve collisions is to use the idea of <span class="stress">bounding boxes</span>.  The idea is simple: bound an imaginary box around objects (or more specifically, sprites) and if two boxes intersect, then there is a collision.  If you have the starting x and y coordinates of a sprite and know the image length and width of the sprite, then you can create an imaginary box around the sprite.  While this method is not perfect as you can collide with whitespace in a box, this is acceptable.  We are not striving for perfect collision detection: bounding box collision detection is good enough.  Bounding box collision is also easy to understand and very good performance-wise (easy to calculate).</p>
 
 <h2>Viewing Your Work</h2>
 <p>Open the <code>index.html</code> file on a web browser on your web browsers (Chrome, Firefox, Safari, the latest version of Microsoft Internet Explorer)</p>
@@ -144,7 +163,7 @@
 <li>(2 points) Basic game scoring as illustrated above.</li>
 </ol>
 
-<h4>(5 total points) Four (4) additional implementations</h4>
+<h4>(5 total points) Three (3) additional implementations</h4>
 <h4>Deductions</h4>
 <ol>
 <li>(-2 points) JavaScript errors exist in console</li>
