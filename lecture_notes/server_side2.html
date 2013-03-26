@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Web Applications and Node.js</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<a href="https://github.com/tuftsdev/WebProgramming" class="button"><small>All examples used in class<br/>are here on </small>GitHub</a>
+<h2>Web Applications and Node.js</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+<h3>Recall: Client-Side vs. Server-Side</h3>
+
+<h3>A Web Application: The Big Ideas</h3>
+<ul>
+<li>"Does something" --action-oriented</li>
+<li class="stress">Capturing, storing, processing, and transmitting data</li>
+<li>Why? Wide accessibility thanks to ubiquity of the web browser</li>
+<li>Mass customization</li>
+<li>Highly programmable</li>
+<li>Living content</li>
+<li>Manage state, including authentication</li>
+<li>Immediate and mass deployment</li>
+<li>Interactive user interfaces</li>
+<li>Available</li>
+<li>Offline and online access</li>
+<li>Read: <a href="http://www.acunetix.com/websitesecurity/web-applications/" target="_blank">http://www.acunetix.com/websitesecurity/web-applications/</a></li>
+<li>Read: <a href="https://www.owasp.org/index.php/What_are_web_applications%3F" target="_blank">https://www.owasp.org/index.php/What_are_web_applications%3F</a></li>
+</ul>
+
+<h3>General Anatomy and Structure of a Web Application</h3>
+<pre>
+myapp
+  /public
+    /javascripts/...
+    /images/...
+    /stylesheets/...
+  /routes/
+  /views/
+  /config
+  /packages
+</pre>
+
+<h3>That Was Then...</h3>
+<ul>
+<li>The LAMP stack: Linux + Apache + MySQL (database) + PHP (language)</li>
+<li>The good: still alive and viable</li>
+<li>The bad and the ugly: administration; language design; just read the PHP sucks vent: <a href="http://www.codinghorror.com/blog/2012/06/the-php-singularity.html" target="_blank">http://www.codinghorror.com/blog/2012/06/the-php-singularity.html</a></li>
+</ul>
+
+<h3>This is now...</h3>
+<ul>
+<li>Use a framework to streamline the development; makes developing web applications easier by making assumptions about what every developer needs to get started; write less code; don't reinvent the wheel</li>
+<li>Carefully choose a database system. No longer one-size-fits-all.</li>
+<li>If there is something that you need, download a package (or library) for the framework using a package manager (which performs installing, upgrading, configuring, and removing packages)</li>
+<li>Start up the integrated server on the web app</li>
+<li>And always, RTFM, refer to the web framework API documentation</li>
+</ul>
+
+<h3>Node.js</h3>
+<ul>
+<li>Server-side software</li>
+<li>Uses JavaScript</li>
+<li>Uses Google's V8 JavaScript engine (<a href="https://code.google.com/p/v8/" target="_blank">https://code.google.com/p/v8/</a>)</li>
+<li>Event-driven and asynchronous I/O</li>
+<li>Lightweight</li>
+<li>For writing network applications</li>
+<li>Creates a web server by itself</li>
+<li>No bloat and very little overhead (unlike Apache)</li>
+<li>The API documentation: <a href="http://nodejs.org/api/" target="_blank">http://nodejs.org/api/</a>
+</ul>
+
+<h3>But wait, Node.js is for writing high performance <span class="stress">network</span> applications, but what about writing <span class="stress">web</span> applications?</h3>
+
+<h3>Express</h3>
+<ul>
+<li>Web application framework for Node.js</li>
+<li>Getting started: <a href="http://expressjs.com/guide.html" target="_blank">http://expressjs.com/guide.html</a></li>
+<li>The API documentation: <a href="http://expressjs.com/api.html" target="_blank">http://expressjs.com/api.html</a></li>
+</ul>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
