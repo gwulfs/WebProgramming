@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Assignment 5</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<h2>Assignment 5: ScoreCenter</h2>
+<h2>Due: Sunday, April 15th at 11:59 PM</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<h2>Objectives</h2>
+<ul>
+<li>Develop a server-side web application using Heroku, Node.js, and the Express web framework.</li>
+<li>Enable and use Cross-Origin Resource Sharing (CORS).</li>
+<li>Read and write data to a Mongo database.</li>
+<li>Build a JSON-based API.</li>
+</ul>
+
+<h2>Overview</h2>
+<p>Using Heroku, Node.js with the Express web framework, and Mongo DB, you are to build a web application that maintains high scores for HTML5 games (e.g., your <a href="a4.html">Frogger game in Assignment 4</a>).</p>
+
+<h2>Data Description</h2>
+<p>Your web application shall only work with one set of data: <code>highscores</code>.  In Mongo, a set of data is known as a <span class="stress">collection</span>.  If you are familiar with relational databases, a collection is analogous to a table.  The data that must be stored in <code>highscores</code> are:</p>
+<ul>
+<li><code>game_title</code> (a string) - The title of the game. Example: Frogger</li>
+<li><code>username</code> (a string) - Name of player for the game</li>
+<li><code>score</code> (a number) - The player's score</li>
+<li><code>created_at</code> (a date) - The date of record entry</li>
+</ul>
+
+<h2>Requirements</h2>
+<p>Your web application shall have the following features:</p>
+<ol>
+<li>A POST API <code>/submit.json</code> - Allows any HTML5 game on any web domain to send high scores to your web application.  The mandatory fields and <span class="stress">exact field names</span> for this API are <code>game_title</code>, <code>username</code>, and <code>score</code>.  Cross-origin resource sharing must be enabled for this API else a game from another domain cannot send score.</li>
+<li>A GET API <code>/highscores.json</code> - Returns the top 10 scores in descending order and as a JSON string (array of objects) for a specified game.  The mandatory parameter for this API is <code>game_title</code>.  Example: <code>/highscores.json?game_title=frogger</code> returns the top 10 scores in descending order for the game "frogger".  Example output: <code>[{"gametitle":"frogger","username":"batman","score":"86","created_at":"Sun Mar 24 2013 23:51:58 GMT-0400 (EDT)","_id":"514fc9deb7cda6f604000003"},{"gametitle":"frogger","username":"batman","score":"46","created_at":"Sun Mar 24 2013 22:56:43 GMT-0400 (EDT)","_id":"514fbceb8a831df401000009"},{"gametitle":"frogger","username":"batman","score":"32","created_at":"Sun Mar 24 2013 22:52:01 GMT-0400 (EDT)","_id":"514fbbd18a831df401000006"}]</code>.  Cross-origin resource sharing must be enabled for this API else a game from another domain cannot retrieve high scores.</li>
+<li><code>/</code> - Home, the root, the index. Accessing <code>http://<span class="stress">yourappname</span>.heroku.com</code> on a web browser shall display list of all the scores for all games.  You are free to design this section however you desire.</li>
+<li><code>/usersearch</code> - Search for a username.  This page shall have at (at the very least) one textbox to enter username and a submit button.  Clicking on the submit button will return a list of all the high scores for all games for the specified username.  List of scores for username can either be displayed on the same page as the textbox or on a new page.  You are free to design this section however you desire.</li>
+</ol>
+
+<h2>Security</h2>
+<p>Please note that I did not even mention a thing about security or error handling in the requirements.  Authentication to this web application is not even required.  There is a reason for this, as you will see in Assignment 6.</p>
+
+<h2>A Word on Getting Started</h2>
+<p class="note">Please do not create and work on this assignment directly in your private GitHub repository as you will have a Git repo inside of a Git repo.  Your work will not be pushed to GitHub correctly if you do this. See "Submitting the Assignment."</p>
+
+<h2>Your Frogger Game</h2>
+<p>To test your web application, you are urged to modify your Frogger game from Assignment 4 to use your POST and GET APIs.  Ideally, you should make a copy of your game to your special GitHub repo <code><span class="stress">yourusername</span>.github.com</code>.  Once the game is over, prompt the user to enter username, say in a popup box.  Upon entry of username, the username and the score can be sent to your web application (at Heroku) via your POST API.</p>
+
+<h2>References</h2>
+<ol>
+<li><a href="lab10.html">Lab 10</a></li>
+<li><a href="http://api.jquery.com/jQuery.post/" target="_blank">jQuery.post() Documentation (official)</a></li>
+<li><a href="http://expressjs.com/api.html" target="_blank">The Express web framework API reference (offcial)</a></li>
+<li><a href="http://docs.mongodb.org/manual/tutorial/getting-started/#getting-started-with-mongodb-development" target="_blank">Getting Started with MongoDB Development (official)</a></li>
+<li><a href="https://github.com/mongodb/node-mongodb-native" target="_blank">Mongo DB Native NodeJS Driver (official, on GitHub; hint hint...)</a></li>
+<li><a href="http://howtonode.org/node-js-and-mongodb-getting-started-with-mongojs" target="_blank">Node.js and MongoDB - Getting started with MongoJS (howtonode.org)</a></li>
+</ol>
+
+<!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
+<h2><span class="note">(Course Policy)</span> The <code>README</code> File</h2>
+<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
+</ol>
+
+<!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
+<h2><span class="note">(Course Policy)</span> The Late Policy</h2>
+<p>Homework that is submitted electronically (most homework) will typically be due at 11:59 PM on a Monday or Wednesday or at 5:59 PM on a Friday. We will grant an automatic extension of ten minutes at no cost to you. If you plan on submitting your work at midnight or at six, you will have nine minutes for last-minute changes.</p>
+<p>Homework is expected to be submitted on time. However, we recognize that the exigencies of college life occasionally interfere with on-time submission. If you have difficulty getting homework in on time, you have two options:</p>
+<ol>
+<li>For ordinary difficulties, each student is automatically issued six "extension tokens." By expending an extension token, you can get an automatic 24-hour extension on all deadlines associated with a single assignment.  To use an extension token, you must e-mail me at <code>mchow@cs.tufts.edu</code>. Thus must be sent before the assignment is due.  At most two extension tokens may be expended on any single assignment.  When you are out of tokens, late homework will no longer be accepted: it will be returned ungraded, and you will receive no credit for the work.</li>
+<li>If a serious illness affects your ability to complete homework on time, your first step is to report the illness using the "Illness Notification Form" that is available in WebCenter for Students. We will make suitable arrangements. For extraordinary difficulties, such as bereavement, family emergencies, or other extraordinary unpleasant events, your first step should be to make contact with your associate dean for undergraduate education. You must take this step before the assignment is due. Ask your dean to drop me an email or give me a call, and we will make special arrangements that are suited to your circumstances.</li>
+</ol>
+
+<p>Please understand that extension tokens are meant to be used.  That is, you will not receive any special bonus at the end of the course if you do not use any of your extension tokens.</p>
+<p>Solutions to assignments and labs will not be posted for this course.</p>
+
+<h2>Submitting the Assignment</h2>
+<ol>
+<li>Complete the form at <a href="https://docs.google.com/forms/d/1r0LMVXAAO2kLL4mtixg3UhulCJOgSrHiekGBn2Ud9Fo/viewform" target="_blank">https://docs.google.com/forms/d/1r0LMVXAAO2kLL4mtixg3UhulCJOgSrHiekGBn2Ud9Fo/viewform</a>. <span class="note">You only need to complete this form once!</span></li>
+<li>Push a ZIP (compressed file) of your web application to your private GitHub repository to a folder named <code>scorecenter</code>.  <span class="note">No credit will be given for this assignment if you push a format other than ZIP (e.g., .7z, .rar)!</span>.  Please note that you must also have a <code>README</code> in the <code>scorecenter</code> directory of your private GitHub repo!</li>
+</ol>
+
+<h2>Assessment</h2>
+<ul>
+<li>(5 points) README</li>
+<li>(5 points) Technical competency (e.g., use <a href="http://kotaku.com/5975610/the-exceptional-beauty-of-doom-3s-source-code" target="_blank">good programming practices</a> (including good variable names, code indentation); consistent and constant Git commits and pushes; write meaningful Git commit messages; have a <code>.gitignore</code> file in your repo)</li>
+<li>(5 points) The POST API as documented above</li>
+<li>(5 points) The GET API as documented above</li>
+<li>(5 points) The index as documented above</li>
+<li>(5 points) The user search feature as documented above</li>
+</ul>
+
+<p class="note">How I will test your web application: I will connect an HTML5 game of my own to your scorecenter.  Should one of your API fail on any case (that is, high score cannot not be recorded or the format of your GET API is incorrect), you will receive no credit for that API!</p>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
