@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - MongoDB</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<a href="https://github.com/tuftsdev/WebProgramming" class="button"><small>All examples used in class<br/>are here on </small>GitHub</a>
+<h2>MongoDB</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<h3>Review of Lab 10</h3>
+
+<h3>Semester Group Project Check-In</h3>
+
+<h3>Recall Data Persistence with Cookies and Local Storage</h3>
+
+<h3>Data Persistence on Server-Side via NoSQL</h3>
+<ul>
+<li>Does not use SQL-like query language (which supports the idea of "tables")</li>
+<li>Longer persistence</li>
+<li>Store massive amounts of records</li>
+<li>Many systems are optimized for retrieval (query) and appending (write) operations</li>
+<li>Systems can be scaled</li>
+<li>High availability</li>
+<li>Semi-structured data</li>
+<li>Support for numerous concurrent connections</li>
+<li>Indexing of records for faster retrieval</li>
+</ul>
+
+<h3>MongoDB</h3>
+<ul>
+<li>The big ideas: documents, collections</li>
+<li>Mongo DB is a <span class="stress">document-based</span> database system</li>
+<li>The abstract idea of a <span class="stress">document</span> - data encapsulation into some file format.  In the case of Mongo DB, JSON is used.</li> 
+<li>If you are familiar with relational databases and SQL, analogies: tables =&gt; collections; records (or rows) =&gt; documents</li>
+<li>Each document can have different fields from other documents</li>
+<li>All documents must have an <code>_id</code> field</li>
+</ul>
+
+<h3>Software</h3>
+<ol>
+<li><code>mongod</code> - the daemon process; handles data requests, manages data format, and performs background management operations; must always run!</li>
+<li><code>mongo</code> - the client shell interface to MongoDB</li>
+</ol>
+
+<h3>MongoDB Operations</h3>
+<ul>
+<li>Selecting a database to use</li>
+<li>Showing all collections in database</li>
+<li>Finding / querying documents in a collection</li>
+<li>Inserting documents into a collection</li>
+<li>Deleting documents in a collection</li>
+<li>Update documents in a collection</li>
+</ul>
+
+<h3>Interfacing with MongoDB</h3>
+<ul>
+<li>In Node.js: use package <code>node-mongodb</code>
+<ul>
+<li>Put it in your <code>package.json</code> file under <code>dependencies</code></li>
+</ul>
+</li>
+<li>Drivers for Java, C/C++, Python, Ruby, PHP, and other languages available.  See <a href="http://docs.mongodb.org/ecosystem/drivers/" target="_blank">http://docs.mongodb.org/ecosystem/drivers/</a></li>
+</ul>
+
+<h3>Reference</h3>
+<ul>
+<li><a href="http://www.mongodb.org/" target="_blank">http://www.mongodb.org/</a></li>
+<li><a href="https://github.com/mongodb/node-mongodb-native" target="_blank">https://github.com/mongodb/node-mongodb-native</a></li>
+</ul>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
