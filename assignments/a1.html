@@ -95,10 +95,7 @@
 <h2>About Your Tufts CS Account</h2>
 <p>Any student taking a class with the Tufts University Department of Computer Science is given an email address <code><span class="stress">YOUR_LOGIN</span>@cs.tufts.edu</code> and 50 MB of web hosting space.  As of this writing, your email address and web hosting space with Tufts CS is forever.  <span class="note">IMPORTANT: using Tufts CS resources for malicious (e.g., spam) or commercial purposes (e.g., a startup) will result in explusion from the University!</span></p>
 
-<p>Tufts CS provides a cluster for Unix logins (as well as two workstation labs running Red Hat Enterprise Linux in Halligan 116 and 118):</p>
-<ul>
-<li><code>linux.cs.tufts.edu</code></li>
-</ul>
+<p>Tufts CS provides a cluster for Unix logins.</p>
 
 <p><span class="note">If you have not done so already, activate or reset your Tufts CS Unix account at <a href="https://www.eecs.tufts.edu/~accounts/" target="_blank">https://www.eecs.tufts.edu/~accounts/</a>.</span></p>
 
@@ -115,7 +112,7 @@
 <p>You will set the correct permissions on your "home directory" and the <code>public_html</code> directories.  This can be accomplished by executing the following commands (assume that your login is <code>lsimpson</code> and your command prompt is <code>&gt;</code>):</p>
 
 <ol>
-<li>Log on to <code>linux.cs.tufts.edu</code></li>
+<li>Log on to <code>linux.cs.tufts.edu</code> or <code>homework.cs.tufts.edu</code></li>
 <li><code>lsimpson ~/work/project/ &gt; cd ~</code></li>
 <li><code>lsimpson ~/ &gt; mkdir public_html</code></li>
 <li><code>lsimpson ~/ &gt; chmod 755 public_html</code> (NOTE: <code>755</code> is the permissions code for user readable, writable, and executable; group readable and executable; other readable and executable)</li>
@@ -136,7 +133,7 @@
 
 <p>If one of these steps is not completed, you will get the 403 error (status code)!</p>
 
-<h3>Transfer Files From Your Computer to <code>linux.cs.tufts.edu</code> via <code>scp</code> on Mac OS X and Linux</h3>
+<h3>Transfer Files From Your Computer to <code>linux.cs.tufts.edu</code> or <code>homework.cs.tufts.edu</code> via <code>scp</code> on Mac OS X and Linux</h3>
 <p><code>scp</code> securely copies files between hosts on a network.  To learn more about <code>scp</code>, run <code>man scp</code> on the terminal.</p>
 
 <p>Say that user <code>lsimpson</code> has two files: <code>index.html</code> and <code>smiley.png</code> in her home directory on her local computer.  To transfer them her <code>public_html</code> directory on <code>linux.cs.tufts.edu</code>, she would run:</p>

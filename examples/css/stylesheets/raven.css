@@ -1,8 +1,3 @@
-body {
-	font-family: "Comic Sans MS";
-	text-align: center;
-}
-
 h1 {
 	font-size: 10px;
 	font-style:italic;
@@ -10,6 +5,27 @@ h1 {
 }
 
 p {
+	font-family: Helvetica;
+	font-size: 18px;
+}
+
+body {
+	font-family: "Comic Sans MS";
+	text-align: center;
+}
+
+h2 {
+	background-color: yellow;
+	padding: 5px;
+}
+
+#title {
+	border-style: dashed;
+	border-width: 10px;
+	margin: 50px;
 	font-size: 48px;
-	color: green;
+}
+
+p#opening {
+	font-size: 36px;
 }
