@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Assignment 2</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<h2>Assignment 2: <strike>Flappy Bird</strike> Duck Hunt, Part I</h2>
+<h2>Due: Tuesday, February 25th at 11:59 PM</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<h2>Objectives</h2>
+<ol>
+<li>Program with JavaScript.</li>
+<li>Use the Document Object Model.</li>
+<li>Render 2D graphics on the web browser with HTML5's canvas.</li>
+</ol>
+
+<h2>Overview</h2>
+<p>In this assignment, you will start to build a working and modified version of Duck Hunt using JavaScript, playable on the web browser.</p>
+<p>The goal of the game is self-explanatory: shoot the duck(s) in the air.</p>
+
+<h2>Instructions</h2>
+<p>You will write one file: <code>game.js</code>.  This file will contain all the game logic including initialization, rendering all the graphics, handing keypresses, and animation.</p>
+<p class="stress">For this assignment, you will draw a few graphics to the canvas in a method named <code>draw()</code>.  The following must be drawn:</p>
+<ol>
+<li>The skies.  Use color code <code>#87CEEB</code> for blue.</li>
+<li>The dirt road. Use the color code <code>"#784800"</code> for dirt brown.</li>
+<li>A tree on the dirt road.</li>
+<li>The bushes.</li>
+<li>The dog sniffing the road.</li>
+<li>Five flying birds in the skies (bird color of your choice).</li>
+</ol>
+
+<p>Programming should be done on your local computer.</p>
+
+<h2>Getting Started</h2>
+<ol>
+<li>Download the file <code><a href="duckhunt.zip">duckhunt.zip</a></code> directly into your private repository on your computer <code>comp20-firstletterofyourfirstnameandlastname</code> (the same folder you used for Lab 4).</li>
+<li>Unzip the ZIP file.  A folder <code>duckhunt</code> with files will be created.</li>
+<li>Remove the ZIP file <code>duckhunt.zip</code></li>
+<li>Run <code>git commit -m "Adding Duck Hunt"</code></li>
+<li>Run <code>git push</code></li>
+</ol>
+<p>You are provided with four files in the <code>duckhunt</code> directory:</p>
+<ol>
+<li><code>index.html</code> - HTML page with a canvas</li>
+<li><code>style.css</code> - The stylesheet</li>
+<li><code>assets/duckhunt.png</code> - A sprite sheet containing all the images, sprites, necessary for the game.</li>
+<li><code>game.js</code> - Where you will write all your JavaScript code.</li>
+</ol>
+
+<p class="note">You are not allowed to create additional stylesheets or HTML files.  You are also not allowed to use jQuery!</p>
+
+<h2>About Sprite Sheets</h2>
+<p>One of the issues that you discovered in Lab 2 is that when assets are loaded for a web page (e.g., images, stylesheets), a lot of time is spent on waiting, the time between sending the HTTP request and receiving an HTTP response.  Games typically use lots of images.  If there are lots of individual images to be downloaded, then the total amount of time spent waiting will be high.  A way to alleviate the waiting problem is to only have one image, but the image contains all the images necessary for the game.  This image is better known as a <span class="stress">sprite sheet</span>.  In this assignment, the image <code>assets/duckhunt.png</code> is a sprite sheet.</p>
+
+<h2>The JavaScript Canvas API</h2>
+<p>A canvas is simply a drawing area.  HTML5 introduces a new element called <code>&lt;canvas&gt;</code>.  Drawing can be done onto the canvas via of the JavaScript Canvas API.  The Canvas API contains many powerful methods: from drawing lines to image manipulation.</p>
+<p>The API also contains a method, <code>drawImage()</code> that allows <span class="stress">slicing</span> an image.  That is, only draw parts of an image onto the canvas.  Please refer to <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="blank">https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D</a> for the parameters and usage of <code>drawImage()</code>.  To get the coordinates (in pixels) of the part of the image you want to render, you can use tools such as Preview on Mac OS X, Gimp, or Photoshop.</p>
+<p>There is an excellent tutorial on the JavaScript Canvas API through Mozilla at <a href="https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial" target="_blank">https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial</a></p>
+<p>The <code>&lt;canvas&gt;</code> is initially blank, and to display something a script (your <code>game.js</code>) first needs to access the rendering context and draw on it. The canvas element has a DOM method called <code>getContext()</code>, used to obtain the rendering context and its drawing functions. <code>getContext()</code> takes one parameter, the type of context.</p>
+<pre>
+canvas = document.getElementById('tutorial');
+ctx = canvas.getContext('2d');
+</pre>
+
+<h2>Calling a JavaScript Function On Page Load</h2>
+<p>When a web page has completely loaded all content (including images, JavaScript files, CSS files, etc.), you can execute JavaScript code immediately via the <code>onload</code> attribute for the <code>body</code> element.  That is:</p>
+
+<pre>
+&lt;body onload="<span class="stress">SomeJavaScriptCodeOrFunction</span>"&gt;
+</pre>
+
+<h2>Viewing Your Work</h2>
+<p>Open the <code>index.html</code> file on a web browser on your web browser (Chrome, Firefox, Safari, the latest version of Microsoft Internet Explorer)</p>
+<p class="note">For obvious reasons, you are not allowed to make your work publicly accessibly on the web --yet.</p>
+
+<h2>The <code>README</code> File</h2>
+<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (<code>README.txt</code>) or in Markdown (<code>README.md</code>). No other formats will be accepted.</li>
+</ol>
+
+<h2>Course and Assignment Policies</h2>
+<p><a href="../index.html#policies">Please refer to the course home page.</a></p>
+
+<h2>Submitting the Assignment</h2>
+<p>Push all the files to the private repository that I created for you in a folder named <code>duckhunt</code>.  Say that your private repository is named <code>comp20-mchow</code>, make sure all the files are pushed to <code>comp20-mchow/duckhunt</code>.</p>
+
+<h2>Assessment</h2>
+<ol>
+<li>(8 points) The <code>draw()</code> method in <code>game.js</code> draws all the required items on the canvas</li>
+<li>(2 points) Programming style - documentation addresses exactly the key issues, and degree of detail is exactly appropriate; well thought out and implemented code; well chosen names for functions and their parameters.</li>
+<li>(-2 points) JavaScript errors exist in console</li>
+<li>(-2 points) No <code>README</code></li>
+<li>(-2 points) Creates additional stylesheets or HTML files</li>
+<li>(-2 points) Files are not in your private repository in a folder named <code>duckhunt</code></li>
+<li>(-10 points) You used jQuery</li>
+<li>(-1 point) Nonsense git commit messages or did not commit much</li>
+</ol>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
