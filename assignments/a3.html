@@ -46,7 +46,7 @@
 <li>Detects and maps your current location via <code>navigator.geolocation</code> JavaScript object.  An info window marking your location (e.g., "I am here at...") must be attached to your marker and displayed on the map.</li>
 <li>Maps all the stations on a <span class="stress">specified</span> MBTA subway line (Red, Orange, or Blue) using Google Maps API version 3.  In the past, I have asked students to render only the Red Line stations on the map.  This time, you will be told to render the Red, Orange, or the Blue Line.  A distinct icon marker (i.e., something other than the default Google Maps icon for markers) must be used for all stations, and a colored polyline connecting all the stations on the specified line must be rendered. Clicking on a marker will display an info window with the name of the station.</li>
 <li>Displays the closest subway station to your current location with approximate distance away (in miles).</li>
-<li>Clicking on a subway station marker will display an info window with the name of the station and arrival schedule, inbound and outbound, for each station on the given line.</li>
+<li>Clicking on a subway station marker will display an info window with the name of the station and arrival schedule, destination direction, for each station on the given line.</li>
 </ol>
 
 <h2>Instructions and Getting Started</h2>
@@ -115,10 +115,10 @@
 <li>(1 point) Use at least one (1) CSS file</li>
 <li>(1 point) All files are stored in your private GitHub repo in a directory named <code>transit</code></li>
 <li>(1 point) README file exists in your <code>transit</code> folder.</li>
-<li>(3 points) Upon clicking on a station icon on the map, display info window containing the name of the station and subway arrival schedule, inbound and outbound, for each station on the line.</li>
+<li>(3 points) Upon clicking on a station icon on the map, display info window containing the name of the station and subway arrival schedule, destination direction, for each station on the line.</li>
 <li>(1 point) Check whether the MBTA schedule data can be processed or not (i.e., take a look at the 500 status code in XHR).</li>
 <li>(-10 points) You used jQuery.</li>
-<li>(-10 points) Errors (except for the one 500 error) and outputs exist in JavaScript console.</li>
+<li>(-10 points) Errors (except for the one 500 error) and <code>console.log()</code> outputs exist in JavaScript console (warnings acceptable).</li>
 <li>(-5 points) You rendered all the MBTA subway stations on the map.  I don't want to see all the subway stations on the map!</li>
 <li>(-3 points) Nonsense Git commit messages or did not commit much.</li>
 </ul>
