@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Lab 7</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<h2>Lab 7: Running Status Updates (Persistent) + Preview of Server-Side Development</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<p class="note">This lab is worth 4 points. This is a two-part lab. I do not expect many of you to work on this during spring break but you can if you want to (i.e., you have nothing to do and you want to tinker with something).  Because next week is spring break and some of you will be going away, this lab will not be due until Thursday, March 27th (not Tuesday the 25th as some of you may want to settle for a bit after the break).</p>
+
+<h2>(Part 1) Lab Objectives</h2>
+<ul>
+<li>Practice with data persistence and local storage.</li>
+</ul>
+
+<h2>(Part 1) Instructions</h2>
+<p>Modify your <a href="lab-dom.html">Lab 5</a>, your <code>status_updates/profile.html</code> file, so that messages entered (that is, on pressing the enter / return key) will be displayed dynamically (i.e., no page refresh) in the "Updates" section --with the latest update showing first!  <span class="stress">More importantly, store the messages in local storage so if you leave the page and return to the page, your messages are preserved and are redisplayed!</span></p>
+<p>All the requirements in Lab 5 are still in effect.  All displayed messages must be preceded with a timestamp in the format <span class="stress">MM/DD/YYYY HH:MM</span>.  A space followed by a hyphen followed by a space must follow the timestamp.  Thus, the format of a message to be displayed must be:</p>
+<pre>
+<span class="stress">MM/DD/YYYY HH:MM</span> - <span class="stress">the message</span>
+</pre>
+
+<p>The time must be in 24-hour format (i.e., military time)!  You do not need to display the leading zero for the month in the date or for the hours in time (example: "9" is acceptable for "09").</p>
+
+<h2>(Part 1) Viewing Your Work</h2>
+<p>Open your <code>status_updates/profile.html</code> page on any web browser that supports local storage.</p>
+
+<h2>(Part 2) A Preview of Server-Side Development</h2>
+<p>When you return from spring break, we will move away from client-side development and focus on server-side development.  Server-side development is a lot more involved than what we have been doing so far and requires a number of components and software including Node.js and MongoDB (database).  Therefore to be prepared after the break, please:</p>
+
+<ol>
+<li>Install Node.js for your computer: <a href="http://nodejs.org/" target="_blank">http://nodejs.org/</a>. If you have a Mac, I strongly recommend using Homebrew instead of downloading the latest version of Node.js from the Node.js website --see <a href="http://mxcl.github.com/homebrew/" target="-blank">http://mxcl.github.com/homebrew/</a>. If you are using my virtual machine, Node.js is already installed on it.</li>
+<li>Create a Heroku account: <a href="http://www.heroku.com/" target="_blank">http://www.heroku.com/</a></li>
+<li>Read up to "Advanced HTTP features", complete the app in the tutorial (up to "Advanced HTTP features"): <a href="https://devcenter.heroku.com/articles/nodejs" target="_blank">https://devcenter.heroku.com/articles/nodejs</a></li>
+<li>In a <code>README.txt</code> or <code>README.md</code> for this lab, put URL of your Node.js app on Heroku.</li>
+</ol>
+
+<h2>Submitting the Lab (Both Parts)</h2>
+<p>Commit and push your updates to your private repo under <code>status_updates</code>, same folder as Lab 5. That is, no need to create a new folder for this lab.</p>
+
+<h2>Assessment</h2>
+<ol>
+<li>(1 point) Messages are stored in local storage</li>
+<li>(1 point) Messages are redisplayed (from local storage) on return to the page</li>
+<li>(1 point) Did not change format and display of messages from Lab 5. That is, messages are displayed in the "Updates" section; latest update message is displayed first, at the top; formatting of message</li>
+<li>(1 point) <code>README.txt</code> or <code>README.md</code> with URL of your Node.js app on Heroku</li>
+<li>(-3 point) Outputs (i.e., <code>console.log()</code> exist in JavaScript console</li>
+<li>(-3 point) You used cookies instead of local storage</li>
+</ol>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
