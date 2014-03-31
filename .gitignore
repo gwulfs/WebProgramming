@@ -29,6 +29,10 @@ ehthumbs.db
 Thumbs.db
 *~
 
+# Node.js specific#
+###################
+node_modules/*
+
 # Rails specific #
 ##################
 *.rbc
