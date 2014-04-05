@@ -1,0 +1,32 @@
+1. Quiz 2
+
+2. Review session on Friday at 3 PM
+
+3. Last class: MongoDB
+
+4. Sending data to server
+app.use(express.bodyParser());
+somedata = req.body.somedata;
+
+5. Node.js + MongoDB
+
+// Mongo initialization
+var mongoUri = process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/database';
+var mongo = require('mongodb');
+var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
+	db = databaseConnection;
+});
+
+
+db.collection('nameofcollection', function(error, collection) {
+		collection.find().toArray(function(error, cursor) {
+			if (!err) {
+				for (var count = 0; count < cursor.length; count++) {
+				    html += ...cursor[count].firstname...;
+				}
+				res.send(html);
+			}
+
+Rough documentation: https://github.com/mongodb/node-mongodb-native
