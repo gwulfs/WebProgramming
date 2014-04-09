@@ -19,6 +19,9 @@ app.get('/', function (request, response) {
 });
 
 app.get('/data.json', function(request, response) {
+  var username = request.query.username; // dealing with a query variable
+  // Example: on your web browser, go to http://[domain here, e.g., localhost]:3000/data.json?username=batman
+  console.log("I see a username: " + username)
   response.set('Content-Type', 'text/json');
   response.send('{"status":"good"}');
 });
