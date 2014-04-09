@@ -25,13 +25,13 @@ tmp/*
 .Spotlight-V100
 .Trashes
 Icon?
-ehthumbs.db
+thumbs.db
 Thumbs.db
 *~
 
 # Node.js specific#
 ###################
-node_modules/*
+/node_modules/*
 
 # Rails specific #
 ##################
