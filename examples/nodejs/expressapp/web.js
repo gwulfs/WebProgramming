@@ -10,22 +10,22 @@ var mongoUri = process.env.MONGOLAB_URI ||
   'mongodb://localhost/comp20'; // comp20 is the name of the database we are using in MongoDB
 var mongo = require('mongodb');
 var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
-	db = databaseConnection;
+  db = databaseConnection;
 });
 
 app.get('/', function (request, response) {
-	response.set('Content-Type', 'text/html');
-	response.send('<p>Hi!</p>');
+  response.set('Content-Type', 'text/html');
+  response.send('<p>Hi!</p>');
 });
 
 app.get('/data.json', function(request, response) {
-	response.set('Content-Type', 'text/json');
-	response.send('{"status":"good"}');
+  response.set('Content-Type', 'text/json');
+  response.send('{"status":"good"}');
 });
 
 app.get('/fool', function(request, response) {
   response.set('Content-Type', 'text/html');
-	response.send(500, 'Something broke!');
+  response.send(500, 'Something broke!');
 });
 
 app.post('/play', function(request, response) {
