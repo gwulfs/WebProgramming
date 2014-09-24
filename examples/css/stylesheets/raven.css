@@ -1,31 +1,35 @@
-h1 {
-	font-size: 10px;
-	font-style:italic;
-	color: red;
-}
-
 p {
-	font-family: Helvetica;
-	font-size: 18px;
+	background-color: yellow;
 }
 
-body {
+p.special {
+	font-size: 96px;
+}
+
+/*
+ * p {...} => a rule
+ * p => selector (generally an HTML element)
+ * background-color: yellow; => declaration
+ * background-color => property
+ * yellow => value 
+*/
+
+h2 {
+	font-family: "Helvetica";
+}
+a {
+	visibility: hidden;
+}
+
+#foo {
+	color: blue;
+	background-color: yellow;
 	font-family: "Comic Sans MS";
+	font-size: 24px;
+	border-style: dotted;
 	text-align: center;
 }
 
-h2 {
-	background-color: yellow;
-	padding: 5px;
-}
-
-#title {
-	border-style: dashed;
-	border-width: 10px;
-	margin: 50px;
-	font-size: 48px;
-}
-
-p#opening {
-	font-size: 36px;
+#foo {
+	background-color: #32CD32;
 }
