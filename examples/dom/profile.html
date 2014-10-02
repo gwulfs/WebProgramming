@@ -6,10 +6,19 @@
 <title>Fecesbook</title>
 <script>
 	function update() {
+		// Step 1: get the text in text box
 		newMsg = document.getElementById("msg").value;
-		newDate = new Date();
+
+		// Step 2: get the current timestamp
+		newDate = Date();
+
+		// Step 3: create HTML for new entry
 		printMsg = '<p>' + newDate.toString() + " - " + newMsg + '</p>';
+
+		// Step 4: get the status section to update
 		oldMsg = document.getElementById("status");
+
+		// Step 5: append to existing HTML (i.e., list of messages)
 		oldMsg.innerHTML += printMsg; 
    }
 </script>
