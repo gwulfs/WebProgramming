@@ -4,6 +4,15 @@
 
 <head>
 <title>Fecesbook</title>
+<script>
+	function update() {
+		newMsg = document.getElementById("msg").value;
+		newDate = new Date();
+		printMsg = '<p>' + newDate.toString() + " - " + newMsg + '</p>';
+		oldMsg = document.getElementById("status");
+		oldMsg.innerHTML += printMsg; 
+   }
+</script>
 </head>
 
 <body>
@@ -19,8 +28,7 @@
 		</ul>
 	</div>
 	<h2 id="fullname">Barney Gumble</h2>
-	<p><img src="https://s3.amazonaws.com/tufts-cs-mchow-images/barneymug.gif" alt="profile" /></p>
-	<h3>What are you thinking about? <input type="text" id="msg" name="msg" size="30" /></h3>
+	<h3>What are you thinking about? <input type="text" id="msg" name="msg" size="30" onchange="update()"/></h3>
 	<h3>Updates</h3>
 	<div id="status">
 	</div>
