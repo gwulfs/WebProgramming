@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/pygment_trac.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/custom.css" media="screen" />
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>COMP 20: Web Programming - Assignment 2</title>
+</head>
+    
+<body>
+<header>
+<div class="inner">
+<h1>Web Programming</h1>
+<h2>Assignment 2: Marauder's Map</h2>
+<h2>Due: Tuesday, October 21st</h2>
+</div>
+</header>
+
+<div id="content-wrapper">
+<div class="inner clearfix">
+<section id="main-content">
+
+<p class="note">This assignment is worth 15 points. You must work on this assignment individually.</p>
+
+<h2>Objectives</h2>
+<ol>
+<li>Use a JSON API.</li>
+<li>Use a third-party JavaScript API (in this case, Google Maps).</li>
+<li>Use the HTML5 geolocation API to determine your location.</li>
+<li>Use event handling.</li>
+<li>Use the <code>XMLHttpRequest</code> object to make requests and manage the response data.</li>
+</ol>
+
+<h2>Overview</h2>
+<p>In <span class="title">Harry Potter</span>, the Marauder's Map is a magical document that reveals all of Hogwarts School of Witchcraft and Wizardry.  Not only does it show every classroom, every hallway, every corner of the castle, but it also shows every inch of the grounds, as well as all the secret passages that are hidden within its walls and <span class="stress">the location of every person in the grounds, portrayed by a dot</span> (taken from <a href="http://harrypotter.wikia.com/wiki/Marauder's_Map" target="_blank">http://harrypotter.wikia.com/wiki/Marauder's_Map</a>).</p>
+
+
+<h2>Instructions</h2>
+<p>You will build a Marauder's Map-like product that:</p>
+<ol>
+<li>Retrieves your current location and sends your current location to a datastore that I created.</li>
+<li>Retrieves and displays the locations of a cast of characters (see below) <span class="stress">and</span> locations of students in the class (the last 100 entries including your current location) on the map.  The distance (in miles) between you and each character (not each student), must be displayed somewhere on the map, either below the map or as an overlay on the map.</li>
+</ol>
+
+<h2>Requirements</h2>
+<ol>
+<li>You must use at least one (1) CSS file.  You can name the file whatever you want.</li>
+<li>You must use the JavaScript <code>navigator.geolocation</code> object to retrieve your geolocation information (latitude and longitude).</li>
+<li>You must display your location on the map with unique marker (i.e., using an image of your choice) and info window after retrieving information from <code>navigator.geolocation</code>.</li>
+<li>You must display locations of students in the class on the map (no unique map marker necessary) and info window that displays (login, latitude, longitude, and timestamp).</li>
+<li>You must displays the location of the character(s) with their respective icon as the marker, and info window that displays their name, latitude, longitude, and note.  You will need to download each character's icon image into your project folder.</li>
+<li>You must display polyline(s) between you and each of the character(s) on the map.  The number of characters that you need to display on the map may vary from time to time.</li>
+<li>You must display the distance (in miles) between you and the character(s), sorted.  You can display the chart of distances any way you want: below the map, to the right of the map, or in a box that overlays the map (slick option).</li>
+</ol>
+
+<h2>APIs</h2>
+<p>This assignment will require the use of two external APIs:</p>
+<ol>
+<li>The datastore API to send your location information and to retrieve information where everyone else is (students and characters): <code>http://chickenofthesea.herokuapp.com/sendLocation</code></li>
+<li>The Google Maps API.  Please refer to my notes at <a href="../lecture_notes/ajax.html">http://tuftsdev.github.com/WebProgramming/lecture_notes/ajax.html</a>.  Working examples are available at <a href="https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/google_maps">https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/google_maps</a>.  <span class="note">NOTES: the <code>geolocation_map.html</code> example requires the page to be on a web server, see below or push a copy of it with corresponding CSS to your special repo <code>username.github.io</code>.  Also, you do not need to create an API key to use Google Maps API version 3.</span>You can see <code>geolocation_map.html</code> in action at <a href="http://tuftsdev.github.com/WebProgramming/examples/google_maps/geolocation_map.html" target="_blank">http://tuftsdev.github.com/WebProgramming/examples/google_maps/geolocation_map.html</a>.</li>
+</ol>
+
+<h3>The Datastore API and Location of Students and the Characters</h3>
+<p>The datastore API <code>http://chickenofthesea.herokuapp.com/sendLocation</code> takes in three parameters and will return a JSON feed of the locations of students (the last 100 entries) and the locations of one or many of the characters, if the three parameters are legitimate.</p>
+<ul>
+<li><code>login</code> - Your Tufts CS login</li>
+<li><code>lat</code> - Your latitude</li>
+<li><code>lng</code> - Your longitude</li>
+</ul>
+<p>If you successfully send the three inputs to the datastore, you will receive a JSON that looks like the following: <code>{"characters":[{"name":"carmen","loc":{"latitude":37.81972,"longitude":-122.47861,"note":"Golden Gate Bridge"}}],"students":[{"name":"mchow","loc":{"lat":30.0,"lng":35.0,"note":"Thu Sep 30 19:39:11 UTC 2010"}},{"name":"mchow","loc":{"lat":55.0,"lng":-75.0,"note":"Wed Sep 29 20:16:08 UTC 2010"}},{"name":"mchow","loc":{"lat":50.0,"lng":50.0,"note":"Wed Sep 29 05:44:43 UTC 2010"}},{"name":"eforme02","loc":{"lat":25.0,"lng":45.0,"note":"Tue Sep 28 21:48:51 UTC 2010"}},{"name":"snilan01","loc":{"lat":34.0,"lng":56.0,"note":"Tue Sep 28 00:18:42 UTC 2010"}},{"name":"snilan01","loc":{"lat":34.0,"lng":56.0,"note":"Mon Sep 27 21:25:59 UTC 2010"}},{"name":"mchow","loc":{"lat":33.5,"lng":-82.02222,"note":"Mon Sep 27 19:50:41 UTC 2010"}}]}</code></p>
+<p>If you do not send the three inputs to the datastore correctly, the list for <code>students</code> will be empty!</p>
+<p class="note">Important: Cross-Origin Resource Sharing (CORS) is enabled for this API!</p>
+
+<h2>Cast of Characters and Their Respective Icons</h2>
+<ul>
+<li><img src="../images/carmen.png" alt="Carmen Sandiego" /> Carmen Sandiego</li>
+<li><img src="../images/waldo.png" alt="Waldo" /> Waldo</li>
+<li><img src="../images/batman.png" alt="Batman" /> Batman</li>
+<li><img src="../images/nr.png" alt="Professor Norman Ramsey" /> Professor Norman Ramsey</li>
+<li><img src="../images/snape.png" alt="Professor Severus Snape" /> Professor Severus Snape</li>
+<li><img src="../images/hescott.png" alt="Professor Ben Hescott" /> Professor Ben Hescott</li>
+</ul>
+
+<h2>The Haversine Formula: The Distance Between Two (Geo)Points</h2>
+<p>To calculate the distance between two geopoints (latitude and longitude), you must use the Haversine Formula.  The formula is provided and analyzed at <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">http://www.movable-type.co.uk/scripts/latlong.html</a>.  Also, you can refer to this on Stack Overflow: <a href="http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript" target="_blank">http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript</a>.</p>
+
+<h2>Important Notes</h2>
+<ul>
+<li>You are not allowed to use jQuery or any JavaScript front-end framework for this assignment.</li>
+<li>You do not need to render polylines between you and each student, just for the characters only.</li>
+<li>To help you better understand and read the JSON that is sent to you, try this <a href="http://json.parser.online.fr/" target="_blank">Online JSON Parser</a></li>
+</ul>
+
+<!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
+<h2>The <code>README</code> File</h2>
+<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
+</ol>
+
+<h2>Submitting the Assignment</h2>
+<p>Two-step process for this assignment:</p>
+<ol>
+	<li>Push all the files to the private repository that I created for you in a folder named <code>mmap</code>.  Say that your private repository is named <code>comp20-mchow</code>, make sure all the files are pushed to <code>comp20-mchow/mmap</code></li>
+	<li>In the root of your private repository on your, run:
+		<ol>
+			<li><code>git branch gh-pages</code></li>
+			<li><code>git push origin gh-pages</code></li>
+		</ol>
+	</li>
+</ol>
+
+<h2>Viewing Your Work</h2>
+<p>Using the JavaScript Geolocation API requires your page to be hosted on a web server.  Alas, simply opening the <code>index.html</code> page on a web browser will not work for this assignment. You have a few options:</p>
+<ol>
+	<li>Create a <code>gh-pages</code> branch on your private GitHub repo and then view your work via <code>http://tuftsdev.github.io/comp20-username/mmap</code> --see above.</li>
+	<li>Make a copy of your work to your <code>username.github.io</code> repository (recall Assignment 1)</li>
+	<li>Make a copy of your work to your Tufts CS web folder (that is, <code>public_html</code>)</li>
+	<li>Make a copy of your work to a web server that you own</li>
+</ol>
+
+<h2>Assessment</h2>
+<p>This assignment is worth 15 points.</p>
+<ul>
+<li>(1 point) Have at least one (1) CSS file</li>
+<li>(1 point) Retrieves your location via JavaScript <code>navigator.geolocation</code> object.</li>
+<li>(1 point) Sends your location (latitude, longitude, login) to datastore.</li>
+<li>(1 point) Displays your location on the map with unique marker and info window</li>
+<li>(1 point) Retrieves locations of students in the class and the locations of one or many of the cast of characters</li>
+<li>(2 points) Displays locations of students in the class on the map with a unique marker (one icon for all students) and info window that displays (login, latitude, longitude, and timestamp)</li>
+<li>(2 points) Displays the location of the character(s) with their respective icon as the marker, and info window that displays their name, latitude, longitude, and note.</li>
+<li>(2 points) Display polyline(s) between you and the character(s)</li>
+<li>(2 points) Display the distance (in miles) between you and the character(s), sorted</li>
+<li>(2 points) The basics (e.g., <code>README</code> file, proper folder name)</li>
+<li>(-15 points) You used jQuery.</li>
+<li>(-15 points) Errors (except for the one 500 error) and <code>console.log()</code> outputs exist in JavaScript console (warnings acceptable).</li>
+<li>(-5 points) Nonsense Git commit messages or did not commit much.</li>
+</ul>
+
+</section>
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-582953-9");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>
