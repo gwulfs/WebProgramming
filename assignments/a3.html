@@ -38,27 +38,36 @@
 </ul>
 
 <h2>Overview</h2>
-<p>In <a href="a2.html">Assignment 2</a>, you sent your username, latitude, and longitude to a web application server (i.e., <code>http://chickenofthesea.herokuapp.com/</code>), and it responded with a gob of data (students and characters) in JSON format.  In this assignment, you will write a web application that is almost exactly like that used for Assignment 2, and deploy it to server(s).</p>
+<p>In <a href="a2.html">Assignment 2</a>, you sent your login, latitude, and longitude to a web application server (i.e., <code>http://chickenofthesea.herokuapp.com/</code>), and it responded with a gob of data (students and characters) in JSON format.  In this assignment, you will write a web application that is almost exactly like that used for Assignment 2, and deploy it to server(s).</p>
 
 <p>Using Heroku, Node.js with the Express web framework, and MongoDB, you are to build a web application that maintains "location check-ins" (login, latitude, and longitude) for a long period of time.</p>
 
 <h2>Data Description</h2>
 <p>Your web application shall only work with one set of data: <code>locations</code>.  In MongoDB, a set of data is known as a <span class="stress">collection</span>.  If you are familiar with relational databases, a collection is analogous to a "table".  The collection contains a number of records, properly known as <span class="stress">documents</span>.  If you are familiar with relational databases, a document is analogous to a "row".  The data that must be stored in one document (or record) are:</p>
 <ul>
-<li><code>login</code> (a string) - A user's handle</li>
-<li><code>latitude</code> (a floating point number) - The user's latitude</li>
-<li><code>longitude</code> (a floating point number) - The user's longitude</li>
+<li><code>login</code> (a string) - A user's handle.  The allowable characters for a login are [a-zA-Z0-9].</li>
+<li><code>lat</code> (a floating point number) - The user's latitude</li>
+<li><code>lng</code> (a floating point number) - The user's longitude</li>
+<li><code>created_at</code> - The timestamp, generated for each new record entry.  Use the JavaScript <code>Date</code> object to generate timestamp.</li>
 </ul>
 
 <p>Each document will have the data field <code>_id</code> (the document's unique field, primary key) created automatically.</li>
 
 <h2>Requirements</h2>
 <p>Your web application shall have the following features:</p>
-<ol>
-<li>A <code>POST /sendLocation</code> API - Submits final score and grid for a terminated 2048 game --from any domain.  The mandatory fields and <span class="stress">exact field names</span> for submission to this API are <code>username</code>, <code>score</code>, and <code>grid</code>.  Successful submission of these three pieces of data shall result in one entry into the collection <code>scores</code> in Mongo. <span class="note">If a submission is missing any one of the data fields, do not insert new record into the database!</span>  Cross-origin resource sharing must be enabled for this API, else a 2048 game from another domain cannot send score.</li>
-<li>A <code>GET /scores.json</code> API - Returns a JSON string (array of objects) for a specified player with the scores sorted in descending order.  The mandatory parameter for this API is <code>username</code>.  If <code>username</code> is empty, return empty JSON array <code>[]</code>.  Example: <code>/scores.json?username=mchow</code> returns the scores in descending order for me.  Example output: <code>
-[{"username":"mchow","score":1344,"grid":"{\"size\":4,\"cells\":[[{\"x\":0,\"y\":0,\"value\":4,\"previousPosition\":{\"x\":0,\"y\":0},\"mergedFrom\":null},{\"x\":0,\"y\":1,\"value\":2,\"previousPosition\":{\"x\":0,\"y\":1},\"mergedFrom\":null},{\"x\":0,\"y\":2,\"value\":8,\"previousPosition\":{\"x\":0,\"y\":2},\"mergedFrom\":null},{\"x\":0,\"y\":3,\"value\":2,\"previousPosition\":{\"x\":0,\"y\":3},\"mergedFrom\":null}],[{\"x\":1,\"y\":0,\"value\":8,\"previousPosition\":{\"x\":1,\"y\":0},\"mergedFrom\":null},{\"x\":1,\"y\":1,\"value\":16,\"previousPosition\":{\"x\":1,\"y\":1},\"mergedFrom\":null},{\"x\":1,\"y\":2,\"value\":32,\"previousPosition\":{\"x\":1,\"y\":2},\"mergedFrom\":null},{\"x\":1,\"y\":3,\"value\":8,\"previousPosition\":{\"x\":2,\"y\":3},\"mergedFrom\":null}],[{\"x\":2,\"y\":0,\"value\":64,\"previousPosition\":{\"x\":2,\"y\":0},\"mergedFrom\":null},{\"x\":2,\"y\":1,\"value\":128,\"previousPosition\":{\"x\":2,\"y\":1},\"mergedFrom\":null},{\"x\":2,\"y\":2,\"value\":16,\"previousPosition\":{\"x\":2,\"y\":2},\"mergedFrom\":null},{\"x\":2,\"y\":3,\"value\":4,\"previousPosition\":{\"x\":3,\"y\":3},\"mergedFrom\":null}],[{\"x\":3,\"y\":0,\"value\":4,\"previousPosition\":{\"x\":3,\"y\":0},\"mergedFrom\":null},{\"x\":3,\"y\":1,\"value\":2,\"previousPosition\":{\"x\":3,\"y\":1},\"mergedFrom\":null},{\"x\":3,\"y\":2,\"value\":8,\"previousPosition\":{\"x\":3,\"y\":2},\"mergedFrom\":null},{\"x\":3,\"y\":3,\"value\":2,\"previousPosition\":null,\"mergedFrom\":null}]]}","created_at":"Tue Mar 25 2014 03:02:07 GMT+0000 (UTC)","_id":"5330f1afa83141020034d9a2"},{"username":"mchow","score":988,"grid":"{\"size\":4,\"cells\":[[{\"x\":0,\"y\":0,\"value\":4,\"previousPosition\":{\"x\":0,\"y\":0},\"mergedFrom\":null},{\"x\":0,\"y\":1,\"value\":32,\"previousPosition\":{\"x\":0,\"y\":1},\"mergedFrom\":null},{\"x\":0,\"y\":2,\"value\":8,\"previousPosition\":{\"x\":0,\"y\":2},\"mergedFrom\":null},{\"x\":0,\"y\":3,\"value\":2,\"previousPosition\":null,\"mergedFrom\":null}],[{\"x\":1,\"y\":0,\"value\":16,\"previousPosition\":{\"x\":1,\"y\":0},\"mergedFrom\":null},{\"x\":1,\"y\":1,\"value\":64,\"previousPosition\":{\"x\":1,\"y\":1},\"mergedFrom\":null},{\"x\":1,\"y\":2,\"value\":32,\"previousPosition\":{\"x\":1,\"y\":2},\"mergedFrom\":null},{\"x\":1,\"y\":3,\"value\":4,\"previousPosition\":{\"x\":0,\"y\":3},\"mergedFrom\":null}],[{\"x\":2,\"y\":0,\"value\":64,\"previousPosition\":{\"x\":2,\"y\":0},\"mergedFrom\":null},{\"x\":2,\"y\":1,\"value\":8,\"previousPosition\":{\"x\":2,\"y\":1},\"mergedFrom\":null},{\"x\":2,\"y\":2,\"value\":2,\"previousPosition\":{\"x\":2,\"y\":2},\"mergedFrom\":null},{\"x\":2,\"y\":3,\"value\":8,\"previousPosition\":{\"x\":1,\"y\":3},\"mergedFrom\":null}],[{\"x\":3,\"y\":0,\"value\":16,\"previousPosition\":{\"x\":3,\"y\":0},\"mergedFrom\":null},{\"x\":3,\"y\":1,\"value\":2,\"previousPosition\":{\"x\":3,\"y\":1},\"mergedFrom\":null},{\"x\":3,\"y\":2,\"value\":4,\"previousPosition\":{\"x\":3,\"y\":2},\"mergedFrom\":null},{\"x\":3,\"y\":3,\"value\":2,\"previousPosition\":{\"x\":2,\"y\":3},\"mergedFrom\":null}]]}","created_at":"Tue Mar 25 2014 03:03:52 GMT+0000 (UTC)","_id":"5330f2185f6efb02001866fd"}]</code>.  Cross-origin resource sharing must be enabled for this API else a 2048 game from another domain cannot retrieve scores.</li>
-<li><code>/</code> - Home, the root, the index in HTML.  You may also use additional JavaScript and CSS, and you are free to design this page however you desire. Accessing this on a web browser shall display list of all the 2048 game scores for all players sorted in descending order by score (e.g., a table).  Usernames and game timestamps must be displayed in addition to the score.  Simply outputting JSON is unacceptable.</li>
+<p>1. <strong>A <code>POST /sendLocation</code> API</strong> - Submits check-in from any domain.  The mandatory fields and <span class="stress">exact field names</span> for submission to this API are <code>login</code>, <code>lat</code>, and <code>lng</code>.  Successful submission of these three pieces of data shall result in one entry into the collection <code>locations</code> in Mongo. <span class="note">If a submission is missing any one of the data fields, do not insert new record into the database!</span>  Cross-origin resource sharing must be enabled for this API, else data cannot be sent from another domain.  Upon successful insertion of record into database, return a JSON string.  The JSON shall be an object with two keys:</p>
+<ul>
+	<li><code>characters</code> - The value shall be an empty list.</li>
+	<li><code>students</code> - The value shall be a list of the last 100 check-ins sorted by the <code>created_at</code> timestamp.</li>
+</ul>
+<p>Example JSON response: <code>
+{"characters":[],"students":[{"login":"tlubeck","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 05:08:03 GMT+0000 (UTC)","_id":"543375331e214f020086c425"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 05:00:57 GMT+0000 (UTC)","_id":"543373891e214f020086c424"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:59:53 GMT+0000 (UTC)","_id":"543373491e214f020086c423"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:59:03 GMT+0000 (UTC)","_id":"543373171e214f020086c422"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:58:02 GMT+0000 (UTC)","_id":"543372da1e214f020086c421"},{"login":"tlubeck","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:45:26 GMT+0000 (UTC)","_id":"54336fe61e214f020086c420"},{"login":"astephens","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:42:54 GMT+0000 (UTC)","_id":"54336f4e9a1a910200a0733c"},{"login":"adempsey","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:42:14 GMT+0000 (UTC)","_id":"54336f269a1a910200a0733b"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:30:06 GMT+0000 (UTC)","_id":"54336c4e7e6ccd0200ea457c"}]}
+</code></p>
+<p>2. <strong>A <code>GET /locations.json</code> API</strong> - Returns a JSON string (array of objects) for a specified login with the check-ins sorted in descending order by timestamp (e.g., <code>created_at</code>).  The mandatory parameter for this API is <code>login</code>.  If <code>login</code> is empty, return empty JSON array <code>[]</code>.  Example: <code>/locations.json?login=mchow</code> returns the check-ins in descending order for me.</p>
+<p>Example output: <code>[{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 05:00:57 GMT+0000 (UTC)","_id":"543373891e214f020086c424"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:59:53 GMT+0000 (UTC)","_id":"543373491e214f020086c423"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:59:03 GMT+0000 (UTC)","_id":"543373171e214f020086c422"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:58:02 GMT+0000 (UTC)","_id":"543372da1e214f020086c421"}]</code></p>
+<p>Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data.</li>
+<p>3. <code>/</code> - Home, the root, the index in HTML.  You may also use additional JavaScript and CSS, and you are free to design this page however you desire. Accessing this on a web browser shall display list of all the check-ins for all logins sorted in descending order by timestamp.  Login and check-in timestamps must be displayed in addition to the location (latitude and longitude).  Simply outputting JSON is unacceptable.</p>
+<p>4. <strong>A <code>GET /redline.json</code> API</strong>.  Returns a live copy of the JSON string from <code>http://developer.mbta.com/lib/rthr/red.json</code>. Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data (e.g., <a href="lab-json.html">THAT lab</a>).</p>
 </ol>
 
 <h2>Security</h2>
@@ -66,8 +75,6 @@
 
 <h2>A Word on Getting Started</h2>
 <p class="note">Please do not create and work on this assignment directly in your private GitHub repository as you will have a Git repo inside of a Git repo.  Your work will not be pushed to GitHub correctly if you do this. See "Submitting the Assignment."</p>
-
-<h2>Getting Started</h2>
 
 <h2>References You Will Need</h2>
 <ol>
@@ -81,10 +88,9 @@
 <h2>Testing Your Web Application</h2>
 <ul>
 <li>Push and deploy your app to Heroku.</li>
-<li>You will need to modify the game so that the final score and grid are sent to your web application.  You can hardcode the username (say, your initials).  You can use jQuery to do this (see hint above in "References").  What I did: I modified one of the JavaScript files in the <code>2048/js</code> folder and the <code>index.html</code> file.</li>
 </ul>
 
-<h2><span class="note">(IMPORTANT)</span> The <code>README</code> File</h2>
+<h2>The <code>README</code> File</h2>
 <p>Include a <code>README</code> file that describes the work. This description must:</p>
 <ol>
 <li>Identify what aspects of the work have been correctly implemented and what have not.</li>
@@ -97,16 +103,19 @@
 <ol>
 <li>Push and deploy your app to Heroku.</li>
 <li>Complete the form at <a href="https://docs.google.com/forms/d/1tl-FmiJmyDxh0md9v66SkFSvkDjlfuEB10gshoZ2q7A/viewform" target="_blank">https://docs.google.com/forms/d/1r0LMVXAAO2kLL4mtixg3UhulCJOgSrHiekGBn2Ud9Fo/viewform</a>. <span class="note">You only need to complete this form once!</span></li>
-<li>Push a ZIP (compressed file) of your web application to your private GitHub repository to a folder named <code>2048-gamecenter</code>.  <span class="note">No credit will be given for this assignment if you push a format other than ZIP (e.g., .7z, .rar)!</span>.  Please note that you must also have a <code>README</code> in the <code>2048-gamecenter</code> directory of your private GitHub repo!</li>
+<li>Push a ZIP (compressed file) of your web application to your private GitHub repository to a folder named <code>whereintheworld</code>.  <span class="note">No credit will be given for this assignment if you push a format other than ZIP (e.g., .7z, .rar)!</span>.  Please note that you must also have a <code>README</code> in the <code>whereintheworld</code> directory of your private GitHub repo!</li>
 </ol>
 
 <h2>Assessment</h2>
 <ul>
 <li>(5 points) The README</li>
 <li>(5 points) Technical competency (e.g., use <a href="http://kotaku.com/5975610/the-exceptional-beauty-of-doom-3s-source-code" target="_blank">good programming practices</a> (including good variable names, code indentation); consistent and constant Git commits and pushes; write meaningful Git commit messages; have a <code>.gitignore</code> file in your repo)</li>
-<li>(5 points) The <code>POST /submit.json</code> API as specified above</li>
-<li>(5 points) The <code>GET /scores.json</code> API as specified above</li>
+<li>(5 points) The <code>POST /sendLocation</code> API as specified above</li>
+<li>(5 points) The <code>GET /locations.json</code> API as specified above</li>
+<li>(5 points) The <code>GET /redline.json</code> API as specified above</li>
 <li>(5 points) The index <code>/</code> as specified above</li>
+<li>(BONUS 1 point) On the index <code>/</code> instead of displaying the latitude and longitude for each check-in, display the reverse geolocation of the latitude and longitude --that is, converted to address.  Example: 40.714224,-73.961452 is to be displayed as <em>
+Grand St/Bedford Av, Brooklyn, NY 11211, USA</em></li>
 </ul>
 
 </section>
