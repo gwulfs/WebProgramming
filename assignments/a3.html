@@ -51,7 +51,7 @@
 <li><code>created_at</code> - The timestamp, generated for each new record entry.  Use the JavaScript <code>Date</code> object to generate timestamp.</li>
 </ul>
 
-<p>Each document will have the data field <code>_id</code> (the document's unique field, primary key) created automatically.</li>
+<p>Each document will have the data field <code>_id</code> (the document's unique field, primary key) created automatically.</p>
 
 <h2>Requirements</h2>
 <p>Your web application shall have the following features:</p>
@@ -65,10 +65,9 @@
 </code></p>
 <p>2. <strong>A <code>GET /locations.json</code> API</strong> - Returns a JSON string (array of objects) for a specified login with the check-ins sorted in descending order by timestamp (e.g., <code>created_at</code>).  The mandatory parameter for this API is <code>login</code>.  If <code>login</code> is empty, return empty JSON array <code>[]</code>.  Example: <code>/locations.json?login=mchow</code> returns the check-ins in descending order for me.</p>
 <p>Example output: <code>[{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 05:00:57 GMT+0000 (UTC)","_id":"543373891e214f020086c424"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:59:53 GMT+0000 (UTC)","_id":"543373491e214f020086c423"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:59:03 GMT+0000 (UTC)","_id":"543373171e214f020086c422"},{"login":"mchow","lat":42.5335,"lng":-71.1036,"created_at":"Tue Oct 07 2014 04:58:02 GMT+0000 (UTC)","_id":"543372da1e214f020086c421"}]</code></p>
-<p>Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data.</li>
+<p>Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data.</p>
 <p>3. <code>/</code> - Home, the root, the index in HTML.  You may also use additional JavaScript and CSS, and you are free to design this page however you desire. Accessing this on a web browser shall display list of all the check-ins for all logins sorted in descending order by timestamp.  Login and check-in timestamps must be displayed in addition to the location (latitude and longitude).  Simply outputting JSON is unacceptable.</p>
 <p>4. <strong>A <code>GET /redline.json</code> API</strong>.  Returns a live copy of the JSON string from <code>http://developer.mbta.com/lib/rthr/red.json</code>. Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data (e.g., <a href="lab-json.html">THAT lab</a>).</p>
-</ol>
 
 <h2>Security</h2>
 <p>Please note that I did not mention a thing about security or error handling in the requirements.  Authentication to this web application is not required.  There is a reason for this, as you will see in Assignment 4.</p>
