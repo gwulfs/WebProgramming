@@ -31,7 +31,7 @@ Thumbs.db
 
 # Node.js specific#
 ###################
-*/node_modules/*
+node_modules
 
 # Rails specific #
 ##################
