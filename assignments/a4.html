@@ -113,21 +113,21 @@
 <li>Fouss, Brett:Swiston, Parker</li>
 <li>Tanen, Benjamin:Warchol, Simon</li>
 <li>Goldschmidt, Alex:Cherem, Ivan</li>
-<li>Cobb, Elliot:Colley, Charles</li>
+<li>Frenkel, Rachel:Colley, Charles</li>
 <li>Castleman, Terry:Blotner, Melissa</li>
 <li>Reilly, Shaylynn:Ruenes, Robert</li>
 <li>Goldman, Jeremy:Nguyen, Duyen</li>
 <li>DeStories, Jay:Brillon, Jason</li>
 <li>Chen, Jeremy:Bailey, Eric</li>
 <li>Koudijs, Alexander:Zhang, Lawrence</li>
-<li>Taus, David:Jackson, Kirk</li>
-<li>Sinha, Shivani:Wasynczuk, Kate:</li>
+<li>Taus, David:Wasynczuk, Kate</li>
+<li>Sinha, Shivani:Jackson, Kirk</li>
 <li>Lee, Julia:Bronen, Jared</li>
 <li>Zakaria, Adam:Chapman, Jessie</li>
 <li>Cuffy, Brandon:Morovitz, Maretta</li>
 <li>Tran, Michael:O'Conor, Matt</li>
 <li>Telkedzhiev, Nikola:Garfield, Samuel</li>
-<li>Maykranz, Taylor:Frenkel, Rachel</li>
+<li>Maykranz, Taylor:Cobb, Elliot</li>
 <li>Ben-Hayun, Yuval:Zhang, Yuxuan</li>
 <li>Crumbaugh, Robert:Cleland, Stephanie</li>
 <li>Yaspan, Matthew:Ringler, Margaret</li>
@@ -142,19 +142,16 @@
 <li>First, perform attacks WITHOUT reading the source code.  This is also known as "black box" testing.</li>
 <li>Then, download or get from your partner, the source code of the application.  Peruse through it, perform a manual code review of it, and document for your findings.</li>
 </ol>
-<p>If you find anything glaring, then go back to the application and attack it.  This is also known as "white box" testing.  For example, after you read the source code for the search function and you are suspicious that you can perform a SQL injection attack to delete a table (also given the database structure from your partner), go ahead an try it out :-)</p>
+<p>If you find anything glaring, then go back to the application and attack it.  This is also known as "white box" testing.  For example, after you read the source code and you are suspicious that you can perform a Cross-Site Scripting attack, go ahead an try it out.</p>
 
 <p class="directions">Q: Is it necessary to use all the programs listed above? I'm having trouble running Burp Suite specifically.</p>
 <p>A: No.</p>
 
-<p class="directions">Q: I'm using a tool and it gave me back a URL under alerts.  Does that mean it tried a SQL injection and worked?</p>
+<p class="directions">Q: I'm using a scanning tool and it returned a number of possible vulnerabilities.  Does it mean that the vulnerabilities actually exist?</p>
 <p>A: It could also be a false positive.  You have to check in the database (in this case, ask your partner), if it went through.  That is, your job is to validate the finding.</p>
 
-<p class="directions">Q: If a tool doesn't give me back any alerts when spidering through something, does that mean that it hasn't found any, or that I don't know how to use the application?</p>
-<p>A: If a tool doesn't return anything, it didn't find anything.  But any good security practitioner know that you cannot depend on a tool (especially just one).</p>
-
 <p class="directions">Q: I can't find any problems with my partner's application.  What should I do?</p>
-<p>A: You can make security recommendations.  I will find it hard to believe that you cannot find problems.  Example: if you notice that your partner's web application uses the insecure methods, you can recommend to upgrade application to use more secure options.</p>
+<p>A: I will find it hard to believe that you cannot find problems. You can make security recommendations.  Example: if you notice that your partner's web application uses the insecure methods, you can recommend to upgrade application to use more secure options.</p>
 
 <p class="directions">Q: Is there a good example of a report?</p>
 <p>A: See <a href="security-gjoseph/report.html">Gabe Joseph's report from spring 2013</a>.</p>
