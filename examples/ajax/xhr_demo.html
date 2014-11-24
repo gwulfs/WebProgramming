@@ -4,15 +4,12 @@
 <head>
 	<title>Messages</title>
 	<script>
-		number1 = 18;
-		number2 = 7;
-
 		// Create instance of XHR object
 		xhr = new XMLHttpRequest();
 
 		// Set up the request
 		// WARNING: Please bear in mind that XHR is subject (largely) to JavaScript's Same Origin Policy
-		xhr.open("get", "http://messagehub.herokuapp.com/messages.json", true);
+		xhr.open("get", "http://rocky-ridge-3008.herokuapp.com/redline.json", true);
 
 		// Set up handler for the response
 		xhr.onreadystatechange = myCallbackFunction;
@@ -21,26 +18,17 @@
 		xhr.send();
 
 		function myCallbackFunction() {
-			var number1;
-			var number2;
-			number1 = 1;
-			number2 = 2;
 			console.log("In my callback function " + xhr.readyState);
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				alert("Got data back!");
 				data = JSON.parse(xhr.responseText);
-				var result = "";
+				/*var result = "";
 				for (i = 0; i < data.length; i++) {
 					result += "<p>" + data[i]['username'] + " - " + data[i]["content"] + "</p>";
-				}
-				document.getElementById("list").innerHTML = result;
+				}*/
+				document.getElementById("list").innerHTML = xhr.responseText;
 			}
-			console.log("number1 is " + number1);
-			console.log("number2 is " + number2);
 		}
-
-		console.log("number1 is " + number1);
-		console.log("number2 is " + number2);
 	</script>
 </head>
 
