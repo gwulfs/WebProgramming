@@ -20,4 +20,25 @@
   * Request commends: GET, POST
   * Request header to server
   * Response data from server to client
-* _How do you browser the web without a modern web browser?_
+* The big question: _How do you browser the web without a modern web browser?_
+
+#January 22, 2015: HyperText Markup Language (HTML)
+* Good news everyone!
+* Last class: how the web works
+* Review: What kind of a protocol is HTTP?
+* Review: HTTP request commands?
+* Review: Fields in HTTP request header?  In response header? https://twitter.com/brunoborges/status/548626650850922498
+* Review: True of false --typing in a URL in address bar of a modern web browswer will always execute HTTP GET.
+* The HTTP response _data_
+* The idea of markup: think of markups on an essay or English paper.  Why?
+* The difficulty of markups from a computing sense 50+ years ago
+* SGML => HTML. The idea: determines document appearance and behavior
+* Elements (or tags)
+  - Start tag
+  - End tag
+  - Attributes (key-value pairs)
+  - Content
+* Two types of tags: block and inline
+* HTML => lax rules
+* HTML5 => stricter rules
+* The big question: _How do you build a web browser?_
