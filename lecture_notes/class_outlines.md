@@ -49,7 +49,7 @@
 * What is important to discuss: the finer points of HTML
   - Recall last class: what's peculiar about HTML? (hints: closing tags, attributes, nesting)
   - Two types of HTML body elements: block level and inline
-  - Example of inline element: <img>.  <img> also have some interesting attributes...
+  - Example of inline element: `<img>`. `<img>` also have some interesting attributes...
   - Absolute vs. relative URLs
   - Good form HTML => HTML5 and the W3C validator
   - Recite https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/html
