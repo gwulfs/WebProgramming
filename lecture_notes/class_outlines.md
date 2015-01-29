@@ -42,3 +42,6 @@
 * HTML => lax rules
 * HTML5 => stricter rules
 * The big question: _How do you build a web browser?_
+
+#January 29, 2015: HTML (continued); Git
+* Last class: HTML => document appearance and behavior; _how do you build a web browser?_
