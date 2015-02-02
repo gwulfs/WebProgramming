@@ -65,3 +65,8 @@
   - Good form HTML => HTML5 and the W3C validator
   - Recite https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/html
 * Why do you want to separate style?
+* The big ideas of cascading style sheets
+  - Box model
+  - One CSS _rule_ is made up of _selectors_ and _declarations_. A declaration is a _property-value_ pair.
+  - ID vs class selector
+  - The "cascading" in "style sheets"
