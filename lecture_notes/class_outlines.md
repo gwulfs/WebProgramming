@@ -67,7 +67,7 @@
 * Why do you want to separate style?
 
 
-#February 3, 2015: Cascading Style Sheets (CSS)
+#February 5, 2015: Cascading Style Sheets (CSS)
 * Last class: HTML and started talking about the idea of a style sheet.
 * Why style sheet?
 * One CSS _rule_ is made up of _selectors_ and _declarations_. A declaration is a _property-value_ pair.
