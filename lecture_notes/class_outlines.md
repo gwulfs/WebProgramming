@@ -83,3 +83,12 @@
 * The "cascading" in "cascading style sheet"
   - What if there is more than one style specified for an HTML element?
 * Loading additional stylesheets
+
+#February 10, 2015: Cascading Style Sheets (CSS), Part II
+* Last class: CSS, the box model --what is that?
+* The big idea today: mobile and responsive design --responding to different screen sizes
+* The example we worked on last class: now publicly hosted on http://www.cs.tufts.edu/comp/20/news.html.  How does it look on a tablet/phone/phablet?
+* Viewport: scale to the available screen area.  Problem: general assumption of mobile browsers is that a webpage is 980px wide!  Alas, the content is less readable.
+* Can we use different stylesheets, or apply different styles, for different screen sizes?  Absolutely!  Thanks to the idea of _media queries_ in CSS version 3.
+  - Media queries can be done in `<link>` tag or in CSS file
+* Lab 4: the other big idea stressed is the idea of a _sprite sheet_.  Used by many major websites including Facebook, Instagram.
