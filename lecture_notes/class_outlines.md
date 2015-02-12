@@ -84,7 +84,7 @@
   - What if there is more than one style specified for an HTML element?
 * Loading additional stylesheets
 
-#February 10, 2015: Cascading Style Sheets (CSS), Part II
+#February 12, 2015: Cascading Style Sheets (CSS), Part II
 * Last class: CSS, the box model --what is that?
 * The big idea today: mobile and responsive design --responding to different screen sizes
 * The example we worked on last class: now publicly hosted on http://www.cs.tufts.edu/comp/20/news.html.  How does it look on a tablet/phone/phablet?
