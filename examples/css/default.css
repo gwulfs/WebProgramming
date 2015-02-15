@@ -13,11 +13,27 @@ body {
 	margin-right: 20%;
 }
 
+.stress {
+	font-size: 12px;
+	background-color: yellow;
+}
+
 p {
-	background-color: orange;
-	font-size: 8px;
+	font-size: 28px;
 }
 
 .stress {
 	font-size: 96px;
 }
+
+p {
+	background-color: orange;
+	font-size: 18px;
+}
+
+p.moby {
+	font-style: italic;
+}
+
+
+
