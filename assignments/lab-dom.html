@@ -40,14 +40,13 @@
 <p>On May 21, 2010, Google released a special version of the game Pac-Man, playable on the web browser, to commemorate the game's 30th anniversary (still available at <a href="https://www.google.com/doodles/30th-anniversary-of-pac-man" target="_blank">https://www.google.com/doodles/30th-anniversary-of-pac-man</a>).  In this lab, you will draw the blue game board and Ms. Pac-Man on the game board on a web page using JavaScript.  The result will look like the following:</p>
 <p><img src="../images/mspacman.png" alt="Result" /></p>
 
-<h2>Instructions</h2>
 <h2>The JavaScript Canvas API</h2>
 <p>A canvas is simply a drawing area.  HTML5 introduces a new element called <code>&lt;canvas&gt;</code>.  Drawing can be done onto the canvas via of the JavaScript Canvas API.  The Canvas API contains many powerful methods: from drawing lines to image manipulation.</p>
-<p>The API also contains a method, <code>drawImage()</code> that allows <span class="stress">slicing</span> an image.  That is, only draw parts of an image onto the canvas.  Please refer to <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="blank">https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D</a> for the parameters and usage of <code>drawImage()</code>.  To get the coordinates (in pixels) of the part of the image you want to render, you can use tools such as Preview on Mac OS X, Gimp, or Photoshop.</p>
+<p>The API also contains a method, <code>drawImage()</code> that allows <span class="stress">slicing</span> an image.  That is, only draw parts of an image onto the canvas.  Please refer to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images" target="blank">the "Slicing" section in https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images</a> for the parameters and usage of <code>drawImage()</code>.  To get the coordinates (in pixels) of the part of the image you want to render, you can use tools such as Preview on Mac OS X, Gimp, or Photoshop.</p>
 <p>There is an excellent tutorial on the JavaScript Canvas API through Mozilla at <a href="https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial" target="_blank">https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial</a></p>
 <p>The <code>&lt;canvas&gt;</code> is initially blank, and to display something a script (your <code>game.js</code>) first needs to access the rendering context and draw on it. The canvas element has a DOM method called <code>getContext()</code>, used to obtain the rendering context and its drawing functions. <code>getContext()</code> takes one parameter, the type of context.</p>
 <pre>
-canvas = document.getElementById('tutorial');
+canvas = document.getElementById('nameofcanvas');
 ctx = canvas.getContext('2d');
 </pre>
 
@@ -57,6 +56,8 @@ ctx = canvas.getContext('2d');
 <pre>
 &lt;body onload="<span class="stress">SomeJavaScriptCodeOrFunction</span>"&gt;
 </pre>
+
+<h2>Instructions</h2>
 
 <h2>Readings and References</h2>
 <ul>
