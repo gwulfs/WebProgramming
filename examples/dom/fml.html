@@ -8,6 +8,16 @@
 		<link rel="stylesheet" href="style.css" />
 
 		<!--To get text typed in: document.getElementById("msg").value;-->
+		<script>
+			// This is where you write your JavaScript
+			function update() {
+				theMessage = document.getElementById("msg").value;
+				toUpdate = document.getElementById("content");
+				
+				// the += is a shorthand for toUpdate.innerHTML = toUpdate.innerHTML + ...
+				toUpdate.innerHTML += '<p class="message">' +theMessage + " #FML</p>";
+			}
+		</script>
 	</head>
 
 	<body>
