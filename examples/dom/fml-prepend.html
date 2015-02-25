@@ -15,8 +15,10 @@
 				theMessage = document.getElementById("msg").value;
 				toUpdate = document.getElementById("content");
 				
-				// the += is a shorthand for toUpdate.innerHTML = toUpdate.innerHTML + ...
-				toUpdate.innerHTML += '<p class="message">' +theMessage + " #FML</p>";
+				// The idea: create a new node and prepend to the first node in the "content" div
+				newElem = document.createElement("p");
+				newElem.innerHTML = '<p class="message">' +theMessage + " #FML</p>";
+				toUpdate.insertBefore(newElem, toUpdate.childNodes[0]);
 			}
 		</script>
 	</head>
