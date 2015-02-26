@@ -128,3 +128,16 @@
 * Example 1: Tufts FML
 * Example 2: Highlighting paragraphs in an HTML document
 * Even more powerful idea: update the HTML with data from a web server
+
+#February 26, 2015: First-Class Functions
+* Last class: the Document Object Model (DOM).  What does the DOM structure look like?
+* Recall Tufts FML
+* Lab 5 requires the use of the DOM.  It also requires knowledge of another incredibly powerful concept. Mitchell's question on Piazza.
+* Recall: almost everything in JavaScript is an object.  That also include functions.
+* What if I told you functions can be used as values to variables? Functions as arguments to functions? That's what it means by functions as first-class!
+* Recall Algebra: function composition
+* Why is this a powerful idea?
+  - Reduce repetitive code
+  - More reusable and scalable code
+  - "Object Oriented Programming" in JavaScript
+* Example: animation using HTML5 canvas; karaoke
