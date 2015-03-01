@@ -141,3 +141,17 @@
   - More reusable and scalable code
   - "Object Oriented Programming" in JavaScript
 * Example: animation using HTML5 canvas; karaoke
+
+#March 3, 2015: JSON and XMLHttpRequest
+* I forced a lot of people to make mistakes on Quiz 1 --you might as well learn them now, especially the importance of being precise
+* Last class: first-class functions
+* Today: more powerful ideas that use everything we have discussed so far: JS data and data structures, objects, DOM, first-class functions
+* So far, you have only worked with synchronous communications. Problem: slow, linear, "locking", not smooth
+* Asynchronous communications.  Where it is used: events
+* Client-side JS is heavily event-based
+* Recall Tom Addison's karaoke from last semester.
+* Examples of async APIs in JavaScript: `navigator.geolocation.getCurrentPosition()`, `XMLHttpRequest`
+* The idea of XMLHttpRequest => make a request to a server-side script to get data, manage the response
+* XHR key methods and attributes: open(), send(), onreadystatechange, status, readyState, responseText
+* The data that now typically get back in the `responseText`: JSON
+* gh-pages branch in GitHub; examples
