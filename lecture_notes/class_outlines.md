@@ -155,3 +155,20 @@
 * XHR key methods and attributes: open(), send(), onreadystatechange, status, readyState, responseText
 * The data that now typically get back in the `responseText`: JSON
 * gh-pages branch in GitHub; examples
+
+#March 5, 2015: Loose Ends
+* Last class: Events and asynchronous
+  - Asynchronous: "where data can be transmitted intermittently rather than in a steady stream"; not going at the same rate
+  - Are they the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
+* Last class: JSON (http://json.org/)
+* Today: finish up on XMLHttpRequest
+  - Asynchronous
+  - The event: onreadystatechange.  The readyState values:
+    - 0 => The request is not initialized
+    - 1 => The request has been set up
+    - 2 => The request has been sent
+    - 3 => The request is in process
+    - 4 => The request is complete
+* Parsing the JSON data
+* Is checking for readyState 4 good enough?  NO!
+* Caveats with XMLHttpRequest and one of the limitations of client-side JavaScript
