@@ -5,7 +5,7 @@
 <head>
 <title>Local Storage Example</title>
 <script>
-	function init()
+	function runme()
 	{
 		localStorage.setItem('phrase', 'Bonkers');
 		elem = document.getElementById("header");
@@ -31,7 +31,7 @@
 </script>
 </head>
 
-<body onload="init()">
+<body onload="runme()">
 	<div id="header"></div>
 	<p>Say something: <input type="text" name="something" id="something" onchange="store()" /></p>
 	<div id="results"></div>
