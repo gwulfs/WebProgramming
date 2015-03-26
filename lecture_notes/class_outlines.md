@@ -172,3 +172,8 @@
 * Parsing the JSON data
 * Is checking for readyState 4 good enough?  NO!
 * Caveats with XMLHttpRequest and one of the limitations of client-side JavaScript
+
+#March 26, 2015: Server-Side
+* A simple and complex picture of client-server architecture: https://www.acunetix.com/websitesecurity/web-applications/
+* What are the limitations of client-side?
+* How do you design the server-side environment, assuming that the hardware (computer(s) for server) is provided to you?
