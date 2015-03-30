@@ -175,5 +175,20 @@
 
 #March 26, 2015: Server-Side
 * What are the limitations of client-side?
+  1. Can't connect to a database server directly --and hence, store lots and lots of data
+  2. Other people cannot access data or information that you have (i.e., you can't make responses)
+  3. Can't to write to files on disk
+  4. You are constrained by web browser (i.e., browser incompatibility issues)
+  5. Storage constraints (e.g., cookies, local storage)
+  6. Security issues (e.g., same origin policy)
+  7. View source
 * A simple and complex picture of client-server architecture: https://www.acunetix.com/websitesecurity/web-applications/
 * How do you design the server-side environment, assuming that the hardware (computer(s) for server) is provided to you?
+  1. Handle requests
+  2. Store data "somewhere"
+  3. Send response
+  4. It is somehow secure (not trivial)
+  5. Some logic to do something with request before sending response
+  6. Has to be on / running (almost) all the time
+  7. Handle concurrent connection, concurrent transactions
+  8. IP address and port number must be provided to the public.
