@@ -192,3 +192,5 @@
   6. Has to be on / running (almost) all the time
   7. Handle concurrent connection, concurrent transactions
   8. IP address and port number must be provided to the public.
+  
+#April 2nd, 2015: Server-Side (continued), Frameworks
