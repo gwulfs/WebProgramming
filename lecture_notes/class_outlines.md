@@ -182,7 +182,6 @@
   5. Storage constraints (e.g., cookies, local storage)
   6. Security issues (e.g., same origin policy)
   7. View source
-* A simple and complex picture of client-server architecture: https://www.acunetix.com/websitesecurity/web-applications/
 * How do you design the server-side environment, assuming that the hardware (computer(s) for server) is provided to you?
   1. Handle requests
   2. Store data "somewhere"
@@ -193,4 +192,30 @@
   7. Handle concurrent connection, concurrent transactions
   8. IP address and port number must be provided to the public.
   
-#April 2nd, 2015: Server-Side (continued), Frameworks
+#April 2, 2015: Server-Side (continued), Frameworks
+* Option A: https://github.com/tuftsdev/WebProgramming/blob/gh-pages/examples/nodejs/server.js
+* Option B: https://github.com/tuftsdev/WebProgramming/blob/gh-pages/examples/nodejs/simpleexpress/app.js
+* A good framework:
+  1. Don't reinvent the wheel
+  2. Most of the important ideas are already built for you
+  3. Shorten code
+  4. Add-on modules that you need.  For all web applications developed using Express.js, a file `package.json` is required.  The file is a list of requirements / dependencies for the web application.  Think of this as the ingredients for a recipe.  Then install all the requirements / dependencies via `npm install`
+* General form of a method in Express.js:
+
+#April 7, 2015: Data Persistence with MongoDB, Connecting Node.js with MongoDB
+* A simple and complex picture of client-server architecture: https://www.acunetix.com/websitesecurity/web-applications/
+* So far, we have talked about the middle tier using Node.js and Express.js (framework on top of Node.js)
+* Let's talk about storing data now, the database server layer
+* Yes, we are dealing with another server (for solely storing data)
+* Why aren't we using a relational database or SQL in this class? Complexity.  The big idea that you know already: key-value pairs
+* MongoDB: we can store lots and lots of key-value pairs a la JSON
+* Database: a bin of data
+* Collection: lots and lots of data records
+* Document: a single record of key-value pairs in JSON format
+* All documents contain a field `_id`, generated for you
+* Important: a document does not need to follow a certain structure
+* Operations: inserting a document, querying a collection, updating a document
+* Important: inserting a document into a database that does not exist WILL create the database!
+* Wait, I'm confused: we are dealing with two different systems here. How do you have a Node.js server talk to a MongoDB server? The answer: a driver. A driver is a piece of software for accessing a database.  Think of this as a translation engine.  There is a `mongodb` driver for Node.js
+* Example: https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp.  Feel free to copy and use initialization code.  It will help you big time!
+* MongoDB syntax: easy. Executing MongoDB statements in Node.js using the `mongodb` driver: ugly. Event-driven.
