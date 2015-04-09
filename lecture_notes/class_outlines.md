@@ -218,4 +218,12 @@
 * Important: inserting a document into a database that does not exist WILL create the database!
 * Wait, I'm confused: we are dealing with two different systems here. How do you have a Node.js server talk to a MongoDB server? The answer: a driver. A driver is a piece of software for accessing a database.  Think of this as a translation engine.  There is a `mongodb` driver for Node.js
 * Example: https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp.  Feel free to copy and use initialization code.  It will help you big time!
+
+#April 9, 2015: Connecting Node.js with MongoDB
+* Last class: MongoDB, the database server
+* Recall: architecture https://www.acunetix.com/websitesecurity/web-applications/
+* Recall: how to query a collection in MongoDB
+* Today: make web application written with Node.js + Express talk to a MongoDB
+* Recall: driver
+* Example: https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp.  Feel free to copy and use initialization code.  It will help you big time!
 * MongoDB syntax: easy. Executing MongoDB statements in Node.js using the `mongodb` driver: ugly. Event-driven.
