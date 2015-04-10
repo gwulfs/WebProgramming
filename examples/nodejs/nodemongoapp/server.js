@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Mongo initialization and connect to database
-var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/test';
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/nodemongoexample';
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 	db = databaseConnection;
@@ -20,12 +20,13 @@ app.post('/feedme', function(request, response) {
 	var toInsert = {
 		"fooditem": fooditem,
 	};
-	db.collection('fooditems', function(er, collection) {
-		var id = collection.insert(toInsert, function(err, saved) {
-			if (err) {
+	db.collection('fooditems', function(error1, coll) {
+		var id = coll.insert(toInsert, function(error2, saved) {
+			if (error2) {
 				response.send(500);
 			}
 			else {
+				console.log("Jake, it's okay...");
 				response.send(200);
 			}
 	    });
