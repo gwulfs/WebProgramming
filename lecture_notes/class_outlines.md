@@ -232,12 +232,12 @@
 * Data sent to a web server is always text! (thanks to Maggie).  Use parseFloat() to convert a string to a floating point number.
 * Revisiting `nodemongoapp`
 * There's something wrong with it. What if...
-* Cross-Site Scripting (XSS): what is it and why is it so bad?
+* Cross-Site Scripting (XSS): what is it, why is it so bad, and where to attack?
 * Security 101: never trust user input from a client
 * Awareness:
   1. OWASP Top 10 list: https://www.owasp.org/index.php/Top_10_2013-Top_10
   2. CWE/SANS TOP 25 Most Dangerous Software Errors: https://www.sans.org/top25-software-errors/
 * Playground: http://www.cs.tufts.edu/comp/20/hackme.php
-* Bypassing client-side validation
+* Bypassing client-side validation using a proxy
 * Defending against XSS
 * The moral of the story...
