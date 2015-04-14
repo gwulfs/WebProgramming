@@ -64,7 +64,7 @@
 <p>Finally, you are not allowed to use loops (e.g., <code>for</code> or <code>while</code>) to do this feature, API.</p>
 
 <h3>2. A <code>GET /location.json</code> API</h3>
-<p>Returns a JSON string, one object, of the last known location for a specified login.  The mandatory parameter for this API is <code>login</code>.  If <code>login</code> is empty or no results found, return empty JSON object <code>{}</code>.  Example: <code>/locations.json?login=kaytea</code> returns <code>{"_id":"54e960e5fd96990300d54520","login":"kaytea","lat":41.903056,"lng":12.454444,"created_at":"2015-02-22T04:53:57.214Z"}</code></p>
+<p>Returns a JSON string, one object, of the last known location for a specified login.  The mandatory parameter for this API is <code>login</code>.  If <code>login</code> is empty or no results found, return empty JSON object <code>{}</code>.  Example: <code>/location.json?login=kaytea</code> returns <code>{"_id":"54e960e5fd96990300d54520","login":"kaytea","lat":41.903056,"lng":12.454444,"created_at":"2015-02-22T04:53:57.214Z"}</code></p>
 <p>Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data.</p>
 
 <h3>3. <code>/</code> - Home, the root, the index in HTML.</h3>
