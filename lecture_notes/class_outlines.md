@@ -239,10 +239,53 @@
   2. CWE/SANS TOP 25 Most Dangerous Software Errors: https://www.sans.org/top25-software-errors/
 * The moral of the story...
 
-#April 14, 2015: Uh oh...
+#April 16, 2015: Moar uh oh...
 * Defending against XSS
 * HTTP POST vs GET
 * Today: breaking client-side validation
 * Playground: http://www.cs.tufts.edu/comp/20/hackme.php
 * Bypassing client-side validation using a proxy
 * Assignment 4 and meet your Assignment 4 partner
+
+#April 21, 2015: Looking Ahead
+* Assignment 3 and Heroku's UI fail
+* I feel I left this class at a good place: covered the basics
+  * Assignment 1: wrote code that is to be rendered on client-side, web browser
+  * Assignment 2: wrote more code to be rendered on client-side, but interacted with a server
+  * Assignment 3: wrote server-side code that also interacted with a database server
+  * Assignment 4: make you think like a bad person, break what was built to learn about security and privacy
+* But you've barely scratched the surface
+  * What reality is really like
+  * What engineering issues do you see here?
+  * Want to learn and build something over the summer?  How about a mobile app that uses your Assignment 3?
+* There is one more lab...
+* Next class: please bring your laptop.  I also have a gift for each of you.
+
+#April 23, 2015: Looking Ahead (continued); My Final and Personal Thoughts
+* The big ideas from this class:
+  * key-value pairs
+  * Separation of concerns (CSS, server architecture)
+  * Don't reinvent the wheel
+  * Basics of distributed systems
+  * Never trust user input
+  * Events and asynchronous
+  * Written communications via READMEs and revision control
+  * Attention to details
+  * Learning how to learn
+* Where do you go from here?
+  * Web infrastructure and standards
+  * Objects, first-class functions, closures
+  * Internet and networking
+  * The engineering side of the web
+  * NoSQL (e.g., MongoDB) vs. SQL databases
+  * Security
+  * Programming skills
+  * Concurrent uses and how to write a chat or web server
+  * User interface(s)
+  * Mobile
+* The real message of this class: what you COULD do, build your intellectual curiosity
+* Your portfolio
+* Semester group project
+* Personal thoughts
+* Acknowledgements
+* Course evaluations
