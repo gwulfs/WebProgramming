@@ -257,7 +257,7 @@
 * But you've barely scratched the surface
   * What reality is really like
   * What engineering issues do you see here?
-  * Want to learn and build something over the summer?  How about a mobile app that uses your Assignment 3?
+  * Want to learn and build something over the summer?  How about a mobile app that uses your Assignment 3?  Or a new client-side using Backbone or Angular?
 * There is one more lab...
 * Next class: please bring your laptop.  I also have a gift for each of you.
 
