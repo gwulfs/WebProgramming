@@ -20,6 +20,7 @@
 * What is markup?
 * Motivation: printing press?
 * What's wrong with the HTML?
+* W3C validator
 * Block vs. inline elements
 * Attributes
 * Images
