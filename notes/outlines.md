@@ -11,6 +11,7 @@
 
 #Tuesday, September 15th: HTML
 * Career Panel tonight
+* TripAdvisor coding challenge this weekend
 * Last class: recall how HTTP works
 * In-class example: provide IP address
 * Recall question: if no file is provided in URL, the file with what name is served by default?
