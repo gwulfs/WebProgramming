@@ -16,16 +16,18 @@
 * Recall question: if no file is provided in URL, the file with what name is served by default?
 * Recall question: if no port number is provided, the default port number to connect to on server is...?
 * Recall question: what HTTP command is executed when entering URL address?
+* About file permissions and the HTTP response status code 403
 * Take a look at the HTML
 * What is markup?
 * Motivation: printing press?
 * What's wrong with the HTML?
 * W3C validator
 * Block vs. inline elements
+* Image --a special tag...
 * Attributes
-* Images
 * Anchors
 * Absolute vs relative URLs
 * Commandments
+* Karen Vagts
 
 #Thursday, September 17th: Revision control with Git
