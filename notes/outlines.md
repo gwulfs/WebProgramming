@@ -31,4 +31,19 @@
 * Commandments
 * Karen Vagts
 
-#Thursday, September 17th: Revision control with Git
+#Thursday, September 17th: Revision Control with Git
+* Last class: HTML => document appearance and behavior
+* W3C validator for HTML5 documents
+* Question: _how do you build a web browser?_
+* What I am NOT going to do: discuss every HTML tag
+* What is important to discuss: the finer points of HTML
+  - Recall last class: what's peculiar about HTML? (hints: closing tags, attributes, nesting)
+  - Two major types of HTML body elements: block level and inline
+* What I've noticed: lots of you connecting to Tufts CS to do work via SSH
+* How do you submit assignments and labs in this class?
+* The nightmare scenario that illustrates the need for revision control: in the past...
+* What if I need to hire developers to work on different pieces of a projet?
+* Why revision control? Keep track of changes, document changes
+* Why Git? Speed, no dependency of a remote server (unlike Subversion)
+* Why GitHub for repositories? Network effect
+* Example with our course website
