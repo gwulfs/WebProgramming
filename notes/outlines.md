@@ -47,3 +47,19 @@
 * Why Git? Speed, no dependency of a remote server (unlike Subversion)
 * Why GitHub for repositories? Network effect
 * Example with our course website
+
+#Tuesday, September 22nd: Cascading Style Sheets (CSS)
+* Why do you want to separate style?
+* One CSS _rule_ is made up of _selectors_ and _declarations_. A declaration is a _property-value_ pair.
+  - You really want to refer to a CSS cheat sheet!
+* Three types of selectors: HTML tag names, ID, class
+  - ID: should only be used once; starts with "#"
+  - class: can be used many times; start with "."
+  - Mixing IDs and classes is confusing, generally not a good idea.
+  - "id" and "class" attribute exist for all HTML elements
+  - Generic block HTML element: div
+  - Generic inline HTML element: span
+* Box model for HTML body elements
+* The "cascading" in "cascading style sheet"
+  - What if there is more than one style specified for an HTML element?
+* Loading additional stylesheets
