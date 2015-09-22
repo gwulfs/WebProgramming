@@ -4,3 +4,41 @@ h1 {
 	text-align: center;
 	font-family: Helvetica;
 }
+
+/* h1 is better known as a "selector" */
+/* text-align:center; is better known as a "declaration" */
+/* A declaration is a key-value pair */
+
+body {
+	background-color: orange;
+	font-size: 96px;
+	color: blue;
+}
+
+body {
+	font-size: 18px;
+	background-color: #52bab3;
+}
+
+p {
+	color: #FFFFFF;
+	background-color: purple;
+	margin-left: 25%;
+	margin-right:25%;
+}
+
+.specialfreedom {
+	color: red;
+	font-weight: bold;
+	font-size: 25%;
+}
+
+#speechtext {
+	border-style: dashed;
+}
+
+
+
+
+
+
