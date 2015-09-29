@@ -97,9 +97,9 @@
 <ol>
 <li>Log on to <code>linux.cs.tufts.edu</code> or <code>homework.cs.tufts.edu</code></li>
 <li><code>lsimpson ~/work/project/ &gt; cd ~</code></li>
-<li><code>lsimpson ~/ &gt; mkdir public_html</code></li>
-<li><code>lsimpson ~/ &gt; chmod 755 public_html</code> (NOTE: <code>755</code> is the permissions code for user readable, writable, and executable; group readable and executable; other readable and executable)</li>
-<li><code>lsimpson ~/ &gt; chmod 711 ~</code></li>
+<li><code>lsimpson ~/&gt; mkdir public_html</code></li>
+<li><code>lsimpson ~/&gt; chmod 755 public_html</code> (NOTE: <code>755</code> is the permissions code for user readable, writable, and executable; group readable and executable; other readable and executable)</li>
+<li><code>lsimpson ~/&gt; chmod 711 ~</code></li>
 </ol>
 
 <p>The default file for your website must be named <code>index.html</code>.  Without this file, visitors to your website will see a listing of the files you have in your <code>public_html</code> directory.</p>
@@ -108,8 +108,8 @@
 
 <p>You can set these by executing:</p>
 <ol>
-<li><code>lsimpson ~/ > chmod 755 &lt;directory_name&gt;</code></li>
-<li><code>lsimpson ~/ > chmod 644 &lt;file_name&gt;</code> (NOTE: <code>644</code> is the permissions code for user readable and writable; readable by group and others)</li>
+<li><code>lsimpson ~/&gt; chmod 755 &lt;directory_name&gt;</code></li>
+<li><code>lsimpson ~/&gt; chmod 644 &lt;file_name&gt;</code> (NOTE: <code>644</code> is the permissions code for user readable and writable; readable by group and others)</li>
 </ol>
 
 <p class="note">Also, you must change your home directory to be executable. That is: <code>chmod 755 ~/.</code></p>
