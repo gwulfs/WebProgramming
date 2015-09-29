@@ -63,3 +63,19 @@
 * The "cascading" in "cascading style sheet"
   - What if there is more than one style specified for an HTML element?
 * Loading additional stylesheets
+
+#Tuesday, September 29th: JavaScript
+* So far, we have covered quite a bit: HTTP, HTML, CSS, Git
+* What are the problems and limitations with just HTML and CSS?
+* HTTP: stateless protocol, no memory of previous requests
+* In the early 90s, "Netscape quickly realized that the Web needed to become more dynamic. Even if you simply wanted to check that users entered correct values in a form, you needed to send the data to the server in order to give feedback." http://speakingjs.com/es5/ch04.html
+* Our focus is still on the client-side
+* Variables: dynamic typing but will be one of the following: number, string, array, object, boolean
+  - Three states of a variable: (1) not set yet (undefined), (2)set to nothing (null), (3) set to a valid value
+* Operations: "+" is interesting
+* Function arguments: (1) too many: extras ignored, (2) too few: remainders get an undefined value
+* Lists (a.k.a., arrays)
+* _(Almost) everything in JavaScript is an object_ https://stackoverflow.com/questions/9108925/how-is-almost-everything-in-javascript-an-object
+* Too many built-in JavaScript objects to name: string, Date, Math
+* Special object in JavaScript: the associative array a.k.a., dictionary a.k.a., hash a.k.a., finite map
+* Okay, but how do I use JavaScript in an HTML page?  Or how do I dynamically modify a loaded HTML page using JavaScript?
