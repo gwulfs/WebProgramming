@@ -1,0 +1,133 @@
+body{
+	font-family: 'Josefin Sans', sans-serif;
+	background-color: #E8F4FF;
+}
+/*----------------------------------------Large regions*/
+.titleBar{
+	background-color: dodgerblue;
+	color: white;
+}
+
+.pageBody{
+	padding: 1em;
+	display: flex;
+	max-width: 1600px;
+	margin: auto;
+}
+
+.newsfeed{
+	flex: 1 70%;
+}
+
+.sidebar{
+	margin-left: .6em;
+	border: dodgerblue 4px dotted;
+	background-color: white;
+	padding: 1em;
+	display: inline-block;
+
+
+	flex: 1 20%;
+}
+
+
+
+/*----------------------------------------page header*/
+.titleBar h1{
+	font-weight: 300;
+	font-size: 4em;
+	padding: .5em;
+	margin: 0;
+}
+
+/*----------------------------------------Newsfeed classes*/
+.newsNote{
+	background-color: white;
+	margin: .5em;
+
+	font-size: 1.4em;
+	padding: .4em;
+
+	box-shadow: 3px 3px 3px grey;
+}
+
+.smallNote{
+	max-height: 60px;
+	overflow: hidden;
+}
+
+.largeNote{}
+
+.newHwNote{
+	color: limegreen;
+}
+
+.hwDueNote{
+	color: indianred;
+}
+
+.taNote{
+	color: deepskyblue;
+}
+
+.attnText{
+	font-weight: bolder;
+}
+
+.taNote .attnText{
+	color: deepskyblue;
+}
+
+.attnText.dateTime{
+	color: gray;
+}
+
+.pithyContent .blurb{
+	font-size: 1em;
+	padding-left: 1.4em;
+	color: gray;
+
+}
+
+/*----------------------------------------sidebar classes*/
+.barSection{
+	margin-bottom: 1.4em;
+}
+
+.barSection.title{
+	margin-bottom: 0;
+}
+
+.barSection h1, .barSection h2, .barSection p{
+	margin: 0;
+}
+
+.barSection h1{
+	color: dodgerblue;
+	text-align: right;
+}
+
+.barSection h2{
+	font-weight: 500;
+	color: dodgerblue;
+}
+
+.barSection p{
+	font-weight: 300;
+	margin-left: .8em;
+}
+
+
+@media all and (max-width: 870px){
+	.pageBody{
+		flex-direction: column;
+	}
+
+	.titleBar, .barSection h1{
+		text-align: center;
+	}
+}
+
+
+
+

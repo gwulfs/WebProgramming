@@ -1,0 +1,35 @@
+/*----------------------------------------page header*/
+.titleBar h1{
+	font-size: 4em;
+	padding: .5em;
+	margin: 0;
+}
+
+/*----------------------------------------Newsfeed classes*/
+.newsNote{
+	font-size: 1.4em;
+	padding: .4em;
+	margin: .5em;
+}
+
+.pithyContent .blurb{
+	font-size: 1em;
+	padding-left: 1.4em;
+}
+
+/*----------------------------------------sidebar classes*/
+.barSection{
+	margin-bottom: 1.4em;
+}
+
+.barSection.title{
+	margin-bottom: 0;
+}
+
+.barSection h1, .barSection h2, .barSection p{
+	margin: 0;
+}
+
+.barSection p{
+	margin-left: .8em;
+}

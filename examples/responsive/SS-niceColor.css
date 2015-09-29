@@ -1,0 +1,68 @@
+/*----------------------------------------rid yuck colors*/
+.titleBar{ background-color: transparent;}
+.pageBody{ background-color: transparent;}
+.newsfeed{ background-color: transparent;}
+.sidebar{ background-color: transparent;}
+.barSection{ border: none;}
+.newsNote{border: none;}
+/*----------------------------------------end yuck colors*/
+
+
+body{
+	/*font-family: 'Josefin Sans', sans-serif;*/
+	background-color: #E8F4FF;
+}
+/*----------------------------------------Large regions*/
+.titleBar{
+	background-color: dodgerblue;
+	color: white;
+}
+
+.sidebar{
+	background-color: white;
+}
+
+/*----------------------------------------Newsfeed classes*/
+.newsNote{
+	background-color: white;
+}
+
+.newHwNote{
+	color: limegreen;
+}
+
+.hwDueNote{
+	color: indianred;
+}
+
+.taNote{
+	color: deepskyblue;
+}
+
+.attnText{
+	font-weight: bolder;
+}
+
+.taNote .attnText{
+	color: deepskyblue;
+}
+
+.attnText.dateTime{
+	color: gray;
+}
+
+.pithyContent .blurb{
+	color: gray;
+}
+
+/*----------------------------------------sidebar classes*/
+.barSection h1{
+	color: dodgerblue;
+}
+
+.barSection h2{
+	color: dodgerblue;
+}
+
+
+

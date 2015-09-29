@@ -1,0 +1,30 @@
+/*----------------------------------------Large regions*/
+.pageBody{
+	padding: 1em;
+	display: flex;
+	max-width: 1600px;
+	margin: auto;
+}
+
+.newsfeed{
+	flex: 1 70%;
+}
+
+.sidebar{
+	margin-left: .6em;
+	padding: 1em;
+	display: inline-block;
+
+
+	flex: 1 20%;
+}
+
+@media all and (max-width: 870px){
+	.pageBody{
+		flex-direction: column;
+	}
+
+	.titleBar, .barSection h1{
+		text-align: center;
+	}
+}
