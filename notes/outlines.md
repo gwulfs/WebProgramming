@@ -97,4 +97,9 @@
 * The document object: a JavaScript object that contains the entire structure of an HTML page after it is loaded, in tree-like format (thus, known as the Document Object Model tree).  Example of a DOM tree: https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core
 * Example 1: Tufts FML
 * Example 2: Highlighting paragraphs in an HTML document
+* Example 3: Prepending
+  `// The idea: create a new node and prepend to the first node in the "content" div
+        newElem = document.createElement("p");
+        newElem.innerHTML = '<p><span class="message">' +theMessage + " #FML</span></p>";
+        toUpdate.insertBefore(newElem, toUpdate.childNodes[0]);`
 * Even more powerful idea: update the HTML with data from a web server
