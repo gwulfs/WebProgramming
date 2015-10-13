@@ -103,3 +103,19 @@
         newElem.innerHTML = '<p><span class="message">' +theMessage + " #FML</span></p>";
         toUpdate.insertBefore(newElem, toUpdate.childNodes[0]);`
 * Even more powerful idea: update the HTML with data from a web server
+
+#February 26, 2015: First-Class Functions
+* Last class: the Document Object Model (DOM).  What does the DOM structure look like?
+* Recall Tufts FML
+* Lab 5 requires the use of the DOM.  It also requires knowledge of another incredibly powerful concept. Yennie's question on Piazza...
+* Recall: almost everything in JavaScript is an object.  So what about functions?
+* Who is in COMP 105 currently or have taken COMP 105?
+* What if I told you functions can be used as values to variables? Functions as arguments to functions? That's what it means by functions as first-class!
+* Recall Algebra: function composition
+* Why is this a powerful idea?
+  - Reduce repetitive code
+  - More reusable and scalable code
+  - "Object Oriented Programming" in JavaScript
+  - Event programming in JavaScript.  What is an event?
+  - Example: `apply` https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+* Example: animation using HTML5 canvas; karaoke
