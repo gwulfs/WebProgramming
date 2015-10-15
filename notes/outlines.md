@@ -104,7 +104,7 @@
         toUpdate.insertBefore(newElem, toUpdate.childNodes[0]);`
 * Even more powerful idea: update the HTML with data from a web server
 
-#February 26, 2015: First-Class Functions
+#Tuesday, October 13th: First-Class Functions
 * Last class: the Document Object Model (DOM).  What does the DOM structure look like?
 * Recall Tufts FML
 * Lab 5 requires the use of the DOM.  It also requires knowledge of another incredibly powerful concept. Yennie's question on Piazza...
@@ -119,3 +119,28 @@
   - Event programming in JavaScript.  What is an event?
   - Example: `apply` https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
 * Example: animation using HTML5 canvas; karaoke
+
+#Thursday, October 15th: JSON, What You Can't Do in Client-Side JavaScript, Asynchronous
+* Last class: first-class functions, events
+* Today: three different things
+  * JSON
+  * What You Can't Do in JavaScript
+  * Asynchronous
+* JSON: Data exchange format (think text file).  JSON is string, NOT JavaScript objects.
+* Why JSON?
+* Example
+* Limitations of Client-Side JavaScript
+  * Other people cannot access data or information that you have (i.e., you can't make responses)
+  * Can't to write to files on disk
+  * You are constrained by web browser (i.e., browser incompatibility issues)
+  * Storage constraints (e.g., cookies, local storage)
+  * Security issues (e.g., same origin policy)
+  * View source
+* So far, you have only worked with synchronous communications. Problem: slow, linear, "locking", not smooth
+* Asynchronous communications.  Where it is used: events
+* Client-side JS is heavily event-based
+* Recall Tom Addison's karaoke from last semester.
+* Examples of async APIs in JavaScript: `navigator.geolocation.getCurrentPosition()`, `XMLHttpRequest`
+* The idea of XMLHttpRequest => make a request to a server-side script to get data, manage the response
+* XHR key methods and attributes: open(), send(), onreadystatechange, status, readyState, responseText
+* The data that now typically get back in the `responseText`: JSON
