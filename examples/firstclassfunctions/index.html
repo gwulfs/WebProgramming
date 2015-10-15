@@ -7,20 +7,12 @@
 			// Taken from http://www.joelonsoftware.com/items/2006/08/01.html
 			var a = [5, 6, 2, 3, 7];
 
-			/*for (i = 0; i < a.length; i++) {
-				a[i] = a[i] * 2;
-			}
-	
-			for (i=0; i < a.length; i++) {
-				alert(a[i]);
-			}*/
-
 			function map(fn, a) {
 				for (i = 0; i < a.length; i++) {
 					a[i] = fn(a[i]);
 				}
 			}
-			map( function(x){return x*2;}, a );
+			map( Math.sqrt, a );
 			map( alert, a );
 		</script>
 	</head>
