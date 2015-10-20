@@ -139,8 +139,27 @@
 * So far, you have only worked with synchronous communications. Problem: slow, linear, "locking", not smooth
 * Asynchronous communications.  Where it is used: events
 * Client-side JS is heavily event-based
-* Recall Tom Addison's karaoke from last semester.
+* Example: Double Rainbow
+
+#Tuesday, October 20th: Asychronous (continued)
+* Last class: Events and asynchronous
+  - Asynchronous: "where data can be transmitted intermittently rather than in a steady stream"; not going at the same rate
+  - Are they the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
+* Last class: JSON (http://json.org/)
 * Examples of async APIs in JavaScript: `navigator.geolocation.getCurrentPosition()`, `XMLHttpRequest`
 * The idea of XMLHttpRequest => make a request to a server-side script to get data, manage the response
-* XHR key methods and attributes: open(), send(), onreadystatechange, status, readyState, responseText
+* XHR key methods and attributes: `open()`, `send()`, `onreadystatechange`, `status`, `readyState`, `responseText`
 * The data that now typically get back in the `responseText`: JSON
+* Today: finish up on XMLHttpRequest
+  - Asynchronous
+  - The event: onreadystatechange.  The readyState values:
+    - 0 => The request is not initialized
+    - 1 => The request has been set up
+    - 2 => The request has been sent
+    - 3 => The request is in process
+    - 4 => The request is complete
+* Parsing the JSON data
+* Is checking for readyState 4 good enough?  NO!
+* Caveats with XMLHttpRequest and one of the limitations of client-side JavaScript
+
+#Thursday, October 22nd: Persistence with Cookies and Local Storage
