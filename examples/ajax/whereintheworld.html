@@ -1,0 +1,27 @@
+<!doctype html>
+
+<head>
+<head>
+<title>Where in the World is Carmen Sandiego?</title>
+<script>
+	var xhr = new XMLHttpRequest();
+
+	function init() {
+		xhr.open("GET","location.json", true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				data = JSON.parse(xhr.responseText);
+				elem = document.getElementById("location");
+				elem.innerHTML = "<p>Carmen Sandiego was last seen at the " + data["description"] + "</p>";
+			}
+		}
+		xhr.send(null);
+	}
+</script>
+</head>
+
+<body onload="init()">
+	<h1>Where in the World is Carmen Sandiego?</h1>
+	<div id="location"></div>
+</body>
+</html>
