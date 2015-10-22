@@ -163,3 +163,12 @@
 * Caveats with XMLHttpRequest and one of the limitations of client-side JavaScript
 
 #Thursday, October 22nd: Persistence with Cookies and Local Storage
+* Last class: XMLHttpRequest
+* So #whatcouldpossiblygowrong?
+* Today: storing data over time
+* What can't we do?
+* What we have learned so far in this course: key-value pairs
+* Two basic storage mechanisms on the client-side: cookies, local storage
+* Cookies: 4 KB max, there is a max number of cookies per domain
+* Local storage: ~5 MB per domain
+* Examples
