@@ -7,6 +7,8 @@
 <script src="jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("div#today ul").hide();
+		$("div#yesterday ul").hide();
 		$("div#today p").click(function() {
 			$("div#today ul").slideToggle('slow');
 		});

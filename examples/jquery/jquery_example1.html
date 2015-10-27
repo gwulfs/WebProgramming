@@ -7,12 +7,9 @@
 <script src="jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('h1').click(
-			function highlight()
-			{
-				$('p').each(function() {
-					this.style.backgroundColor = '#FFFF00';
-					console.log(this.textContent);
+		$('h1').click(function() {
+			$('p').each(function() {
+				this.style.backgroundColor = '#FFFF00';
 				});
 			}
 		);
