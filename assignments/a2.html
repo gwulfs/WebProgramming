@@ -50,11 +50,11 @@
 <p>The datastore API <code>https://secret-about-box.herokuapp.com/sendLocation</code> is HTTP POST only.  It takes in three parameters and will return a JSON feed of the locations of the people in the class if the three parameters are legitimate.</p>
 <ul>
 <li><code>login</code> - Your username. <span class="note">NOTE: you will be assigned, emailed a randomly generated handle for this lab. We will not be using Tufts CS login names for this assignment for privacy purposes.</span></li>
-<li><code>lat</code> - Your latitude</li>
-<li><code>lng</code> - Your longitude</li>
+<li><code>lat</code> - Your latitude, a floating point number</li>
+<li><code>lng</code> - Your longitude, a floating point number</li>
 <li><code>message</code> - A message, no length requirement.</li>
 </ul>
-<p>If you successfully send the three inputs to the datastore, you will receive a JSON that looks like the following: <code>[{"_id":"54e95ff46cca2a030048cf14","login":"mchow","lat":40.67693,"lng":117.23193,"message":"Hello%20world","created_at":"2015-02-22T05:12:24.596Z"},{"_id":"54e9619bfd68b4030062ddc2","login":"carmensandiego","lat":-22.951944,"lng":-43.210556,"message":"Hello%20world","created_at":"2015-02-22T04:56:59.495Z"},{"_id":"54e96122fd96990300d54521","login":"nrnrnr","lat":42.090944,"lng":-71.264344,"message":"Hello%20world","created_at":"2015-02-22T04:54:58.589Z"},{"_id":"54e960e5fd96990300d54520","login":"kaytea","lat":41.903056,"lng":12.454444,"message":"Hello%20world","created_at":"2015-02-22T04:53:57.214Z"}]</code></p>
+<p>If you successfully send the four inputs to the datastore, you will receive a JSON that looks like the following: <code>[{"_id":"54e95ff46cca2a030048cf14","login":"mchow","lat":40.67693,"lng":117.23193,"message":"Hello%20world","created_at":"2015-02-22T05:12:24.596Z"},{"_id":"54e9619bfd68b4030062ddc2","login":"carmensandiego","lat":-22.951944,"lng":-43.210556,"message":"Hello%20world","created_at":"2015-02-22T04:56:59.495Z"},{"_id":"54e96122fd96990300d54521","login":"nrnrnr","lat":42.090944,"lng":-71.264344,"message":"Hello%20world","created_at":"2015-02-22T04:54:58.589Z"},{"_id":"54e960e5fd96990300d54520","login":"kaytea","lat":41.903056,"lng":12.454444,"message":"Hello%20world","created_at":"2015-02-22T04:53:57.214Z"}]</code></p>
 <p>If you do not send the four inputs to the datastore correctly, you will receive a JSON that looks like the following: <code>{"error":"Whoops, something is wrong with your data!"}</code></p>
 <p class="note">Important: Cross-Origin Resource Sharing (CORS) is enabled for this API!</p>
 
