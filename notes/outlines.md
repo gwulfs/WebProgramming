@@ -185,7 +185,6 @@
   6. Security issues (e.g., same origin policy)
   7. View source
 * The ideal picture: client-server
-* Architecture in the real world: https://www.acunetix.com/websitesecurity/web-applications/
 * How do you design the server-side environment, assuming that the hardware (computer(s) for server) is provided to you?
   1. Handle requests
   2. Store data "somewhere"
@@ -198,6 +197,8 @@
 * Implementation: Node.js => write server-side programs using JavaScript
   
 #Tuesday, November 3rd: Server-Side (continued), Frameworks
+* Last class: web server
+* Architecture in the real world: https://www.acunetix.com/websitesecurity/web-applications/
 * Option A: https://github.com/tuftsdev/WebProgramming/blob/gh-pages/examples/nodejs/server.js
 * Option B: https://github.com/tuftsdev/WebProgramming/blob/gh-pages/examples/nodejs/simpleexpress/app.js
 * A good framework:
