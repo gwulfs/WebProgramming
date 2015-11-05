@@ -9,6 +9,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Mongo initialization and connect to database
+// process.env.MONGOLAB_URI is the environment variable on Heroku for the MongoLab add-on
+// process.env.MONGOHQ_URL is the environment variable on Heroku for the MongoHQ add-on
+// If environment variables not found, fall back to mongodb://localhost/nodemongoexample
+// nodemongoexample is the name of the database
 var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/nodemongoexample';
 var MongoClient = require('mongodb').MongoClient, format = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
@@ -20,13 +24,12 @@ app.post('/feedme', function(request, response) {
 	var toInsert = {
 		"fooditem": fooditem,
 	};
-	db.collection('fooditems', function(error1, coll) {
-		var id = coll.insert(toInsert, function(error2, saved) {
-			if (error2) {
+	db.collection('fooditems', function(error, coll) {
+		var id = coll.insert(toInsert, function(error, saved) {
+			if (error) {
 				response.send(500);
 			}
 			else {
-				console.log("Jake, it's okay...");
 				response.send(200);
 			}
 	    });
