@@ -1,5 +1,7 @@
 // Initialization
 var express = require('express');
+
+// Required if we need to use HTTP query or post parameters
 var bodyParser = require('body-parser');
 var validator = require('validator'); // See documentation at https://github.com/chriso/validator.js
 var app = express();
@@ -20,9 +22,9 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 });
 
 app.post('/feedme', function(request, response) {
-	var fooditem = request.body.fooditem;
+	var food = request.body.food;
 	var toInsert = {
-		"fooditem": fooditem,
+		"food": food,
 	};
 	db.collection('fooditems', function(error, coll) {
 		var id = coll.insert(toInsert, function(error, saved) {
@@ -44,7 +46,7 @@ app.get('/', function(request, response) {
 			if (!err) {
 				indexPage += "<!DOCTYPE HTML><html><head><title>What Did You Feed Me?</title></head><body><h1>What Did You Feed Me?</h1>";
 				for (var count = 0; count < cursor.length; count++) {
-					indexPage += "<p>You fed me " + cursor[count].fooditem + "!</p>";
+					indexPage += "<p>You fed me " + cursor[count].food + "!</p>";
 				}
 				indexPage += "</body></html>"
 				response.send(indexPage);
