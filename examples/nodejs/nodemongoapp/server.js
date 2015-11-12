@@ -21,6 +21,9 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 	db = databaseConnection;
 });
 
+// Serve static content
+app.use(express.static(__dirname + '/public'));
+
 app.post('/feedme', function(request, response) {
 	var food = request.body.food;
 	var toInsert = {
