@@ -224,3 +224,17 @@
 * Important: inserting a document into a database that does not exist WILL create the database!
 * Wait, I'm confused: we are dealing with two different systems here. How do you have a Node.js server talk to a MongoDB server? The answer: a driver. A driver is a piece of software for accessing a database.  Think of this as a translation engine.  There is a `mongodb` driver for Node.js
 * Example: https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp.  Feel free to copy and use initialization code.  It will help you big time!
+
+#Tuesday, November 17th: Web Security, Part I
+* Recall: data sent to a web server is always text!
+* Revisiting `nodemongoapp`
+* There's something wrong with it. What if...
+* Cross-Site Scripting (XSS): what is it, why is it so bad, and where to attack?
+* Security 101: never trust user input from a client
+* Awareness:
+  1. OWASP Top 10 list: https://www.owasp.org/index.php/Top_10_2013-Top_10
+  2. CWE/SANS TOP 25 Most Dangerous Software Errors: https://www.sans.org/top25-software-errors/
+* The moral of the story...
+* Defending against XSS
+* Playground: http://www.cs.tufts.edu/comp/20/hackme.php
+* Bypassing client-side validation using a proxy
