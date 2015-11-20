@@ -26,6 +26,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.post('/feedme', function(request, response) {
 	var food = request.body.food;
+	food = food.replace(/[^\w\s]/gi, '');
 	var toInsert = {
 		"food": food,
 	};
