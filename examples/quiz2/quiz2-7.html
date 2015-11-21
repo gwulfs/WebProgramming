@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Quiz 2</title>
+	<script>
+		var request = new XMLHttpRequest();
+		request.open("GET", "http://www.cs.tufts.edu/news.json", true);
+		request.onreadystatechange = funex;
+		console.log("We have green eggs and ham");
+
+		function funex() {
+			console.log("Sam I Am");
+			if (request.readyState == 4 && request.status == 200) {
+				data = JSON.parse(request.responseText);
+				console.log("Smarter than the average bear");
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Quiz 2</h2>
+</body>
+</html>
