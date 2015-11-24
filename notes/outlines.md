@@ -238,3 +238,12 @@
 * Defending against XSS
 * Playground: http://www.cs.tufts.edu/comp/20/hackme.php
 * Bypassing client-side validation using a proxy
+
+#Tuesday, November 24th: What's the Point?
+* Starting to wrap up the course
+* The big question for the next few weeks
+* Quiz 2
+  * Code is now available for your testing and consumption
+* Assignment 3
+  * What did you learn?
+  * Examples of related projects out there
