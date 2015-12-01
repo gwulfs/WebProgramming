@@ -242,8 +242,20 @@
 #Tuesday, November 24th: What's the Point?
 * Starting to wrap up the course
 * The big question for the next few weeks
-* Quiz 2
-  * Code is now available for your testing and consumption
 * Assignment 3
   * What did you learn?
   * Examples of related projects out there
+  
+#Tuesday, December 1st: What's the Point?
+* Quiz 2
+  * Code is now available for your testing and consumption
+  * Three major points: (1) asynchronous, (2) understanding code, (3) you didn't copy-and-paste code
+* Semester Group Project: For each semester group project team, prepare a brief stand-up update for Thursday on (1) what you have learned so far from the semester group project and (2) what would you like to, or need to, learn for your semester group project. This stand-up update must be no longer than two minutes.
+* Assignment 4
+  * My Assignment 3 code :)
+  * Injection
+  * I can count up to 8 possible security and privacy issues with Assignment 2 and 3
+  * The point: https://twitter.com/homakov/status/671218566058897408
+  * The point: https://twitter.com/cigitalgem/status/671510208514883584
+  * Recent incident(s)
+  * Meet your partner
