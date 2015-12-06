@@ -281,12 +281,12 @@
 * Team 17: Facebook authentication, Jade files | React.js
 * Team 19: Facebook login, Soundcloud | How to use data from FB data
 
-#Tuesday, December 9th
+#Tuesday, December 8th
 * Course evaluation
 * One last lab
 * Quiz
 
-#Thursday, December 11th: What's The Point?
+#Thursday, December 10th: What's The Point?
 * You've barely scratched the surface
   * What reality is really like
   * What engineering issues do you see here?
