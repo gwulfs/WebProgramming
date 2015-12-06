@@ -259,3 +259,62 @@
   * The point: https://twitter.com/cigitalgem/status/671510208514883584
   * Recent incident(s)
   * Meet your partner
+
+#Thursday, December 3rd: Stand-Up Meeting
+* Team Number | What Have You Learned Technically |  What Would You Like To Learn
+* Team 1: Git, Spotify API | Bootstrap, Spotify API
+* Team 2: Bootstrap, Socket.io | Facebook API, Google Analytics
+* Team 3: Canvas, Bootstrap | Incorpating API, AJAX
+* Team 4: Echo Nest API | Bootstrap, streaming media
+* Team 5: Limitations of APIS | Merge conficts
+* Team 6: Bootstrap, Git, Echonest | Spotify
+* Team 7: Bootstrap | Spotify, authentication
+* Team 8: Git, Google authentication API | Spotify
+* Team 9: Integration | Bootstrap
+* Team 10: Git, Bootstrap, .js file templating | Amazon S3
+* Team 11: jquery, Bootstrap| Soundcloud, read other people's code
+* Team 12: npm spotify, Google Charts, Facebook login | integration
+* Team 13: Bootstrap, authentication | Echonest
+* Team 14: Front end frameworks, charts, merging, dev branch, merge conflicts | Git serverside data persistence
+* Team 15: jQuery UI, web audio | integration
+* Team 16: Last.fm, radio, Mongo | Bootstrap, Google Charts
+* Team 17: Facebook authentication, Jade files | React.js
+* Team 19: Facebook login, Soundcloud | How to use data from FB data
+
+#Tuesday, December 9th
+* Course evaluation
+* One last lab
+* Quiz
+
+#Thursday, December 11th: What's The Point?
+* You've barely scratched the surface
+  * What reality is really like
+  * What engineering issues do you see here?
+  * Want to learn and build something over the break?  How about a mobile app that uses your Assignment 3?  Or a new client-side using Backbone or Angular?
+* The big ideas from this class:
+  * key-value pairs
+  * Separation of concerns (CSS, server architecture)
+  * Don't reinvent the wheel
+  * Basics of distributed systems
+  * Never trust user input
+  * Events and asynchronous
+  * Revision control
+  * Attention to details
+  * Learning how to learn
+  * Communications
+* Where do you go from here?
+  * Web infrastructure and standards
+  * Objects, first-class functions, closures
+  * Internet and networking
+  * The engineering side of the web
+  * NoSQL (e.g., MongoDB) vs. SQL databases
+  * Security
+  * Programming skills
+  * Concurrent uses and how to write a chat or web server
+  * User interface(s)
+  * Mobile
+* Your portfolio: my gift to you
+* The real messages of this class: what you COULD do, build your intellectual curiosity, engineering and code are not everything......
+* Semester group project
+* Acknowledgements
+* Personal thoughts
