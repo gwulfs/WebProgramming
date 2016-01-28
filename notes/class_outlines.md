@@ -8,8 +8,12 @@
 * The big idea of HTTP, how the web works: request-response, similar to Q&A
 * Examining HTTP requests and responses on Reddit...
 * HTTP commands: GET and POST
+  * GET: Download data
+  * POST: Upload data, send data to web server
 * Q: How to browse web without web browser?
-
+* URLs:
+  `protocol://domain/<any directories here>/<filename>`
+  
 #Thursday: January 28th: HTML
 * Last class: recall how HTTP works
 * In-class example: provide IP address
