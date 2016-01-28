@@ -19,7 +19,7 @@
 * About file permissions and the HTTP response status code 403
 * Take a look at the HTML
 * What is markup?
-* Motivation: printing press?
+* Motivation: writing
 * What's wrong with the HTML?
 * W3C validator
 * Block vs. inline elements
