@@ -17,12 +17,12 @@
 #Thursday: January 28th: HTML
 * Last class: recall how HTTP works
 * In-class example: provide IP address
-* Recall question: if no file is provided in URL, the file with what name is served by default?
-* Recall question: if no port number is provided, the default port number to connect to on server is...?
+* Recall question: if no file is provided in URL, the file with what name is generally served by default?
+* Recall question: if no port number is provided, the default port number to connect to on web server is...?
 * Recall question: what HTTP command is executed when entering URL address?
-* About file permissions and the HTTP response status code 403
 * Take a look at the HTML
 * What is markup?
+* About file permissions and the HTTP response status code 403
 * Motivation: writing
 * What's wrong with the HTML?
 * W3C validator
