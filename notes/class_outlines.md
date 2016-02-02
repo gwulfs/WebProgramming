@@ -40,7 +40,7 @@
 * What I am NOT going to do: discuss every HTML tag
 * What is important to discuss: the finer points of HTML
   - Recall last class: what's peculiar about HTML? (hints: closing tags, attributes, nesting)
-* Commandments
+  - Commandments
 * What I've noticed: lots of you connecting to Tufts CS to do work via SSH, questions on submitting assignments and labs in this class?
 * The nightmare scenario that illustrates the need for revision control: in the past...
 * What if I need to hire developers to work on different pieces of a projet?
