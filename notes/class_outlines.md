@@ -65,3 +65,31 @@
   - What if there is more than one style specified for an HTML element?
 * Loading additional stylesheets
 * (at 5:30 PM) Kevin Oye, Tufts Class of 1979.  http://engineering.tufts.edu/alumni/profiles/oye.htm
+
+#Tuesday, February 9th: Responsive Design
+* Reminder: Career Fair, Reverse Career Fair tomorrow
+* Last class: CSS
+* Why CSS?  What do they give you?
+* Recall: id vs class
+* Recall: what is cascading?
+* Today: mobile
+* Take out your phone or mobile device.  Go to...
+* How mobile web browsers work: render pages in a virtual window (i.e., the viewport), usually wider than the screen, so they don't need to squeeze every page layout into a tiny window. Users can pan and zoom to see different areas of the page.  That is, a mobile browser it will assume that you are viewing a desktop experience and that you want to see all of it.
+* `<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />` => your layout will be displayed properly at 1:1 scale.  No zooming will be applied.
+* So can I have a different stylesheet for different screen sizes and devices?
+  * http://broadcast.oreilly.com/2010/04/using-css-media-queries-ipad.html
+* Can I have different rules in a CSS for different screen sizes (e.g., widths)?
+* Your next lab
+
+#Thursday, February 11th: JavaScript
+* So far, we have covered quite a bit: HTTP, HTML, CSS, Git
+* What are the problems and limitations with just HTML and CSS?
+* HTTP: stateless protocol, no memory of previous requests
+* In the early 90s, "Netscape quickly realized that the Web needed to become more dynamic. Even if you simply wanted to check that users entered correct values in a form, you needed to send the data to the server in order to give feedback." http://speakingjs.com/es5/ch04.html
+* Our focus is still on the client-side
+* Variables: dynamic typing but will be one of the following: number, string, array, object, boolean
+  - Three states of a variable: (1) not set yet (undefined), (2)set to nothing (null), (3) set to a valid value
+* Operations: "+" is interesting
+* Function arguments: (1) too many: extras ignored, (2) too few: remainders get an undefined value
+* Lists (a.k.a., arrays)
+* _(Almost) everything in JavaScript is an object_ https://stackoverflow.com/questions/9108925/how-is-almost-everything-in-javascript-an-object
