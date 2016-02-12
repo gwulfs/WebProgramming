@@ -76,7 +76,7 @@
 * Take out your phone or mobile device.  Go to...
 * How mobile web browsers work: render pages in a virtual window (i.e., the viewport), usually wider than the screen, so they don't need to squeeze every page layout into a tiny window. Users can pan and zoom to see different areas of the page.  That is, a mobile browser it will assume that you are viewing a desktop experience and that you want to see all of it.
 * `<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />` => your layout will be displayed properly at 1:1 scale.  No zooming will be applied.
-* So can I have a different stylesheet for different screen sizes and devices?
+* So can I have a different stylesheets for different screen sizes and devices?
   * http://broadcast.oreilly.com/2010/04/using-css-media-queries-ipad.html
 * Can I have different rules in a CSS for different screen sizes (e.g., widths)?
 * Your next lab
