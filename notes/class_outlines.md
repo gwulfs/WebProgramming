@@ -102,6 +102,7 @@
 * So what about functions?
 * Who is in COMP 105 currently or have taken COMP 105?
 * What if I told you functions can be used as values to variables? Functions as arguments to functions? That's what it means by functions as first-class!
+* Consider example at http://www.joelonsoftware.com/items/2006/08/01.html
 * Recall Algebra: function composition
 * Why is this a powerful idea?
   - Reduce repetitive code
@@ -113,6 +114,8 @@
   * Callbacks (e.g., working with the GPS)
   * Asynchronous communications (e.g., downloading data from the web within a running app)
 * Okay, but how do I use JavaScript in an HTML page?  Or how do I dynamically modify a loaded HTML page using JavaScript?
+
+###Branching in Git
 
 ###May not get to this: Document Object Model (DOM)
 * The document object: a JavaScript object that contains the entire structure of an HTML page after it is loaded, in tree-like format (thus, known as the Document Object Model tree).  Example of a DOM tree: https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core
