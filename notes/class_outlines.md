@@ -95,6 +95,7 @@
 * _(Almost) everything in JavaScript is an object_ https://stackoverflow.com/questions/9108925/how-is-almost-everything-in-javascript-an-object
 
 #Tuesday, February 16th: Functions in JavaScript
+* How do you start?
 * Last class: JavaScript data and data structures (lists and dictionaries)
 * Recall: almost everything in JavaScript is a/an ______
 * Too many built-in JavaScript objects to name: string, Date, Math
