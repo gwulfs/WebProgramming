@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+<link rel="stylesheet" href="../stylesheets/style.css" />
+<title>COMP 20: Web Programming - Assignment 2</title>
+</head>
+
+<body>
+<h1>COMP 20: Web Programming</h1>
+<h2>Assignment 2: Historic Landmarks</h2>
+<h2>Due: Tuesday, March 15th</h2>
+
+<p class="note">This assignment is worth 18 points. You must work on this assignment individually.</p>
+
+<h2>Objectives</h2>
+<ol>
+<li>Use a JSON API.</li>
+<li>Use a third-party JavaScript API (in this case, Google Maps).</li>
+<li>Use the HTML5 geolocation API to determine your location.</li>
+<li>Use the <code>XMLHttpRequest</code> object to make requests and manage the response data.</li>
+</ol>
+
+<h2>Overview</h2>
+<p>In this assignment, you will develop a web page that:</p>
+<ol>
+<li>Retrieves your current location (latitude and longitude) and sends it to a datastore that I created.</li>
+<li>Retrieves and displays the locations people in the class and nearest historic landmarks on a map.</li>
+<li>Calculate the closest historic landmark to where you currently are.</li>
+</ol>
+
+<h2>Requirements</h2>
+<ol>
+<li>The HTML file must be named <code>index.html</code> in a folder named <code>landmarks</code> in your private Git repository.  You can write your JavaScript in the HTML file.</li>
+<li>You must use at least one (1) CSS file.  You can name the file whatever you want.</li>
+<li>You must use the JavaScript <code>navigator.geolocation</code> object to retrieve your geolocation information (latitude and longitude).</li>
+<li>You must use the JavaScript <code>XMLHttpRequest</code> object to make requests (i.e., send your information) and manage the response data.</li>
+<li>You must display your location on the map with unique marker (i.e., using an image of your choice) and info window with a note of your login after retrieving information from <code>navigator.geolocation</code>.</li>
+<li>You must display locations of people in the class on the map.  That is, there will be markers on the map denoting people.  Clicking on a marker will display person's login and mile(s) away from you in an info window.  A unique icon for a person must be used (the image can be anything); all people markers on map will use the same icon.</li>
+<li>You must display all landmarks within one mile of your current location on the map.  Clicking on a marker will display landmark's details in an info window.  A unique icon for a landmark must be used (the image can be anything); all landmark markers on map will use the same icon.</li>
+<li>On clicking your own marker, open an info window that shows the name of the closest historic landmark from you and the distance between you and that historic landmark in miles. You must also render a polyline between your current location and that closest historic landmark.</li>
+</ol>
+
+<h2>APIs</h2>
+<p>This assignment will require the use of two external APIs:</p>
+<ol>
+<li>The datastore API to send your location information and to retrieve information where everyone else is and landmarks within one mile from where you are: <code>https://defense-in-derpth.herokuapp.com/sendLocation</code></li>
+<li>The Google Maps API.  Please refer to my notes at <a href="../notes/ajax.html">http://tuftsdev.github.com/WebProgramming/notes/ajax.html</a>.  Working examples are available at <a href="https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/google_maps">https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/google_maps</a>.  <span class="note">NOTES: the <code>geolocation_map.html</code> example requires the page to be served by an actual web server.  Also, you do not need to create an API key to use Google Maps API version 3.</span>You can see <code>geolocation_map.html</code> in action at <a href="http://tuftsdev.github.com/WebProgramming/examples/google_maps/geolocation_map.html" target="_blank">http://tuftsdev.github.com/WebProgramming/examples/google_maps/geolocation_map.html</a>.</li>
+</ol>
+
+<h3>More on The Datastore API and Location of People</h3>
+<p>The datastore API <code>https://defense-in-derpth.herokuapp.com/sendLocation</code> is HTTP POST only.  It takes in three parameters and will return a JSON feed of the locations of the people in the class if the three parameters are legitimate.</p>
+<ul>
+<li><code>login</code> - Your username. <span class="note">NOTE: you will be assigned, emailed a randomly generated handle for this lab. We will not be using Tufts CS login names for this assignment for privacy purposes.</span></li>
+<li><code>lat</code> - Your latitude, a floating point number</li>
+<li><code>lng</code> - Your longitude, a floating point number</li>
+</ul>
+<p>If you successfully send the three inputs to the datastore, you will receive a JSON that looks like the following: <code>{"people":[{"_id":"56c53084ff1f7c21263ce335","login":"mchow","lat":42.508032,"lng":-71.0982818,"created_at":"2016-02-18T03:38:17.308Z"},{"_id":"56c2911bff1f7c21263c54a5","login":"CindyLytle","lat":42.406,"lng":-71.12,"created_at":"2016-02-18T04:32:30.542Z"}],"landmarks":[{"_id":"56c2bcd5ff1f7c21263cb1eb","type":"Feature","geometry":{"type":"Point","coordinates":[-71.11674492,42.40020378]},"properties":{"Location_Name":"Powder House Park","Details":"&lt;b&gt;Historic Place Name: &lt;/b&gt;Powder House Park&lt;BR&gt;&lt;b&gt;Address: &lt;/b&gt;Powder House Circle&lt;BR&gt;&lt;b&gt;City: &lt;/b&gt;Somerville&lt;BR&gt;&lt;b&gt;County: &lt;/b&gt;Middlesex&lt;BR&gt;&lt;b&gt;State: &lt;/b&gt;MASSACHUSETTS&lt;BR&gt;&lt;BR&gt;&lt;u&gt;Geographic Coordinates:&lt;/u&gt;&lt;BR&gt;&lt;b&gt;Latitude: &lt;/b&gt;42.4002&lt;BR&gt;&lt;b&gt;Longitude: &lt;/b&gt;-71.11674&lt;BR&gt;&lt;BR&gt;&lt;b&gt;NPS Reference Number: &lt;/b&gt;75000287&lt;BR&gt;&lt;b&gt;Date Listed: &lt;/b&gt;19750421&lt;BR&gt;&lt;b&gt;Notes: &lt;/b&gt;&lt;BR&gt;&lt;b&gt;Type: &lt;/b&gt;point&lt;BR&gt;&lt;b&gt;Geocode Match: &lt;/b&gt;0&lt;BR&gt;&lt;BR&gt;&lt;p align=\"center\"&gt;A Service of:&lt;BR&gt;&lt;a href=\"http://www.cr.nps.gov/nr/\"&gt;National Register of Historic Places&lt;/a&gt;&lt;BR&gt;&lt;a href=\"http://www.nps.gov/\"&gt;National Park Service&lt;/a&gt;&lt;/p&gt;"}},{"_id":"56c2bcd5ff1f7c21263cb092","type":"Feature","geometry":{"type":"Point","coordinates":[-71.11911774,42.39956284]},"properties":{"Location_Name":"Nichols, John F., House","Details":"&lt;b&gt;Historic Place Name: &lt;/b&gt;Nichols, John F., House&lt;BR&gt;&lt;b&gt;Address: &lt;/b&gt;17 Summit St.&lt;BR&gt;&lt;b&gt;City: &lt;/b&gt;Somerville&lt;BR&gt;&lt;b&gt;County: &lt;/b&gt;Middlesex&lt;BR&gt;&lt;b&gt;State: &lt;/b&gt;MASSACHUSETTS&lt;BR&gt;&lt;BR&gt;&lt;u&gt;Geographic Coordinates:&lt;/u&gt;&lt;BR&gt;&lt;b&gt;Latitude: &lt;/b&gt;42.39956&lt;BR&gt;&lt;b&gt;Longitude: &lt;/b&gt;-71.11912&lt;BR&gt;&lt;BR&gt;&lt;b&gt;NPS Reference Number: &lt;/b&gt;89001285&lt;BR&gt;&lt;b&gt;Date Listed: &lt;/b&gt;19890918&lt;BR&gt;&lt;b&gt;Notes: &lt;/b&gt;Somerville MPS&lt;BR&gt;&lt;b&gt;Type: &lt;/b&gt;point&lt;BR&gt;&lt;b&gt;Geocode Match: &lt;/b&gt;1&lt;BR&gt;&lt;BR&gt;&lt;p align=\"center\"&gt;A Service of:&lt;BR&gt;&lt;a href=\"http://www.cr.nps.gov/nr/\"&gt;National Register of Historic Places&lt;/a&gt;&lt;BR&gt;&lt;a href=\"http://www.nps.gov/\"&gt;National Park Service&lt;/a&gt;&lt;/p&gt;"}}]}</code></p>
+<p>If you do not send the three inputs to the datastore correctly, you will receive a JSON that looks like the following: <code>{"error":"Whoops, something is wrong with your data!"}</code></p>
+<p class="note">Important: Cross-Origin Resource Sharing (CORS) is enabled for this API!</p>
+
+<h2>Important Notes</h2>
+<ul>
+<li>You are not allowed to use jQuery or any JavaScript front-end framework for this assignment.</li>
+<li>To help you better understand and read the JSON that is sent to you, try this <a href="http://json.parser.online.fr/" target="_blank">Online JSON Parser</a></li>
+</ul>
+
+<h2>Getting Started</h2>
+<ol>
+<li>Create a new folder named <code>landmarks</code> in your folder <code>comp20-username</code> on your computer (the one you have been using since Lab 4).</li>
+<li>Follow the Google Maps JavaScript API tutorial "Getting Started" at <a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial</a>.</li>
+</ol>
+
+<p class="note">IMPORTANT NOTE: You do not need to create an API key for Google Maps.  I also used the HTTP version of the API.  You can take a look at another example I wrote: <a href="http://tuftsdev.github.com/WebProgramming/examples/google_maps/geolocation_map.html" target="_blank">http://tuftsdev.github.com/WebProgramming/examples/google_maps/geolocation_map.html</a>.  However, please go through Google's tutorial first!</p>
+
+<h2>Executing HTTP POST via <code>XMLHttpRequest</code></h2>
+<p>In order to execute HTTP POST using the JavaScript <code>XMLHttpRequest</code>, you need to add a parameter to the HTTP request header: <code>xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");</code>  where <code>xhr</code> is an instance of <code>XMLHttpRequest</code>.  See <a href="https://stackoverflow.com/questions/9713058/sending-post-data-with-a-xmlhttprequest
+" target="_blank">https://stackoverflow.com/questions/9713058/sending-post-data-with-a-xmlhttprequest</a> for more information.</p>
+<p>Also, the parameter to send via xhr.send() must the in the following format: <code>"login=YOURLOGIN&amp;lat=YOUR_LATITUDE&amp;lng=YOUR_LONGITUDE"</code> (with the double quotes).  This is standard URI convention.  Remember replace YOUR_LATITUDE and YOUR_LONGITUDE using string concatenation!</p>
+
+<h2>The Haversine Formula: The Distance Between Two Geopoints</h2>
+<p>To calculate the distance between two geopoints (latitude and longitude), you must use the Haversine Formula.  The formula is provided and analyzed at <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">http://www.movable-type.co.uk/scripts/latlong.html</a>.  Also, you are encouraged to use the JavaScript implementation of the Haversine Formula on Stasck Overflow but please do cite it in your <code>README.md</code> or in your code: <a href="http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript" target="_blank">http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript</a>.</p>
+
+<!-- So I ripped this off from Norman Ramsey at http://www.cs.tufts.edu/comp/105/details.html -->
+<h2>The <code>README</code> File</h2>
+<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
+</ol>
+
+<h2>Viewing Your Work and Submitting the Assignment</h2>
+<p>Using the JavaScript Geolocation API requires your page to served by an actual web server.  Alas, simply opening the <code>index.html</code> page on a web browser will not work for this assignment.  One way to serve your page is to run Python's simple HTTP server in the folder of your work.  That is:<p>
+<p><code>% cd comp20-XXXXX/landmarks; # where XXXXX is the name of your private GitHub repository<br/>% python -m SimpleHTTPServer<br/></code></p>
+<p>By default, a simple web server will open up on port 8000.  Go to <code>http://localhost:8000</code> on your favorite web browser to test your work.</p>
+<p class="note">Do not serve your work via the <code>gh-pages</code> branch of your private GitHub repository.</p>
+
+<h2>Assessment</h2>
+<p>This assignment is worth 18 points.</p>
+<ul>
+<li>(1 point) Have at least one (1) CSS file</li>
+<li>(2 points) Retrieves your location via JavaScript <code>navigator.geolocation</code> object</li>
+<li>(2 points) Sends your location (latitude, longitude, login) to datastore</li>
+<li>(3 points) Retrieves locations of people and historic landmarks within one mile of where you are.</li>
+<li>(3 points) Displays locations of people in the class on the map. Clicking on a marker will display person's login, and mile(s) away from you in an info window.  A unique icon for a person must be used (the image can be anything); all people markers on map will use the same icon.</li>
+<li>(2 points) Displays historic landmarks within one mile of where you are on the map.  Clicking on a marker will display landmark's details in an information window.  A unique icon for a landmark must be used (the image can be anything); all landmark markers on map will use the same icon.
+<li>(2 points) Displays your location on the map with unique marker. Clicking on marker will display the name of the closest historic landmark from where you are including miles away in an info window.</li>
+<li>(1 point) Renders a polyline connecting your current location and the closest historic landmark from where you are.  The polyline can be any visible color.</li>
+<li>(2 points) The basics (e.g., <code>README</code> file, proper folder name, work in both <code>master</code> branch in private GitHub repository)</li>
+<li>(-5 points) Nonsense Git commit messages or did not commit much.</li>
+<li>(-8 points) Errors and <code>console.log()</code> outputs exist in JavaScript console (warnings acceptable).</li>
+<li>(-15 points) You used jQuery.</li>
+</ul>
+
+</body>
+</html>
