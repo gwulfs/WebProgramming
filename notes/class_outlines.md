@@ -116,15 +116,30 @@
   * Asynchronous communications (e.g., downloading data from the web within a running app)
 * Okay, but how do I use JavaScript in an HTML page?  Or how do I dynamically modify a loaded HTML page using JavaScript?
 
-###Branching in Git
-
-###May not get to this: Document Object Model (DOM)
+#Thursday, February 25th: Document Object Model (DOM)
+* Last class: dot notation, first class functions, we started talking about using JavaScript in an HTML page
+* So, what could you do with dot notation + first class functions?
+* Important points about client-side JavaScript that I omitted:
+  - Client-side tasks (or what you can do with client-side JavaScript)
+    - Dynamically modify browser content, e.g., with animation
+    - Dynamically fetch new documents from servers
+    - Allow new methods of user interaction other than links and buttons
+    - Get information about a user's computer (navigator.userAgent)
+  - Limitations of client-side scripts
+    - Scalable: run on the browser itself
+    - Not entirely portable: some methods and scripts only work on certain browser
+    - Subject to many security limits
+* The big idea: using JavaScript to dynamically modify HTML content _after it is loaded_.  Yes, you can mix HTML and JavaScript
 * The document object: a JavaScript object that contains the entire structure of an HTML page after it is loaded, in tree-like format (thus, known as the Document Object Model tree).  Example of a DOM tree: https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core
 * Example 1: Tufts FML
-* Example 2: Highlighting paragraphs in an HTML document
-* Example 3: Prepending
+* Example 2: Prepending
   `// The idea: create a new node and prepend to the first node in the "content" div
         newElem = document.createElement("p");
         newElem.innerHTML = '<p><span class="message">' +theMessage + " #FML</span></p>";
         toUpdate.insertBefore(newElem, toUpdate.childNodes[0]);`
+* A powerful idea: update the HTML based on events
+* Example 3: Highlighting paragraphs in an HTML document
+* Example 4: Double Rainbow
+* Your next lab
 * Even more powerful idea: update the HTML with data from a web server
+* Midsemester evals
