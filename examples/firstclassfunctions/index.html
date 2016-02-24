@@ -1,23 +1,33 @@
 <!doctype html>
 
+
 <html>
 	<head>
 		<title>First-Class Functions</title>
 		<script>
 			// Taken from http://www.joelonsoftware.com/items/2006/08/01.html
-			a = [8, 7, 3, 5, 14];
+			list = [5, 10, 8, 3, 13, -9, 1];
 
 			function map(fn, a) {
 				for (i = 0; i < a.length; i++) {
 					a[i] = fn(a[i]);
 				}
 			}
-			map( Math.sqrt, a );
-			map( alert, a );
+			map( function(someValue) {
+				return someValue * 47;
+			}, list);
+			
+			function manglePage() {
+				elem = document.getElementById("results");
+				elem.innerHTML = "<p>H@ck3ed!</p>";
+			}
 		</script>
 	</head>
 
-	<body>
+	<body onload="manglePage()">
 		<h1>First-Class Functions</h1>
+		<div id="results">
+			<p>Results here...</p>
+		</div>
 	<body>
 </html>
