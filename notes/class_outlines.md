@@ -130,8 +130,10 @@
 * A powerful idea: update the HTML based on events
 * Example 3: Highlighting paragraphs in an HTML document
 * Example 4: Double Rainbow
-* Your next lab
 * Even more powerful idea: update the HTML with data from a web server
+* Your next lab
+* Your Assignment 2
+* Semester Group Project
 * Midsemester evals
 
 #Tuesday, March 1st:
