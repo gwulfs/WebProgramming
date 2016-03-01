@@ -136,14 +136,62 @@
 * Semester Group Project
 * Midsemester evals
 
-#Tuesday, March 1st:
-* Important points about client-side JavaScript that I omitted:
+#Tuesday, March 1st: Asynchronous, XMLHttpRequest
+* Last class: events, modifying HTML after it is loaded using JavaScript via DOM
+* Last class + this week: you will start to see _why_ first class functions and JavaScript objects are so important
+* This week: asynchronous, limitations of JavaScript
+* So far, you have only worked with synchronous communications. Problem: slow, linear, "locking", not smooth
+* The bigger idea: asynchronous communications.  Where it is used: events
+* Real example: Twitter timeline.  Take a look at number of requests made _after page is loaded_
+* Another real example: email in the past vs Gmail
+* Are async and events the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
+* Examples of async APIs in JavaScript: `navigator.geolocation.getCurrentPosition()`, `XMLHttpRequest`
+* The idea of XMLHttpRequest => make a request to a server-side script to get data, manage the response
+* XHR key methods and attributes: `open()`, `send()`, `onreadystatechange`, `status`, `readyState`, `responseText`
+* The data that now typically get back in the `responseText`: JSON
+* Today: finish up on XMLHttpRequest
+  - Asynchronous
+  - The event: onreadystatechange.  The readyState values:
+    - 0 => The request is not initialized
+    - 1 => The request has been set up
+    - 2 => The request has been sent
+    - 3 => The request is in process
+    - 4 => The request is complete
+* Parsing the JSON data
+* Is checking for readyState 4 good enough?  NO!
+* Caveats with XMLHttpRequest and one of the limitations of client-side JavaScript
+
+#Thursday, March 3rd: JSON, What You Can't Do in Client-Side JavaScript
+* Last class: Events, asynchronous, XMLHttpRequest
+  - Asynchronous: "where data can be transmitted intermittently rather than in a steady stream"; not going at the same rate
+  - Are they the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
+* Client-side JS is heavily event-based
+* JSON: Data exchange format (think text file).  JSON is string, NOT JavaScript objects.
+* Why JSON?
+* Example
+* Limitations of Client-Side JavaScript:
   - Client-side tasks (or what you can do with client-side JavaScript)
     - Dynamically modify browser content, e.g., with animation
     - Dynamically fetch new documents from servers
     - Allow new methods of user interaction other than links and buttons
     - Get information about a user's computer (navigator.userAgent)
   - Limitations of client-side scripts
-    - Scalable: run on the browser itself
-    - Not entirely portable: some methods and scripts only work on certain browser
-    - Subject to many security limits
+    - Other people cannot access data or information that you have (i.e., you can't make responses)
+    - Can't to write to files on disk
+    - You are constrained by web browser (i.e., browser incompatibility issues)
+    - Storage constraints (e.g., cookies, local storage)
+    - Security issues (e.g., same origin policy)
+    - View source
+
+#Tuesday, March 8th: Persistence with Cookies and Local Storage
+* Last class: XMLHttpRequest, JSON, limits of client-side JavaScript
+* So #whatcouldpossiblygowrong?
+* Today: storing data over time
+* What can't we do?
+* What we have learned so far in this course: key-value pairs
+* Two basic storage mechanisms on the client-side: cookies, local storage
+* Cookies: 4 KB max, there is a max number of cookies per domain
+* Local storage: ~5 MB per domain
+* Examples
+
+#Thursday, March 10th: jQuery
