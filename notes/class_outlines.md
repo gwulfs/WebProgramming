@@ -145,11 +145,17 @@
 * Real example: Twitter timeline.  Take a look at number of requests made _after page is loaded_
 * Another real example: email in the past vs Gmail
 * Are async and events the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
-* Examples of async APIs in JavaScript: `navigator.geolocation.getCurrentPosition()`, `XMLHttpRequest`
 * The idea of XMLHttpRequest => make a request to a server-side script to get data, manage the response
 * XHR key methods and attributes: `open()`, `send()`, `onreadystatechange`, `status`, `readyState`, `responseText`
 * The data that now typically get back in the `responseText`: JSON
-* Today: finish up on XMLHttpRequest
+
+#Thursday, March 3rd: JSON, What You Can't Do in Client-Side JavaScript
+* Last class: Events, asynchronous, XMLHttpRequest
+  - Asynchronous: "where data can be transmitted intermittently rather than in a steady stream"; not going at the same rate
+  - Are they the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
+* Client-side JS is heavily event-based
+* Examples of async APIs in JavaScript: `navigator.geolocation.getCurrentPosition()`, `XMLHttpRequest`
+* Finishing up on the XMLHttpRequest example:
   - Asynchronous
   - The event: onreadystatechange.  The readyState values:
     - 0 => The request is not initialized
@@ -160,12 +166,6 @@
 * Parsing the JSON data
 * Is checking for readyState 4 good enough?  NO!
 * Caveats with XMLHttpRequest and one of the limitations of client-side JavaScript
-
-#Thursday, March 3rd: JSON, What You Can't Do in Client-Side JavaScript
-* Last class: Events, asynchronous, XMLHttpRequest
-  - Asynchronous: "where data can be transmitted intermittently rather than in a steady stream"; not going at the same rate
-  - Are they the same? No. Are they related? Yes --almost all event handling functions are asynchronous.
-* Client-side JS is heavily event-based
 * JSON: Data exchange format (think text file).  JSON is string, NOT JavaScript objects.
 * Why JSON?
 * Example
@@ -182,6 +182,7 @@
     - Storage constraints (e.g., cookies, local storage)
     - Security issues (e.g., same origin policy)
     - View source
+* 5:30 PM Stop: meet-and-greet
 
 #Tuesday, March 8th: Persistence with Cookies and Local Storage
 * Last class: XMLHttpRequest, JSON, limits of client-side JavaScript
