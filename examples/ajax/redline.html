@@ -4,25 +4,39 @@
 <head>
 	<title>Upcoming Red Line Trains</title>
 	<script>
-		// Create instance of XHR object
-		xhr = new XMLHttpRequest();
+		request = new XMLHttpRequest();
+		console.log("Ready state is " + request.readyState);
 
-		// Set up the request
-		// WARNING: Please bear in mind that XHR is subject (largely) to JavaScript's Same Origin Policy
-		xhr.open("get", "https://sheltered-forest-5520.herokuapp.com/redline.json", true);
-		// Set up handler for the response
-		xhr.onreadystatechange = myCallbackFunction;
+		// Step 1: Make request
+		console.log("Step 1");
+		console.log("Ready state is " + request.readyState);
+		request.open("GET", "https://www.facebook.com", true);
 
-		// Execute the request
-		xhr.send();
+		// Step 2: Handle the response
+		console.log("Step 2");
+		console.log("Ready state is " + request.readyState);
+		request.onreadystatechange = function() {
+			console.log("Step 3");
+			console.log("Ready state is " + request.readyState);
 
-		function myCallbackFunction() {
-			console.log("In my callback function " + xhr.readyState);
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				alert("Got data back!");
-				document.getElementById("list").innerHTML = xhr.responseText;
+			if (request.readyState == 4) {
+				raw = request.responseText;
+				console.log(raw);
+				/*theScheduleData = JSON.parse(raw);
+				console.log(theScheduleData);
+				elem = document.getElementById("list");
+				for (i = 0; i < theScheduleData["TripList"]["Trips"].length; i++) {
+					console.log(theScheduleData["TripList"]["Trips"][i]);
+					elem.innerHTML += "<p>Red Line Train Destination is " + theScheduleData["TripList"]["Trips"][i]["Predictions"][0]["Stop"] + "</p>";
+
+				}*/
 			}
-		}
+		};
+
+		// Step 3: Fire off the request
+		console.log("Step 4");
+		console.log("Ready state is " + request.readyState);
+		request.send(null); // null means no data nec to send
 	</script>
 </head>
 
