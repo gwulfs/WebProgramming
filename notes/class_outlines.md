@@ -186,9 +186,11 @@
 
 #Tuesday, March 8th: Persistence with Cookies and Local Storage
 * Last class: XMLHttpRequest, JSON, limits of client-side JavaScript
-* So #whatcouldpossiblygowrong?
+* Last class: S.O.P. in client-side JavaScript
+* Revisting the Red Line example: I don't like it.  So #whatcouldpossiblygowrong?
+* Sending an HTTP POST request using curl, Postman
 * Today: storing data over time
-* What can't we do?
+* What can't we do, knowing the limitations of client-side JavaScript.
 * What we have learned so far in this course: key-value pairs
 * Two basic storage mechanisms on the client-side: cookies, local storage
 * Cookies: 4 KB max, there is a max number of cookies per domain
