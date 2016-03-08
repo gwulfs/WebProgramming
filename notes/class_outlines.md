@@ -189,6 +189,7 @@
 * Last class: S.O.P. in client-side JavaScript
 * Revisting the Red Line example: I don't like it.  So #whatcouldpossiblygowrong?
 * Greta's question
+* AdBlock
 * Sending an HTTP POST request using curl, Postman
 * Today: storing data over time
 * What can't we do, knowing the limitations of client-side JavaScript.
