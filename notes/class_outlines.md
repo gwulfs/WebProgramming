@@ -187,8 +187,8 @@
 #Tuesday, March 8th: Persistence with Cookies and Local Storage
 * Last class: XMLHttpRequest, JSON, limits of client-side JavaScript
 * Last class: S.O.P. in client-side JavaScript
-* Greta's question
 * Revisting the Red Line example: I don't like it.  So #whatcouldpossiblygowrong?
+* Greta's question
 * Sending an HTTP POST request using curl, Postman
 * Today: storing data over time
 * What can't we do, knowing the limitations of client-side JavaScript.
