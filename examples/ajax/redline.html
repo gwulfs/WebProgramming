@@ -7,13 +7,17 @@
 		request = new XMLHttpRequest();
 
 		// Step 1: Make request
-		request.open("GET", "https://sheltered-forest-5520.herokuapp.com/redline.json", true);
+		request.open("GET", "https://sheltered-forest-5520.herokuapp.com/line.json", true);
 
 		// Step 2: Handle the response
-		request.onreadystatechange = function() {
+		request.onreadystatechange = callme;
 
+		// Step 3: Fire off the request
+		request.send(null); // null means no data nec to send
+
+		function callme () {
 			// Step 3: Data is ready --there is a response!
-			if (request.readyState == 4) {
+			if (request.readyState == 4 && request.status == 200) {
 				result = "";
 				raw = request.responseText;
 				theScheduleData = JSON.parse(raw);
@@ -23,10 +27,10 @@
 				}
 				elem.innerHTML = result;
 			}
+			else if (request.readyState == 4 && request.status != 200) {
+				document.getElementById("list").innerHTML = "<p>Whoops, #fail</p>";
+			}
 		};
-
-		// Step 3: Fire off the request
-		request.send(null); // null means no data nec to send
 	</script>
 </head>
 
