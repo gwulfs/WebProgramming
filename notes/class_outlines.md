@@ -200,3 +200,8 @@
 * Examples
 
 #Thursday, March 10th: jQuery
+* Apologies
+* Same Origin Policy example (MBTA)
+* Local storage example (Hacker Stream)
+* jQuery examples
+* What's the point
