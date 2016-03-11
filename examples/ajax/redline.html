@@ -7,8 +7,11 @@
 		request = new XMLHttpRequest();
 
 		// Step 1: Make request
-		//request.open("GET", "https://sheltered-forest-5520.herokuapp.com/redline.json", true);
-		request.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
+		request.open("GET", "https://sheltered-forest-5520.herokuapp.com/redline.json", true);
+		// NOTE: The original source of the data: http://developer.mbta.com/lib/rthr/red.json
+
+		// No, the following will NOT WORK!
+		//request.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
 		
 		// Step 2: Handle the response
 		request.onreadystatechange = callme;
