@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+<link rel="stylesheet" href="../stylesheets/style.css" />
+<title>COMP 20: Web Programming - Assignment 3</title>
+</head>
+
+<body>
+<h1>COMP 20: Web Programming</h1>
+<h2>Assignment 3: The Server for Historic Landmarks</h2>
+<h2>Due: Wednesday, April 13th</h2>
+
+<h2>Objectives</h2>
+<ul>
+<li>Develop a server-side web application using Heroku, Node.js, and the Express web framework.</li>
+<li>Enable and use Cross-Origin Resource Sharing (CORS).</li>
+<li>Read and write data to a MongoDB database.</li>
+<li>Build JSON-based APIs.</li>
+</ul>
+
+<h2>Overview</h2>
+<p>In <a href="a2.html">Assignment 2</a>, you sent your login, latitude, abd longitude to a web application server (i.e., <code>https://defense-in-derpth.herokuapp.com/</code>), and it responded with a gob of data, where others in the class and nearest U.S. historic landmarks, in JSON format.  In this assignment, you will write a web server that is almost exactly like that used for Assignment 2, and deploy it to server(s).</p>
+
+<p>Using Heroku, Node.js with the Express web framework, and MongoDB, you are to build a web application that (1) maintains location check-ins (login, latitude, and longitude) for a long period of time, and (2) serves data on the nearest U.S. historic landmarks within a mile of where you are.</p>
+
+<h2>Getting Started</h2>
+<ol>
+<li class="note">For this assignment, you will not be using your private GitHub repository!</li>
+<li>Do <a href="lab-nodejsheroku.html">Lab 8</a> ASAP.  Use the web application you create in the lab for this assignment.
+<ul>
+<li>If you are on a Windows machine, you will need to use the virtual machine I created for this assignment as it contains MongoDB and Node.js installed (although it will need to be updated via <code>sudo apt-get update ; sudo apt-get upgrade</code>).</li>
+<li>In order to use MongoDB in a web application on Heroku, you will need to verify your Heroku account via of a credit card.  You will not be billed.  The reason for this is to verify that you are a human, and not a spammer.</li>
+</ul>
+</li>
+<li>You will need to use the mLab MongoDB plugin add-on for your web application.  See <a href="https://elements.heroku.com/addons/mongolab" target="_blank">https://elements.heroku.com/addons/mongolab</a>.  Run <code>heroku addons:create mongolab:sandbox</code> inside of your Heroku app folder (the one you used for Lab 8).  This will enable MongoDB for your web application on Heroku.  There is a 496 MB limit for data storage, more than enough for our needs.  If you forget to add a MongoDB plugin for your web application, your web application will return errors.</li>
+</ol>
+
+<h2>Data Description</h2>
+<p>Your web application shall work with two sets of data: <code>checkins</code> and <code>landmarks</code>.  In MongoDB, a set of data is known as a <span class="stress">collection</span>.  If you are familiar with relational databases, a collection is analogous to a "table".  The collection contains a number of records, properly known as <span class="stress">documents</span>.  If you are familiar with relational databases, a document is analogous to a "row".</p>
+<p>Each document will have the data field <code>_id</code> (the document's unique field, primary key) created automatically.</p>
+
+<h3>Data Description for <code>checkins</code></h3>
+<p>The data that must be stored in one document (or record) in <code>checkins</code> collection are:</p>
+<ul>
+<li><code>login</code> <span class="note">(a string)</span> - A user's handle</li>
+<li><code>lat</code> <span class="note">(a floating point number)</span> - The user's latitude</li>
+<li><code>lng</code> <span class="note">(a floating point number)</span> - The user's longitude</li>
+<li><code>created_at</code> - The timestamp, generated for each new record entry.  Use the JavaScript <code>Date</code> object to generate timestamp.</li>
+</ul>
+
+<h3>Landmarks Data</h3>
+<p>Download: <a href="landmarks.zip">landmarks.zip</a> (compressed: 1.44 MB, decompressed: 15.6 MB).  Unzip the file to get one file: <code>landmarks.json</code>.  The file is in GeoJSON format, and contains 18,246 historic landmarks.  <a href="http://geojson.org/" target="_blank">GeoJSON is a format for encoding a variety of geographic data structures: you can read more about the data format at http://geojson.org/</a>.You will need to import this set of historic landmarks into a collection named <code>landmarks</code> in MongoDB.  To import a set of data in a JSON file into a MongoDB database, use the <code>mongoimport</code> tool.  Documentation on the <code>mongoimport</code> tool is available at <a href="https://docs.mongodb.org/manual/reference/program/mongoimport/" target="_blank">https://docs.mongodb.org/manual/reference/program/mongoimport/</a>.  It is strongly recommended that you practice importing the data into Mongo on your development environment (e.g., in your VM or on your workstation) before doing it on Heroku.  Say that I have a Mongo database named <code>defense-in-derpth</code> on my laptop.  Assuming that the MongoDB server is running, run:</p>
+<p><code>mongoimport -d defense-in-derpth -c landmarks --type json --file landmarks.json --jsonArray</code></p>
+
+<p>to import all the records in the JSON file (all 18,246 records) into a collection named <code>landmarks</code> in a database named <code>defense-in-derpth</code>.  The same process is used to import all records in the JSON file into MongoDB for your web application in Heroku.  The only difference is that you will need to specify the MongoDB server, MongoDB port, a username, password, and database name --all created automatically for you when you provisioned a Mongo database for your web application on Heroku via <code>heroku addons:create mongolab:sandbox</code>.  To get the username, password, and database name of your Mongo database on Heroku, run: <code>heroku config</code> inside of your application folder.  You should see a key starting with <code>MONGOLAB_URI</code> (or something along those lines) displayed on the terminal with the value in the format:</p>
+
+<p><code>mongodb://YOUR_MONGODB_USERNAME_ON_HEROKU:YOUR_MONGODB_PASSWORD_ON_HEROKU@MONGODB_HOST:MONGODB_PORT_NUMBER/MONGODB_DATABASE_NAME_ON_HEROKU</code></p>
+
+<p>With this information, you can import all the records in the JSON file into the Mongo database in Heroku on your terminal / command line via:<p>
+
+<p><code>mongoimport -h MONGODB_HOST:MONGODB_PORT_NUMBER -d MONGODB_DATABASE_NAME_ON_HEROKU -c landmarks -u YOUR_MONGODB_USERNAME_ON_HEROKU -p YOUR_MONGODB_PASSWORD_ON_HEROKU --file landmarks.json</code></p>
+
+<h2>Requirements</h2>
+<p>Your web application shall have the following features or APIs (Application Programming Interfaces):</p>
+<h3>1. A <code>POST /sendLocation</code> API</h3>
+<p>Returns a JSON string.  Submits check-in from any domain.  The mandatory fields and <span class="stress">exact field names</span> for submission to this API are <code>login</code>, <code>lat</code>, and <code>lng</code>.  Successful submission of these three pieces of data shall result in one entry into the collection <code>checkins</code> in Mongo. If a submission is missing any one of the data fields, do not insert new record into the database and send the following JSON as the response: <code>{"error":"Whoops, something is wrong with your data!"}</code>.  <span class="note">Cross-origin resource sharing must be enabled for this API, else data cannot be sent from another domain.</span>  Upon successful insertion of record into database, return a JSON string that is an object with two keys, <code>people</code> and <code>landmarks</code> --the value of each key is a list of objects.</p>
+<p>Example JSON response, same as the one seen in the Assignment 2 specification: <code>{"people":[{"_id":"56c53084ff1f7c21263ce335","login":"mchow","lat":42.508032,"lng":-71.0982818,"created_at":"2016-02-18T03:38:17.308Z"},{"_id":"56c2911bff1f7c21263c54a5","login":"CindyLytle","lat":42.406,"lng":-71.12,"created_at":"2016-02-18T04:32:30.542Z"}],"landmarks":[{"_id":"56c2bcd5ff1f7c21263cb1eb","type":"Feature","geometry":{"type":"Point","coordinates":[-71.11674492,42.40020378]},"properties":{"Location_Name":"Powder House Park","Details":"&lt;b&gt;Historic Place Name: &lt;/b&gt;Powder House Park&lt;BR&gt;&lt;b&gt;Address: &lt;/b&gt;Powder House Circle&lt;BR&gt;&lt;b&gt;City: &lt;/b&gt;Somerville&lt;BR&gt;&lt;b&gt;County: &lt;/b&gt;Middlesex&lt;BR&gt;&lt;b&gt;State: &lt;/b&gt;MASSACHUSETTS&lt;BR&gt;&lt;BR&gt;&lt;u&gt;Geographic Coordinates:&lt;/u&gt;&lt;BR&gt;&lt;b&gt;Latitude: &lt;/b&gt;42.4002&lt;BR&gt;&lt;b&gt;Longitude: &lt;/b&gt;-71.11674&lt;BR&gt;&lt;BR&gt;&lt;b&gt;NPS Reference Number: &lt;/b&gt;75000287&lt;BR&gt;&lt;b&gt;Date Listed: &lt;/b&gt;19750421&lt;BR&gt;&lt;b&gt;Notes: &lt;/b&gt;&lt;BR&gt;&lt;b&gt;Type: &lt;/b&gt;point&lt;BR&gt;&lt;b&gt;Geocode Match: &lt;/b&gt;0&lt;BR&gt;&lt;BR&gt;&lt;p align=\"center\"&gt;A Service of:&lt;BR&gt;&lt;a href=\"http://www.cr.nps.gov/nr/\"&gt;National Register of Historic Places&lt;/a&gt;&lt;BR&gt;&lt;a href=\"http://www.nps.gov/\"&gt;National Park Service&lt;/a&gt;&lt;/p&gt;"}},{"_id":"56c2bcd5ff1f7c21263cb092","type":"Feature","geometry":{"type":"Point","coordinates":[-71.11911774,42.39956284]},"properties":{"Location_Name":"Nichols, John F., House","Details":"&lt;b&gt;Historic Place Name: &lt;/b&gt;Nichols, John F., House&lt;BR&gt;&lt;b&gt;Address: &lt;/b&gt;17 Summit St.&lt;BR&gt;&lt;b&gt;City: &lt;/b&gt;Somerville&lt;BR&gt;&lt;b&gt;County: &lt;/b&gt;Middlesex&lt;BR&gt;&lt;b&gt;State: &lt;/b&gt;MASSACHUSETTS&lt;BR&gt;&lt;BR&gt;&lt;u&gt;Geographic Coordinates:&lt;/u&gt;&lt;BR&gt;&lt;b&gt;Latitude: &lt;/b&gt;42.39956&lt;BR&gt;&lt;b&gt;Longitude: &lt;/b&gt;-71.11912&lt;BR&gt;&lt;BR&gt;&lt;b&gt;NPS Reference Number: &lt;/b&gt;89001285&lt;BR&gt;&lt;b&gt;Date Listed: &lt;/b&gt;19890918&lt;BR&gt;&lt;b&gt;Notes: &lt;/b&gt;Somerville MPS&lt;BR&gt;&lt;b&gt;Type: &lt;/b&gt;point&lt;BR&gt;&lt;b&gt;Geocode Match: &lt;/b&gt;1&lt;BR&gt;&lt;BR&gt;&lt;p align=\"center\"&gt;A Service of:&lt;BR&gt;&lt;a href=\"http://www.cr.nps.gov/nr/\"&gt;National Register of Historic Places&lt;/a&gt;&lt;BR&gt;&lt;a href=\"http://www.nps.gov/\"&gt;National Park Service&lt;/a&gt;&lt;/p&gt;"}}]}</code></p>
+
+<p>Multiple check-ins for a login are allowed.</p>
+
+<h3>2. A <code>GET /checkins.json</code> API</h3>
+<p>Returns all records for a given login as a JSON array.  The mandatory parameter for this API is <code>login</code>.  If the <code>login</code> query parameter is empty, not provided, or no results found, return empty JSON object <code>[]</code>.  Example: <code>GET /checkins.json?login=kaytea</code> returns <code>[{"_id":"54e960e5fd96990300d54520","login":"kaytea","lat":41.903056,"lng":12.454444,"created_at":"2015-02-22T04:53:57.214Z"},{"_id":"54e960e5fd96990300d54522","login":"kaytea","lat":41.903056,"lng":12.454446,"created_at":"2015-02-22T04:54:22.214Z"}]</code></p>
+<p class="note">Cross-origin resource sharing must be enabled for this API else another another domain cannot retrieve data.</p>
+
+<h3>3. <code>GET /</code> - Home, the root, the index</h3>
+<p>Returns HTML.  You may also use additional JavaScript and CSS, and you are free to design this page however you desire. Accessing this on a web browser (e.g., <code>https://examplewebapp.herokuapp.com/</code>) shall display list of the check-ins for all logins sorted <span class="stress">in descending order</span> by timestamp (that is, the last person who checked-in is displayed first).  Login, and check-in timestamp must be displayed in addition to the location (latitude and longitude).  Simply outputting JSON as the page is unacceptable.  Example output: <code>kaytea checked in at 41.903056, 12.454444 on 2015-02-22T04:53:57.214Z</code>.</p>
+
+<h2>Geospatial Queries in MongoDB</h2>
+<p>MongoDB supports queries that calculate geometries on an earth-like sphere via index named <code>2dsphere</code>.  You will need to specify which field shall be indexed with <code>2dsphere</code> (i.e., the field containing geopoints).  With this index enabled, you can do queries on data stored as GeoJSON objects for inclusion, intersection, and proximity.  To enable the <code>2dsphere</code> index on the field in <code>landmarks</code> <span class="stress">in your Node.js program</span>, do:</p>
+
+<p><code>db.collection('landmarks').createIndex({'geometry':"2dsphere"}, <em>callback_function</em>);</code></p>
+
+<p>The above statement will mark the <code>geometry</code> field in the <code>landmarks</code> collection to be used for geospatial quries.</p>
+
+<p>Once index has been enabled, to perform a geospatial query for nearest locations, MongoDB has a <a href="https://docs.mongodb.org/manual/reference/operator/query/near/" target="_blank"><code>$near</code></a> operator.  An example MongoDB query to find nearest landmarks between 1000 and 1500 meters from your location:</p
+
+<p><code>db.landmarks.find({geometry:{$near:{$geometry:{type:"Point",coordinates:[<em>YOUR_LONGITUDE</em>,<em>YOUR_LATITUDE</em>]},$minDistance: 1000,$maxDistance: 1500}}})</code></p>
+<p>Important notes: <code><a href="https://docs.mongodb.org/manual/reference/operator/query/minDistance/" target="_blank">$minDistance</a></code> and <code><a href="https://docs.mongodb.org/manual/reference/operator/query/maxDistance/" target="_blank">$maxDistance</a></code> must be non-negative numbers in <span class="stress">meters</span>.  Also, notice the ordering of the coordinates in the query: longitude followed by latitude.</p>
+
+<h2>Security</h2>
+<p>Please note that I did not mention a thing about security or error handling in the requirements.  Authentication to this web application is not required.  There is a reason for this, as you will see in Assignment 4.</p>
+
+<h2>References</h2>
+<ol>
+<li><a href="http://expressjs.com/api.html" target="_blank">The Express web framework API reference (offcial)</a></li>
+<li><a href="https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp">The <code>nodemongoapp</code> example I wrote</a></li>
+<li><a href="https://stackoverflow.com/questions/7067966/how-to-allow-cors-in-express-node-js" target="_blank">Node.js + Express + Cross-Domain Scripting (Stack Overflow)</a></li>
+<li><a href="https://docs.mongodb.org/getting-started/shell/#getting-started-with-mongodb-development" target="_blank">Getting Started with MongoDB Development (official)</a></li>
+<li><a href="lab-nodejsheroku.html">Lab 8</a></li>
+<li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#provision-a-database" target="_blank">Getting Started with Node.js on Heroku - Provision a Database</a></li>
+<li><a href="https://github.com/mongodb/node-mongodb-native" target="_blank">The Official MongoDB Node.JS Driver QUICK START</a></li>
+<li><a href="https://mongodb.github.io/node-mongodb-native/genindex.html" target="_blank">The Official MongoDB Node.JS Driver Documentation</a></li>
+<li><a href="https://docs.mongodb.org/manual/core/2dsphere/" target="_blank">MongoDB: <code>2dsphere</code> Indexes</a></li>
+<li><a href="https://docs.mongodb.org/getting-started/node/indexes/" target="_blank">MongoDB: Indexes with Node.js</a></li>
+</ol>
+
+<h2>Testing Your Web Application</h2>
+<ul>
+<li>Push and deploy your app to Heroku.</li>
+<li>Connect your <a href="a2.html">Assignment 2</a> to your app instead of <code>https://defense-in-derpth.herokuapp.com/...</code>.  If your Assignment 2 breaks, then there is something wrong with your Assignment 2.</li>
+</ul>
+
+<h2>The <code>README</code> File</h2>
+<p>Include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
+</ol>
+
+<h2>Submitting the Assignment</h2>
+<ol>
+<li>Push and deploy your app to Heroku.</li>
+<li>It is expected that you will use the same web app / repo from lab 8 for this assignment.  If you are to create a new web app on Heroku for this assignment, you will need to add me as a collaborator (using my email address <code>mchow[AT]cs[DOT]tufts[DOT]edu</code>) for your web application in Heroku.  You can do this by logging on to Heroku, go to the dashboard for your web application, under "Access", click on the "Add collaborator" button, enter my email address, and click "Save changes".</li>
+</ol>
+
+<h2>Assessment</h2>
+<ul>
+<li>(15 total points) The <code>POST /sendLocation</code> API as specified above</li>
+<li>(5 points) The <code>GET /latest.json</code> API as specified above</li>
+<li>(2 points) The index <code>/</code> as specified above</li>
+<li class="note">If I cannot access any of the APIs above or if anything results in "Application Error", you will receive NO CREDIT for that part.</li>
+<li>(2 points) Your Assignment 2 in the <code>master</code> branch on GitHub is connected to your Assignment 3 and not to <code>https://defense-in-derpth.herokuapp.com/</code>.</li>
+<li>(2 points) The README</li>
+</ul>
+
+</body>
+</html>
