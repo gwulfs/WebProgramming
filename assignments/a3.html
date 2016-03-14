@@ -84,7 +84,7 @@
 
 <p>The above statement will mark the <code>geometry</code> field in the <code>landmarks</code> collection to be used for geospatial quries.</p>
 
-<p>Once index has been enabled, to perform a geospatial query for nearest locations, MongoDB has a <a href="https://docs.mongodb.org/manual/reference/operator/query/near/" target="_blank"><code>$near</code></a> operator.  An example MongoDB query to find nearest landmarks between 1000 and 1500 meters from your location:</p
+<p>Once index has been enabled, to perform a geospatial query for nearest locations, MongoDB has a <a href="https://docs.mongodb.org/manual/reference/operator/query/near/" target="_blank"><code>$near</code></a> operator.  An example MongoDB query to find nearest landmarks between 1000 and 1500 meters from your location:</p>
 
 <p><code>db.landmarks.find({geometry:{$near:{$geometry:{type:"Point",coordinates:[<em>YOUR_LONGITUDE</em>,<em>YOUR_LATITUDE</em>]},$minDistance: 1000,$maxDistance: 1500}}})</code></p>
 <p>Important notes: <code><a href="https://docs.mongodb.org/manual/reference/operator/query/minDistance/" target="_blank">$minDistance</a></code> and <code><a href="https://docs.mongodb.org/manual/reference/operator/query/maxDistance/" target="_blank">$maxDistance</a></code> must be non-negative numbers in <span class="stress">meters</span>.  Also, notice the ordering of the coordinates in the query: longitude followed by latitude.</p>
