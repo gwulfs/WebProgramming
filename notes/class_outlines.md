@@ -217,14 +217,17 @@
   7. View source
 * The picture: client-server
 * How do you design the server-side environment, assuming that hardware (computer(s) for server(s)) is provided to you?
-  1. Handle requests
-  2. Store data "somewhere"
-  3. Send response
-  4. It is somehow secure (not trivial)
-  5. Some logic to do something with request before sending response
-  6. Has to be on / running (almost) all the time
-  7. Handle concurrent connection, concurrent transactions
-  8. IP address and port number must be provided to the public.
+  1. Handle incoming request
+  2. Be publicly known and available
+  3. Store data
+  4. Receive data
+  5. Send / make response back to client
+  6. Forward requests
+  7. Send requests _to other servers_
+  8. Protect data
+  9. Handle a lot of requests
+  10. Build HTML data on the fly
+  11. Be available all the time (well, almost)
 * Implementation: Node.js => write server-side programs using JavaScript
   
 #Thursday, March 17th: Server-Side (continued), Frameworks
@@ -242,6 +245,9 @@
 #Tuesday, March 29th: Data Persistence with MongoDB, Connecting Node.js with MongoDB
 * A simple and complex picture of client-server architecture: https://www.acunetix.com/websitesecurity/web-applications/
 * So far, we have talked about the middle tier using Node.js and Express.js (framework on top of Node.js)
+* Handling data via HTTP POST...
+* ...or HTTP GET
+* Enable Cross-Origin Resource Sharing (CORS)
 * Let's talk about storing data now, the database server layer
 * Yes, we are dealing with another server (for solely storing data)
 * Why aren't we using a relational database or SQL in this class? Complexity.  The big idea that you know already: key-value pairs
@@ -255,3 +261,17 @@
 * Important: inserting a document into a database that does not exist WILL create the database!
 * Wait, I'm confused: we are dealing with two different systems here. How do you have a Node.js server talk to a MongoDB server? The answer: a driver. A driver is a piece of software for accessing a database.  Think of this as a translation engine.  There is a `mongodb` driver for Node.js
 * Example: https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp.  Feel free to copy and use initialization code.  It will help you big time!
+
+#Thursday, April 7th: Web Security, Part I
+* Recall: data sent to a web server is always text!
+* Revisiting `nodemongoapp`
+* There's something wrong with it. What if...
+* Cross-Site Scripting (XSS): what is it, why is it so bad, and where to attack?
+* Security 101: never trust user input from a client
+* Awareness:
+  1. OWASP Top 10 list: https://www.owasp.org/index.php/Top_10_2013-Top_10
+  2. CWE/SANS TOP 25 Most Dangerous Software Errors: https://www.sans.org/top25-software-errors/
+* The moral of the story...
+* Defending against XSS
+* Playground: http://www.cs.tufts.edu/comp/20/hackme.php
+* Bypassing client-side validation using a proxy
