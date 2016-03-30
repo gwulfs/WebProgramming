@@ -2,13 +2,6 @@
 var express = require('express');
 var app = express();
 
-/* General form:
-
-app.HTTP_VERB('path', function(request, response) {
-	// do something here...
-});
-*/
-
 app.get('/', function(request, response) {
 	response.send("Hello world");
 });
