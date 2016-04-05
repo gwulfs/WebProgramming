@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Quiz 2 Question 7</title>
+	<script>
+		var request = new XMLHttpRequest();
+		request.open("GET", "news.json", true);
+		request.onreadystatechange = function() {
+			if (request.readyState == 4 && request.status == 200) {
+				console.log("I fought the law...");
+				data = JSON.parse(request.responseText);
+			}
+			else if (request.readyState == 3) {
+				console.log("Still trying to get a response...");
+			}
+		};
+		request.send();
+		console.log("...and the law won");
+	</script>
+</head>
+
+<body>
+	<h1>Quiz 2 Question 7</title>
+</body>
+
+</html>
