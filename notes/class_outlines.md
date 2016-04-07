@@ -272,6 +272,7 @@
 * Revisiting `nodemongoapp`
 * There's something wrong with it. What if...
 * Cross-Site Scripting (XSS): what is it, why is it so bad, and where to attack?
+* https://www.veracode.com/security/xss
 * Security 101: never trust user input from a client
 * Awareness:
   1. OWASP Top 10 list: https://www.owasp.org/index.php/Top_10_2013-Top_10
@@ -280,3 +281,4 @@
 * Defending against XSS
 * Playground: http://www.cs.tufts.edu/comp/20/hackme.php
 * Bypassing client-side validation using a proxy
+* How bad is this problem? http://www.slideshare.net/elie-bursztein/lessons-learned-while-protecting-gmail
