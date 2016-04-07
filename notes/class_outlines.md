@@ -279,6 +279,7 @@
   2. CWE/SANS TOP 25 Most Dangerous Software Errors: https://www.sans.org/top25-software-errors/
 * The moral of the story...
 * Defending against XSS
+  * See `nodemongoexample`
 * Playground: http://www.cs.tufts.edu/comp/20/hackme.php
 * Bypassing client-side validation using a proxy
 * How bad is this problem? http://www.slideshare.net/elie-bursztein/lessons-learned-while-protecting-gmail
