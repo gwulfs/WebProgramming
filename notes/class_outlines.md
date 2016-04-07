@@ -277,9 +277,9 @@
 * Awareness:
   1. OWASP Top 10 list: https://www.owasp.org/index.php/Top_10_2013-Top_10
   2. CWE/SANS TOP 25 Most Dangerous Software Errors: https://www.sans.org/top25-software-errors/
-* The moral of the story...
 * Defending against XSS
   * See `nodemongoexample`
 * Playground: http://www.cs.tufts.edu/comp/20/hackme.php
 * Bypassing client-side validation using a proxy
 * How bad is this problem? http://www.slideshare.net/elie-bursztein/lessons-learned-while-protecting-gmail
+* The moral of the story...
