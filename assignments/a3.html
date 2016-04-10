@@ -58,9 +58,14 @@
 
 <p><code>mongodb://YOUR_MONGODB_USERNAME_ON_HEROKU:YOUR_MONGODB_PASSWORD_ON_HEROKU@MONGODB_HOST:MONGODB_PORT_NUMBER/MONGODB_DATABASE_NAME_ON_HEROKU</code></p>
 
-<p>With this information, you can import all the records in the JSON file into the Mongo database in Heroku on your terminal / command line via:<p>
+<p>With this information, you can import all the records in the JSON file into the Mongo database (local and remote in Heroku / mLab) in Heroku on your terminal / command line via:<p>
 
 <p><code>mongoimport -h MONGODB_HOST:MONGODB_PORT_NUMBER -d MONGODB_DATABASE_NAME_ON_HEROKU -c landmarks -u YOUR_MONGODB_USERNAME_ON_HEROKU -p YOUR_MONGODB_PASSWORD_ON_HEROKU --file landmarks.json</code></p>
+
+<h2>ADDENDUM (APRIL 10, 2016) FOR VIRTUAL MACHINE USERS</h2>
+<p>We found out why many of you are getting the <code>assertion: 18 { ok: 0.0, errmsg: "auth failed", code: 18 }</code> error when trying to import the data in <code>landmarks.json</code> to the MongoDB in Heroku.  The reason: the MongoDB on the VM is outdated (version 2.4.10 compared to 3.2.4) and there is no easy way to update it.</p>
+<p>Therefore if you are using the VM, email me to import the data in <code>landmarks.json</code> for you to Heroku.  This isn't hard to do for me and I'll be glad to do this for you. You can still import the data in <code>landmarks.json</code> into the MongoDB running on your VM.  Definitely do this so you can test your work on your VM.</p>
+<p>Please remember to provision / create your MongoDB on Heroku first via <code>heroku addons:create mongolab</code> <a href="https://devcenter.heroku.com/articles/mongolab" target="_blank">https://devcenter.heroku.com/articles/mongolab</a>.</p>
 
 <h2>Requirements</h2>
 <p>Your web application shall have the following features or APIs (Application Programming Interfaces):</p>
