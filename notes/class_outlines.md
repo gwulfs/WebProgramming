@@ -283,3 +283,26 @@
 * Bypassing client-side validation using a proxy
 * How bad is this problem? http://www.slideshare.net/elie-bursztein/lessons-learned-while-protecting-gmail
 * The moral of the story...
+
+#Thursday, April 14th: Web Security, Part II
+* Last classes: XSS, bypassing client-side validations including cookies and hidden form fields, the big lessons learned
+* Recall: tool used
+* Fun, yet old story: http://www.edgeblog.net/2006/how-to-buy-a-plasma-for-99/
+* Assignment 4 posted
+  * My Assignment 3 code :)
+  * Mongo injection
+  * The dumb stuff: sharing or hard-coding passwords
+  * I can count up to 8 possible security and privacy issues with Assignment 2 and 3
+* Closing the course: what's the point, starting with web + security
+  * The point: https://twitter.com/homakov/status/671218566058897408
+  * The point: https://twitter.com/cigitalgem/status/671510208514883584
+  * Security (or lackthereof) in CS undergraduate education
+  * Chris Eng's private note
+  * No class on Thursday, April 28th --we are ending the course a day early
+  * Recent incident(s)
+  * Meet your partner
+* Quiz 2
+  * Code is now available for your testing and consumption
+  * Three major points: (1) asynchronous, (2) understanding code, (3) you didn't copy-and-paste code
+* Semester Group Project: For each semester group project team, prepare a brief update on Tuesday on (1) what you have learned so far from the semester group project and (2) what would you like to, or need to, learn for your semester group project. This stand-up update must be no longer than two minutes.
+ 
