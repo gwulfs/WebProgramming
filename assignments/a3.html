@@ -60,7 +60,7 @@
 
 <p>With this information, you can import all the records in the JSON file into the Mongo database (local and remote in Heroku / mLab) in Heroku on your terminal / command line via:<p>
 
-<p><code>mongoimport -h MONGODB_HOST:MONGODB_PORT_NUMBER -d MONGODB_DATABASE_NAME_ON_HEROKU -c landmarks -u YOUR_MONGODB_USERNAME_ON_HEROKU -p YOUR_MONGODB_PASSWORD_ON_HEROKU --file landmarks.json</code></p>
+<p><code>mongoimport -h MONGODB_HOST:MONGODB_PORT_NUMBER -d MONGODB_DATABASE_NAME_ON_HEROKU -c landmarks -u YOUR_MONGODB_USERNAME_ON_HEROKU -p YOUR_MONGODB_PASSWORD_ON_HEROKU --file landmarks.json --jsonArray</code></p>
 
 <h2>ADDENDUM (APRIL 10, 2016) FOR VIRTUAL MACHINE USERS</h2>
 <p>We found out why many of you are getting the <code>assertion: 18 { ok: 0.0, errmsg: "auth failed", code: 18 }</code> error when trying to import the data in <code>landmarks.json</code> to the MongoDB in Heroku.  The reason: the MongoDB on the VM is outdated (version 2.4.10 compared to 3.2.4) and there is no easy way to update it.</p>
