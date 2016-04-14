@@ -288,11 +288,13 @@
 * Last classes: XSS, bypassing client-side validations including cookies and hidden form fields, the big lessons learned
 * Recall: tool used
 * Fun, yet old story: http://www.edgeblog.net/2006/how-to-buy-a-plasma-for-99/
+* The diagram of Assignment 3 and 4
 * Assignment 4 posted
-  * My Assignment 3 code :)
+  * My Assignment 3 code will be posted :)
   * Mongo injection
   * The dumb stuff: sharing or hard-coding passwords
-  * I can count up to 8 possible security and privacy issues with Assignment 2 and 3
+  * Sending credentials via HTTP GET
+  * I can count at least 8 possible security and privacy issues with Assignment 2 and 3
 * Closing the course: what's the point, starting with web + security
   * The point: https://twitter.com/homakov/status/671218566058897408
   * The point: https://twitter.com/cigitalgem/status/671510208514883584
@@ -305,4 +307,3 @@
   * Code is now available for your testing and consumption
   * Three major points: (1) asynchronous, (2) understanding code, (3) you didn't copy-and-paste code
 * Semester Group Project: For each semester group project team, prepare a brief update on Tuesday on (1) what you have learned so far from the semester group project and (2) what would you like to, or need to, learn for your semester group project. This stand-up update must be no longer than two minutes.
- 
