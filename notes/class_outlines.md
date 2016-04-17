@@ -307,3 +307,53 @@
   * Code is now available for your testing and consumption
   * Three major points: (1) asynchronous, (2) understanding code, (3) you didn't copy-and-paste code
 * Semester Group Project: For each semester group project team, prepare a brief update on Tuesday on (1) what you have learned so far from the semester group project and (2) what would you like to, or need to, learn for your semester group project. This stand-up update must be no longer than two minutes.
+
+#Tuesday, April 19th: Semester Group Project
+* What's the point of semester group project?
+* Rejection letter
+
+#Thursday, April 21st: What's The Point?
+* You've barely scratched the surface
+  * What reality is really like
+  * What engineering issues do you see here?
+  * Want to learn and build something over the break?  How about a mobile app sends your location (determined by GPS) to Assignment 3?  Or a new client-side using Backbone or Angular?
+* The big ideas from this class:
+  * key-value pairs
+  * Separation of concerns (CSS, server architecture)
+  * Don't reinvent the wheel
+  * Client-server, basics of distributed systems
+  * Never trust user input
+  * Events and asynchronous
+  * Revision control
+  * Attention to details
+  * Learning how to learn
+  * Communications
+* Where do you go from here?
+  * Web infrastructure and standards => COMP 150-IDSL Internet-Scale Distributed Systems (Noah's course)
+  * Objects, first-class functions, closures => COMP 105: Programming Languages
+  * Internet and networking => COMP 112: Networking
+  * The engineering side of the web => COMP 120: Web Engineering
+  * NoSQL (e.g., MongoDB) vs. SQL databases => COMP 115: Databases
+  * Security => COMP 116: Security
+  * Programming skills and personal maturity => COMP 40
+  * Concurrent uses and how to write a chat or web server => COMP 50: Concurrency
+  * User interface(s) => COMP 171
+  * Mobile => various
+* What's the point....
+  * Of looking things up via Google, Stack Overflow
+  * Of ask questions, asking for help
+  * Of making you write READMEs for every lab and assignment, Assignment 3
+  * Of me providing you readings that may go over your head
+  * Of using revision control and GitHub
+* The real messages of this class
+  * What you COULD do
+  * Build your intellectual curiosity
+  * Engineering and code are not everything
+  * Learn how to learn
+* Your portfolio: my gift to you
+* Acknowledgements
+* Personal thoughts
+
+#Tuesday, April 26th
+* Course evaluation
+* Quiz
