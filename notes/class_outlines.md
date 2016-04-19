@@ -310,7 +310,10 @@
 
 #Tuesday, April 19th: Semester Group Project
 * What's the point of semester group project?
-* Rejection letter
+  * Applying what you have learned
+  * Scope down
+  * Dealing with adversity
+  * Show the rejection letter
 
 #Thursday, April 21st: What's The Point?
 * You've barely scratched the surface
