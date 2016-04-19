@@ -347,7 +347,7 @@
   * Of ask questions, asking for help
   * Of making you write READMEs for every lab and assignment, Assignment 3
   * Of me providing you readings that may go over your head
-  * Of using revision control and GitHub
+  * Of using revision control and GitHub, Heroku
 * The real messages of this class
   * What you COULD do
   * Build your intellectual curiosity
