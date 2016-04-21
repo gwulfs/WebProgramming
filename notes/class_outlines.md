@@ -354,6 +354,7 @@
   * Build your intellectual curiosity
   * Engineering and code are not everything
   * Learn how to learn
+  * Get out of your comfort zone
 * Your portfolio: my gift to you
 * Acknowledgements
 * Personal thoughts
