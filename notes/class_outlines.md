@@ -342,6 +342,7 @@
   * Concurrent uses and how to write a chat or web server => COMP 50: Concurrency
   * User interface(s) => COMP 171
   * Mobile => various
+  * Further application of this course => Wearables (COMP 50)
 * What's the point....
   * Of looking things up via Google, Stack Overflow
   * Of ask questions, asking for help
