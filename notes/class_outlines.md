@@ -332,7 +332,7 @@
   * Learning how to learn
   * Communications
 * Where do you go from here?
-  * Web infrastructure and standards => COMP 150-IDSL Internet-Scale Distributed Systems (Noah's course)
+  * Web infrastructure and standards => COMP 150-IDS Internet-Scale Distributed Systems (Noah's course)
   * Objects, first-class functions, closures => COMP 105: Programming Languages
   * Internet and networking => COMP 112: Networking
   * The engineering side of the web => COMP 120: Web Engineering
@@ -343,10 +343,11 @@
   * User interface(s) => COMP 171
   * Mobile => various
   * Further application of this course => Wearables (COMP 50)
+
 * What's the point....
   * Of looking things up via Google, Stack Overflow
   * Of ask questions, asking for help
-  * Of making you write READMEs for every lab and assignment, Assignment 3
+  * Of making you write READMEs for every lab and assignment, Assignment 4
   * Of me providing you readings that may go over your head
   * Of using revision control and GitHub, Heroku
 * The real messages of this class
