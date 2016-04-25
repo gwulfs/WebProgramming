@@ -343,7 +343,6 @@
   * User interface(s) => COMP 171
   * Mobile => various
   * Further application of this course => Wearables (COMP 50)
-
 * What's the point....
   * Of looking things up via Google, Stack Overflow => take responsibility of your own learning, develop intellectual curiosity
   * Of ask questions, asking for help => ditto and "knowing how to ask for help is the key to survival" --Alva Couch
