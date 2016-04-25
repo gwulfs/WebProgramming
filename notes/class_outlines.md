@@ -345,21 +345,22 @@
   * Further application of this course => Wearables (COMP 50)
 
 * What's the point....
-  * Of looking things up via Google, Stack Overflow
-  * Of ask questions, asking for help
-  * Of making you write READMEs for every lab and assignment, Assignment 4
-  * Of me providing you readings that may go over your head
-  * Of using revision control and GitHub, Heroku
+  * Of looking things up via Google, Stack Overflow => take responsibility of your own learning, develop intellectual curiosity
+  * Of ask questions, asking for help => ditto and "knowing how to ask for help is the key to survival" --Alva Couch
+  * Of making you write READMEs for every lab and assignment, Assignment 4 => writing skills
+  * Of me providing you readings that may go over your head => get out of your comfort zone
+  * Of using revision control and GitHub, Heroku => develop good habits, use real tools and systems
 * The real messages of this class
   * What you COULD do
   * Build your intellectual curiosity
   * Engineering and code are not everything
   * Learn how to learn
   * Get out of your comfort zone
-* Your portfolio: my gift to you
-* Acknowledgements
 * Personal thoughts
 
 #Tuesday, April 26th
 * Course evaluation
+* Your portfolio: my gift to you
+* Now: you can serve your work via GitHub and the `gh-pages` branch.
+* Acknowledgements
 * Quiz
