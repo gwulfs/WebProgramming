@@ -345,11 +345,11 @@
   * Further application of this course => Wearables (COMP 50)
     * See how Chris Gregg, Kate Wasynczuk, and Raewyn Duvall designed the course: https://docs.google.com/presentation/d/14vuu3Jc54vGYdguF4wE4pChx6nB87dZEOVXxRjd38Mg/edit?usp=sharing
 * What's the point....
-  * Of looking things up via Google, Stack Overflow => take responsibility of your own learning, develop intellectual curiosity
-  * Of ask questions, asking for help => ditto and "knowing how to ask for help is the key to survival" --Alva Couch
-  * Of making you write READMEs for every lab and assignment, Assignment 4 => writing skills
-  * Of me providing you readings that may go over your head => get out of your comfort zone
-  * Of using revision control and GitHub, Heroku => develop good habits, use real tools and systems
+  * Of looking things up via Google, Stack Overflow => *take responsibility of your own learning, develop intellectual curiosity*
+  * Of ask questions, asking for help => *ditto and _"knowing how to ask for help is the key to survival"_ --Alva Couch*
+  * Of making you write READMEs for every lab and assignment, Assignment 4 => *writing skills*
+  * Of me providing you readings that may go over your head => *get out of your comfort zone*
+  * Of using revision control and GitHub, Heroku => *develop good habits, use real tools and systems. Many friends and colleagues have lament our Comp Sci grads are not prepared to build with today's evolving platforms.*
 * The real messages of this class
   * What you COULD do
   * Build your intellectual curiosity
