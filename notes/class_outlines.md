@@ -345,7 +345,7 @@
   * Further application of this course => Wearables (COMP 50)
     * See how Chris Gregg, Kate Wasynczuk, and Raewyn Duvall designed the course: https://docs.google.com/presentation/d/14vuu3Jc54vGYdguF4wE4pChx6nB87dZEOVXxRjd38Mg/edit?usp=sharing
 * What's the point....
-  * Of looking things up via Google, Stack Overflow => **take responsibility of your own learning, develop intellectual curiosity**
+  * Of looking things up via Google, Stack Overflow => **take responsibility of your own learning, develop intellectual curiosity.  If you can't do these things, then perhaps CS is not for you as they are basic skills necessary for higher level courses (e.g., COMP 105, see http://www.cs.tufts.edu/comp/105/notes.html#toc15)***
   * Of ask questions, asking for help => **ditto and _"knowing how to ask for help is the key to survival"_ --Alva Couch**
   * Of making you write READMEs for every lab and assignment, Assignment 4 => **writing skills**
   * Of me providing you readings that may go over your head => **get out of your comfort zone**
