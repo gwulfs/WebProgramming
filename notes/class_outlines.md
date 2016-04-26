@@ -315,7 +315,7 @@
   * Dealing with adversity
   * Show the rejection letter
 
-#Thursday, April 21st: What's The Point?
+#Thursday, April 21st: What's The Point (of this course)?
 * You've barely scratched the surface
   * What reality is really like
   * What engineering issues do you see here?
@@ -343,6 +343,7 @@
   * User interface(s) => COMP 171
   * Mobile => various
   * Further application of this course => Wearables (COMP 50)
+    * See how Chris Gregg, Kate Wasynczuk, and Raewyn Duvall designed the course: https://docs.google.com/presentation/d/14vuu3Jc54vGYdguF4wE4pChx6nB87dZEOVXxRjd38Mg/edit?usp=sharing
 * What's the point....
   * Of looking things up via Google, Stack Overflow => take responsibility of your own learning, develop intellectual curiosity
   * Of ask questions, asking for help => ditto and "knowing how to ask for help is the key to survival" --Alva Couch
@@ -355,11 +356,11 @@
   * Engineering and code are not everything
   * Learn how to learn
   * Get out of your comfort zone
-* Personal thoughts
 
 #Tuesday, April 26th
 * Course evaluation
 * Your portfolio: my gift to you
+* Personal thoughts
 * Now: you can serve your work via GitHub and the `gh-pages` branch.
 * Acknowledgements
 * Quiz
