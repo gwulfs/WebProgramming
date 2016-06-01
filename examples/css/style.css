@@ -4,8 +4,13 @@ body {
 	background-color: gray;
 }
 
+/* Lines 12 - 16 (inclusive) => a single rule */
+/* h1 is better known as a "selector" */
+/* "border-style: dashed;" is better known as a "declaration" */
+/* A declaration is a key-value pair */
+
 h1 {
-	color:#ff69b4;
+	color: #ff69b4;
 	border-style: dashed;
 	padding: 25px;
 }
@@ -24,13 +29,8 @@ p {
 	margin-right: 25%;
 }
 
-/* Lines 3 - 6 => a single rule */
-/* h1 is better known as a "selector" */
-/* text-align:center; is better known as a "declaration" */
-/* A declaration is a key-value pair */
-
 .peeps {
-	font-size:28px;
+	font-size: 28px;
 	background: yellow;
 }
 

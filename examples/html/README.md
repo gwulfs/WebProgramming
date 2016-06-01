@@ -19,4 +19,4 @@ HTML examples.
 14. Thou shall always validate HTML markup at http://validator.w3.org/.
 
 #Exercise
-1. Identify all the problems in the HTML page `fail.html`
+1. Identify all the problems in `fail.html`
