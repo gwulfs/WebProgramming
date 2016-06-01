@@ -1,5 +1,7 @@
-Good Form HTML Commandments
-===========================
+#Overview
+HTML examples.
+
+#Good Form HTML Commandments
 
 1. Thou shall not use the extension .htm.
 2. Thou shall not use whitepace in file name.
@@ -15,3 +17,6 @@ Good Form HTML Commandments
 12. Thou shall not write too many HTML comments.
 13. Thou shall always give an HTML page a title in the <head> section.
 14. Thou shall always validate HTML markup at http://validator.w3.org/.
+
+#Exercise
+1. Identify all the problems in the HTML page `fail.html`
