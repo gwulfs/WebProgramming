@@ -1,6 +1,8 @@
 #Overview
 HTML examples.
 
+`index.html` is an example that uses relative and absolute URLs. The relative URLs are to the images (memes).
+
 #Good Form HTML Commandments
 
 1. Thou shall not use the extension .htm.
