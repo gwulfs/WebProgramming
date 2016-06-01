@@ -16,11 +16,11 @@ A Node.js + Express + MongoDB web application.  There are two routes in this web
 Please note: each time you add a dependency to the `package.json` file, you must re-run `npm install`.
 
 #Sending Data to Server
-Use `curl` to execute a HTTP POST request.  That is, send some data to the server.  Example: `curl --data "food=pizza" http://localhost:8888/feedme`
+Use `curl` to execute an HTTP POST request.  That is, send some data to the server.  Example: `curl --data "food=pizza" http://localhost:8888/feedme`
 
 #Checking If Data Was Stored in MongoDB Collection
 Go to `http://localhost:8888` on a web browser.  You should see "pizza" listed.
 
 #Exercises
-1. Explain why if you do `curl --data "fooditem=steaks" http://localhost:8888/feedme`, the data will not be stored correctly in MongoDB collection.
+1. Explain why if you run `curl --data "fooditem=steaks" http://localhost:8888/feedme`, the data will not be stored correctly in MongoDB collection.
 2. In reality, people generally do not send data to a server via command line tool such a `curl`, but using an HTML form.  Example: ordering something on Amazon.  Create an HTML form where one can type in a food item in a text box and upon clicking on a "Submit" button, the data is sent to server.
