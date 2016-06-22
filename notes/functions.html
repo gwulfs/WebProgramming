@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
 <link rel="stylesheet" href="../stylesheets/style.css" />
-<title>COMP 20: Web Programming - JavaScript Functions</title>
+<title>COMP 20: Web Programming - JavaScript Objects and Functions</title>
 </head>
 
 <body>
 <h1>COMP 20: Web Programming</h1>
-<h2>JavaScript Functions</h2>
+<h2>JavaScript Objects and Functions</h2>
 
 <h3>JavaScript Object</h3>
 <ul>
@@ -77,119 +77,9 @@
 <li>This is how the Google Maps API and jQuery were written!</li>
 </ol>
 </li>
+<li>Example: <a href="https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/firstclassfunctions" target="_blank">https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/firstclassfunctions</a></li>
+<li>Try it out: <script async src="https://jsfiddle.net/mchow01/72j6knum/1/embed/"></script></li>
 </ul>
-
-<h3>Examples</h3>
-<pre>
-&lt;script&gt;
-	function square(x)
-	{
-		return x * x;
-	}
-
-	// Functions as variable values
-	t = square;
-	document.write("The square of 2 is " + t(2) + "&lt;br/&gt;");
-
-	// Functions as subroutine arguments
-	function apply (func,value)
-	{
-		return func(value);
-	}
-	document.write("The square of 3 is " + apply(square, 3) + "&lt;br/&gt;");
-
-	// Functions as object attributes
-	o = new Object;
-	o.sq = square;
-	document.write("The square of 4 is " + o.sq(4) + "&lt;br/&gt;");
-
-	// Functions as array elements
-	a = new Array(20);
-	a[5] = square;
-	document.write("The square of 5 is " + a[5](5) + "&lt;br/");
-&lt;/script&gt;
-</pre>
-<ul>
-<li>Member functions are simply properties of an object!</li>
-<li>Called with an implicit first argument that is the object itself...</li>
-<li>...that first argument's name is <code>this</code> (just as in C++)</li>
-</ul>
-<pre>
-&lt;script&gt;
-	function Person_toString()
-	{
-		return this.name+', '+this.address+', '+this.phone;
-	}
-
-	function Person_toTable() {
-		return "&lt;table border=\"1\"&gt;&lt;tr&gt;&lt;td&gt;" + this.name
-			+ "&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;" + this.address
-			+ "&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;" + this.phone
-			+ "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
-	}
-
-	function Person_toList() {
-		return "&lt;ul&gt;\n&lt;li&gt;" + this.name
-			+ "&lt;/li&gt;\n&lt;li&gt;" + this.address
-			+ "&lt;/li&gt;\n&lt;li&gt;" + this.phone
-			+ "&lt;/li&gt;\n&lt;/ul&gt;";
-	}
-
-	var p = new Object;
-	p.name = 'The Barack';
-	p.address = '1600 Pennsylvania Avenue';
-	p.phone = '(111) 111-1111';
-	p.toString = Person_toString; // interesting...
-	p.toTable = Person_toTable;
-	p.toList = Person_toList;
-	document.write("p is " + p + "&lt;br/&gt;\n");
-	document.write("p.toTable() is " + p.toTable() + "&lt;br/&gt;\n");
-	document.write("p.toList() is " + p.toList() + "&lt;br/&gt;\n");
-&lt;/script&gt;
-</pre>
-<ul>
-<li>One more example...</li>
-</ul>
-<pre>
-&lt;script&gt;
-	function circle_area()
-	{
-		return Math.PI * this.radius * this.radius;
-	}
-
-	function circle_inside(x, y)
-	{
-		var xd = this.x - x;
-		var yd = this.y - y;
-		var dist = Math.sqrt(xd * xd + yd * yd);
-		return dist &lt; this.radius;
-	}
-
-	function Circle (r, x, y)
-	{
-		this.radius = r;
-		this.x = x;
-		this.y = y;
-		this.area = circle_area;
-		this.inside = circle_inside;
-	}
-
-	var circle = new Circle(3, 4.5 , 5.3);
-	document.write("Circle area is " + circle.area() + "&lt;br/&gt;");
-	if (circle.inside(2, 2)) {
-		document.write("(2, 2) is inside the circle&lt;br/&gt;");
-	}
-	else {
-		document.write("(2, 2) is outside the circle&lt;br/&gt;");
-	}
-	if (circle.inside(4, 5)) {
-		document.write("(4, 5) is inside the circle&lt;br/&gt;");
-	}
-	else {
-		document.write("(4, 5) is outside the circle&lt;br/&gt;");
-	}
-&lt;/script&gt;
-</pre>
 
 </body>
 </html>
