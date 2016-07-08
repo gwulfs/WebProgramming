@@ -145,8 +145,8 @@
 <li>(2 points) Determine and mark your location on the map</li>
 <li>(2 points) Note the closest MBTA Red Line subway station from where you are (e.g., upon clicking on marker of where you are)</li>
 <li>(1 point) Polyline connecting your marker to the closest MBTA Red Line subway station</li>
-<li>(3 points) Upon clicking on a MBTA Red Line subway station marker, display an infowindow of the schedule of upcoming trains for that station</li>
-<li>(1 point) Accomplish at least one of the "Going Beyond" items</li>
+<li>(4 points) Upon clicking on a MBTA Red Line subway station marker, display an infowindow of the schedule of upcoming trains for that station</li>
+<li>(BONUS 1 point) Accomplish at least one of the "Going Beyond" items</li>
 </ul>-->
 <hr/>
 
@@ -155,7 +155,7 @@
 
 <!--<p>Last week, I gave you a URL to the JSON real-time data feed of MBTA Red Line subway trains: <code>https://powerful-depths-66091.herokuapp.com/redline.json</code>.  This week, I am deleting what I provided that serves the JSON data feed.  Therefore, your map will no longer work.  To make your map work again, you must recreate the server-side.</p>
 
-<p>I can tell you how my JSON data feed actually worked: it pulls the data from <code>http://developer.mbta.com/lib/rthr/red.json</code> --the original source.  In other words, what you used in the last lab was a mirror of what is provided by the MBTA.  However, I added one thing that allowed one to directly access my JSON data feed from client-side JavaScript.  You see, if you simply change <code>https://powerful-depths-66091.herokuapp.com/redline.json</code> to <code>http://developer.mbta.com/lib/rthr/red.json</code> in your last lab, your map will still not work because of a fundamental security principle in client-side JavaScript.</p>
+<p>I can tell you how my JSON data feed actually worked: it pulls the data from <code>http://developer.mbta.com/lib/rthr/red.json</code>, the original source.  In other words, what you used in the last lab was a mirror of what is provided by the MBTA.  However, I added one thing that allowed one to directly access my JSON data feed from client-side JavaScript.  You see, if you simply change <code>https://powerful-depths-66091.herokuapp.com/redline.json</code> to <code>http://developer.mbta.com/lib/rthr/red.json</code> in your last lab, your map will still not work because of a fundamental security principle in client-side JavaScript.</p>
 
 <h2>Basic Requirements of the Server</h2>
 <p>You will recreate the server that will serve the real-time schedule JSON feed MBTA Red Line subway trains.  Basic requirements:
@@ -173,6 +173,7 @@
 	<li>Record the latitude and longitude of users accessing your map in MongoDB.  Please DO NOT record more information than that (e.g., IP address) for privacy purposes.  You will need to implement a new route on the server (using HTTP POST).</li>
 	<li>Keep track of the most popular Red Line stations clicked on.  Each time when a user clicks on a train station, record the information into a database (e.g., Mongo).  You will need to implement a new route on the server (using HTTP POST).</li>
 	<li>The MBTA JSON feed <code>http://developer.mbta.com/lib/rthr/red.json</code> is actually deprecated, but has not been fully decommissioned (think of reasons why full decommission is a bad idea).  Upgrade to the newest version of the MBTA Real-Time API.  See <a href="http://www.mbta.com/rider_tools/developers/" target="_blank">http://www.mbta.com/rider_tools/developers/</a> for more details.</li>
+	<li>Build another web application + server with the same basic requirements except using a different programming language (e.g., Python, Ruby).  Assess the differences and similarities in your README.</li>
 </ol>
 
 <h2>References</h2>
@@ -209,8 +210,8 @@
 <ul>
 <li>(1 point) <code>README</code></li>
 <li>(2 points) Updated map that now connects to your server and not my server <code>powerful-depths-66091.herokuapp.com</code></li>
-<li>(5 points) Working web application on <code>herokuapp.com</code> with cross-origin resource sharing enabled on <code>GET /redline.json</code> resource</li>
-<li>(2 points) Accomplish at least one of the "Going Beyond" items</li>
+<li>(5.5 points) Working web application on <code>herokuapp.com</code> with cross-origin resource sharing enabled on <code>GET /redline.json</code> resource</li>
+<li>(1.5 points) Accomplish at least one of the "Going Beyond" items</li>
 </ul>-->
 
 </body>
