@@ -9,14 +9,14 @@
 
 <body>
 <h1>COMP 20: Web Programming</h1>
-<h2>Lab: Closest MBTA Subway Station</h2>
+<h2>Lab: Closest MBTA Subway Station, Part 1 on Week 3</h2>
 
 <h2>Overview</h2>
 <p>Over the next three weeks, you will create a web page (with a server) that shows all the MBTA (Massachusetts Bay Transportation Authority) Red Line subway train stations on a map and each station's real-time schedule of upcoming trains.  If you are not familiar with the MBTA subway system, the Red Line can be seen at <a href="http://www.mbta.com/schedules_and_maps/subway/lines/?route=RED" target="_blank">http://www.mbta.com/schedules_and_maps/subway/lines/?route=RED</a>.  The MBTA also provides APIs providing real-time data on subway schedules (except for the Green Line), bus schedules, and alerts for developers to use: see <a href="http://www.mbta.com/rider_tools/developers/" target="_blank">http://www.mbta.com/rider_tools/developers/</a>.</p>
 
 <p>It is important to note that instructions for this lab may be deliberately vague at times.  You are expected to ask questions if you are confused or not sure about something as in the professional world.  There will also be opportunities to go beyond expectations especially for those who feel they have mastered the material.</p>
 
-<h2 id="part1">Part 1 on Week 3 (10 points)</h2>
+<h2>Instructions</h2>
 <p>The following is a table of all the MBTA Red Line subway stations and their geolocations:</p>
 <pre>
      stop_name     |  stop_lat   |      stop_lon      
@@ -92,127 +92,6 @@
 <li>(3 points) Render a red polyline connecting each station, thus showing the complete Red Line on the map</li>
 </ul>
 <hr/>
-
-<h2 id="part2">Part 2 on Week 4</h2>
-<p>To be announced</p>
-
-<!--<p>This week, you are to implement four features onto your MBTA subway map from last week:</p>
-<ol>
-	<li>Determine your geolocation (geographic latitude and longitude) using the JavaScript <code>navigator.geolocation</code> object. Upon determining your geolocation, place a marker of where you are on the map.  The icon of the marker must be different than icon used for each MBTA subway station (it can be the default red pin Google uses).</li>
-	<li>Upon clicking on your marker on the map, display an information window (a.k.a., infowindow) noting the closest MBTA Red Line subway station from where you are including the distance away in miles.</li>
-	<li>Render a polyline (any color) that connects "your" marker to the marker of the closest MBTA Red Line subway station.</li>
-	<li>Upon clicking on a MBTA Red Line subway station marker, display an infowindow of the schedule of upcoming trains for that station.  Use JSON API of Red Line trains that I provide (see more details below).</li>
-</ol>
-
-<h2>The JSON API of MBTA Red Line Trains</h2>
-<p>The URL of the JSON API is <code>https://powerful-depths-66091.herokuapp.com/redline.json</code></p>
-
-<p>This is a real-time schedule of the MBTA Red Line subway trains and it is updated very frequently.  Please refer to this document for the description of the keys in the JSON data: <a href="http://www.mbta.com/uploadedfiles/Description.pdf" target="_blank">http://www.mbta.com/uploadedfiles/Description.pdf</a></p>
-
-<h2>Calulating the Distance Between Two Geopoints via Haversine Formula</h2>
-<p>To calculate the distance between two geopoints (latitude and longitude), you must use the Haversine Formula.  The formula is provided and analyzed at <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">http://www.movable-type.co.uk/scripts/latlong.html</a>.  Also, you are encouraged to use the JavaScript implementation of the Haversine Formula on Stasck Overflow but please do cite it in your <code>README.md</code> or in your code: <a href="http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript" target="_blank">http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript</a>.</p>
-
-<h2>Going Beyond</h2>
-<ul>
-	<li>In addition to noting the closest MBTA Red Line subway station from where you are, display a table of how far away you (in miles) to each MBTA Red Line subway station.  Sort the table by distance, from closest to furthest station.  This table can also be in the infowindow after clicking on "your" marker.</li>
-	<li>Upon determining the closest MBTA Red Line subway station away from you, display the restaurants, bars, and coffee shops within one mile of that subway station.  Consider using the Google Places API.</li>
-	<li>Upon clicking on an MBTA Red Line subway station marker, display the restaurants, bars, and coffee shops within one mile of that subway station.</li>
-	<li>Based on the JSON data feed, mark where the Red Line subway trains are on the map.</li>
-</ul>
-
-<h2>Testing Your Work</h2>
-<p>For this part of the lab, you <em>cannot</em> open the <code>index.html</code> page on a web browser as <code>navigator.geolocation</code> requires a server.  To test your work locally, run Python's simple HTTP server in the folder of your work.  That is:</p>
-<p><code>% cd comp20-XXXXX/mbta; # where XXXXX is the name of your private GitHub repository<br/>% python -m SimpleHTTPServer<br/></code></p>
-<p>By default, a simple web server will open up on port 8000.  Go to <code>http://localhost:8000/</code> on your favorite web browser to test your work.</p>
-<p class="note">Do not serve your work via the <code>gh-pages</code> branch of your private GitHub repository.</p>
-
-<h2>The <code>README</code> File</h2>
-<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
-<ol>
-<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
-<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
-<li>Say approximately how many hours you have spent completing the assignment.</li>
-<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
-</ol>
-
-<h2>Submitting Part 2</h2>
-<p>Push all your changes to the private repository in GitHub that I created for you in a folder named <code>mbta</code> under the <code>master</code> branch. Say that your private repository in GitHub is named <code>comp20-mchow</code>, make sure all the files are pushed to <code>comp20-mchow/mbta</code>.</p>
-
-<h2>Assessment</h2>
-<p>This lab is worth 10 points:</p>
-<ul>
-<li>(1 point) <code>README</code></li>
-<li>(2 points) Determine and mark your location on the map</li>
-<li>(2 points) Note the closest MBTA Red Line subway station from where you are (e.g., upon clicking on marker of where you are)</li>
-<li>(1 point) Polyline connecting your marker to the closest MBTA Red Line subway station</li>
-<li>(4 points) Upon clicking on a MBTA Red Line subway station marker, display an infowindow of the schedule of upcoming trains for that station</li>
-<li>(BONUS 1 point) Accomplish at least one of the "Going Beyond" items</li>
-</ul>-->
-<hr/>
-
-<h2 id="part3">Part 3 on Week 5</h2>
-<p>To be announced</p>
-
-<!--<p>Last week, I gave you a URL to the JSON real-time data feed of MBTA Red Line subway trains: <code>https://powerful-depths-66091.herokuapp.com/redline.json</code>.  This week, I am deleting what I provided that serves the JSON data feed.  Therefore, your map will no longer work.  To make your map work again, you must recreate the server-side.</p>
-
-<p>I can tell you how my JSON data feed actually worked: it pulls the data from <code>http://developer.mbta.com/lib/rthr/red.json</code>, the original source.  In other words, what you used in the last lab was a mirror of what is provided by the MBTA.  However, I added one thing that allowed one to directly access my JSON data feed from client-side JavaScript.  You see, if you simply change <code>https://powerful-depths-66091.herokuapp.com/redline.json</code> to <code>http://developer.mbta.com/lib/rthr/red.json</code> in your last lab, your map will still not work because of a fundamental security principle in client-side JavaScript.</p>
-
-<h2>Basic Requirements of the Server</h2>
-<p>You will recreate the server that will serve the real-time schedule JSON feed MBTA Red Line subway trains.  Basic requirements:
-<ol>
-	<li>The server shall be written in Node.js and using the Express web application framework.  You are allowed to use Node packages.</li>
-	<li>Your work must be deployed onto <a href="https://www.heroku.com/" target="_blank">Heroku</a>.</li>
-	<li>Your server must have one route: <code>GET /redline.json</code>.  Accessing this route shall return a JSON string, the contents of the original source of the JSON data feed <code>http://developer.mbta.com/lib/rthr/red.json</code>.</li>
-	<li>Cross-Origin Resource Sharing must be enabled for <code>GET /redline.json</code>.</li>
-</ol>
-
-<p>Once you have completed the basic requirements of the server, all you need to do is to change the URL <code>https://powerful-depths-66091.herokuapp.com/redline.json</code> to <code>https://NAMEOFYOURHEROKUAPP.herokuapp.com/redline.json</code> in your map and your map should work again.  If your map does not work, or if JavaScript changes are required to your previous work, then something is wrong with your server.</p>
-
-<h2>Going Beyond</h2>
-<ol>
-	<li>Record the latitude and longitude of users accessing your map in MongoDB.  Please DO NOT record more information than that (e.g., IP address) for privacy purposes.  You will need to implement a new route on the server (using HTTP POST).</li>
-	<li>Keep track of the most popular Red Line stations clicked on.  Each time when a user clicks on a train station, record the information into a database (e.g., Mongo).  You will need to implement a new route on the server (using HTTP POST).</li>
-	<li>The MBTA JSON feed <code>http://developer.mbta.com/lib/rthr/red.json</code> is actually deprecated, but has not been fully decommissioned (think of reasons why full decommission is a bad idea).  Upgrade to the newest version of the MBTA Real-Time API.  See <a href="http://www.mbta.com/rider_tools/developers/" target="_blank">http://www.mbta.com/rider_tools/developers/</a> for more details.</li>
-	<li>Build another web application + server with the same basic requirements except using a different programming language (e.g., Python, Ruby).  Assess the differences and similarities in your README.</li>
-</ol>
-
-<h2>References</h2>
-<ol>
-<li><a href="http://expressjs.com/api.html" target="_blank">The Express web framework API reference (offcial)</a></li>
-<li><a href="https://github.com/tuftsdev/WebProgramming/tree/gh-pages/examples/nodejs/nodemongoapp">The <code>nodemongoapp</code> example I wrote</a></li>
-<li><a href="https://stackoverflow.com/questions/7067966/how-to-allow-cors-in-express-node-js" target="_blank">Node.js + Express + Cross-Domain Scripting (Stack Overflow)</a></li>
-<li><a href="https://docs.mongodb.org/getting-started/shell/#getting-started-with-mongodb-development" target="_blank">Getting Started with MongoDB Development (official)</a></li>
-<li><a href="lab-nodejsheroku.html">The Node.js + Heroku Lab</a></li>
-<li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#provision-a-database" target="_blank">Getting Started with Node.js on Heroku - Provision a Database</a></li>
-<li><a href="https://github.com/mongodb/node-mongodb-native" target="_blank">The Official MongoDB Node.JS Driver QUICK START</a></li>
-<li><a href="https://mongodb.github.io/node-mongodb-native/genindex.html" target="_blank">The Official MongoDB Node.JS Driver Documentation</a></li>
-<li><a href="https://docs.mongodb.org/manual/core/2dsphere/" target="_blank">MongoDB: <code>2dsphere</code> Indexes</a></li>
-<li><a href="https://docs.mongodb.org/getting-started/node/indexes/" target="_blank">MongoDB: Indexes with Node.js</a></li>
-</ol>
-
-<h2>The <code>README</code> File</h2>
-<p>Every assignment shall include a <code>README</code> file that describes the work. This description must:</p>
-<ol>
-<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
-<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
-<li>Say approximately how many hours you have spent completing the assignment.</li>
-<li>Be written in either text format (thus <code>README.txt</code>) or in Markdown (thus <code>README.md</code>). No other formats will be accepted.</li>
-</ol>
-
-<h2>Submitting Part 3</h2>
-<ol>
-<li>Push all your changes to the private repository in GitHub that I created for you in a folder named <code>mbta</code> under the <code>master</code> branch. Say that your private repository in GitHub is named <code>comp20-mchow</code>, make sure all the files are pushed to <code>comp20-mchow/mbta</code>.</li>
-<li>Add me as a collaborator (using my email address <code>mchow[AT]cs[DOT]tufts[DOT]edu</code>) for your web application in Heroku.  You can do this by logging on to Heroku, go to the dashboard for your web application, under "Access", click on the "Add collaborator" button, enter my email address, and click "Save changes".</li>
-</ol>
-
-<h2>Assessment</h2>
-<p>This lab is worth 10 points:</p>
-<ul>
-<li>(1 point) <code>README</code></li>
-<li>(2 points) Updated map that now connects to your server and not my server <code>powerful-depths-66091.herokuapp.com</code></li>
-<li>(5.5 points) Working web application on <code>herokuapp.com</code> with cross-origin resource sharing enabled on <code>GET /redline.json</code> resource</li>
-<li>(1.5 points) Accomplish at least one of the "Going Beyond" items</li>
-</ul>-->
 
 </body>
 </html>
