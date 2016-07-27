@@ -10,10 +10,10 @@
 		request.open("GET", "https://sheltered-forest-5520.herokuapp.com/redline.json", true);
 		// NOTE: The original source of the data: http://developer.mbta.com/lib/rthr/red.json
 
-		// No, the following will NOT WORK!
+		// No, the following will NOT WORK!  *Can you explain why?*
 		//request.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
 		
-		// Step 2: Handle the response
+		// Step 2: Handle the response. callme is a function defined below.
 		request.onreadystatechange = callme;
 
 		// Step 3: Fire off the request
@@ -21,6 +21,7 @@
 
 		function callme () {
 			// Step 3: Data is ready --there is a response!
+			// A common mistake people make: only check if readyState == 4. Why is that very bad?
 			if (request.readyState == 4 && request.status == 200) {
 				result = "";
 				raw = request.responseText;
