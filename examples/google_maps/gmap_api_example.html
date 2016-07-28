@@ -29,7 +29,13 @@
 					title: "Faneuil Hall, Boston, MA"
 				});
 				marker.setMap(map);
-				
+
+
+				// (July 28, 2016) Addressing J. Chu's question: "Basically, I'm having a hard time finding information on how exactly the LatLng object is structured. How do you access the latitude and longitude stored inside?"
+				returnedLatLng = marker.getPosition();
+				console.log("Latitutde = " + returnedLatLng.lat());
+				console.log("Longitude = " + returnedLatLng.lng());
+
 				// This is a global info window...
 				var infowindow = new google.maps.InfoWindow();
 				
